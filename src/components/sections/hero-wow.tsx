@@ -145,7 +145,8 @@ export function HeroWow() {
   const buttonsRef = useRef<HTMLDivElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
   const badgeTopRef = useRef<HTMLDivElement>(null);
-  const dotsContainerRef = useRef<HTMLDivElement>(null);
+  const bgKiwi1Ref = useRef<HTMLDivElement>(null);
+  const bgKiwi2Ref = useRef<HTMLDivElement>(null);
   const blob1Ref = useRef<HTMLDivElement>(null);
   const blob2Ref = useRef<HTMLDivElement>(null);
   const blob3Ref = useRef<HTMLDivElement>(null);
@@ -266,22 +267,27 @@ export function HeroWow() {
         delay: 4
       });
 
-      // Animación de los puntitos flotantes
-      if (dotsContainerRef.current) {
-        const dots = dotsContainerRef.current.querySelectorAll('.floating-dot');
-        dots.forEach((dot, index) => {
-          gsap.to(dot, {
-            y: `random(-20, 20)`,
-            x: `random(-15, 15)`,
-            opacity: `random(0.3, 0.8)`,
-            duration: `random(3, 6)`,
-            repeat: -1,
-            yoyo: true,
-            ease: "sine.inOut",
-            delay: index * 0.1
-          });
-        });
-      }
+      // Animación de los kiwis de fondo
+      gsap.to(bgKiwi1Ref.current, {
+        y: 15,
+        x: 10,
+        rotation: 5,
+        duration: 8,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut"
+      });
+
+      gsap.to(bgKiwi2Ref.current, {
+        y: -12,
+        x: -8,
+        rotation: -5,
+        duration: 10,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+        delay: 2
+      });
 
     }, containerRef);
 
@@ -300,21 +306,14 @@ export function HeroWow() {
         <div ref={blob3Ref} className="absolute -bottom-20 left-1/3 w-[600px] h-[400px] bg-linear-to-t from-teal-400/25 to-green-400/15 blur-3xl rounded-full" />
       </div>
 
-      {/* Puntitos flotantes decorativos */}
-      <div ref={dotsContainerRef} className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(30)].map((_, i) => (
-          <div
-            key={`dot-${i}`}
-            className="floating-dot absolute rounded-full bg-white"
-            style={{
-              width: `${Math.random() * 6 + 2}px`,
-              height: `${Math.random() * 6 + 2}px`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              opacity: Math.random() * 0.5 + 0.2,
-            }}
-          />
-        ))}
+      {/* Kiwis decorativos de fondo con transparencia */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div ref={bgKiwi1Ref} className="absolute -top-20 -left-20 opacity-10">
+          <KiwiSVG className="w-[400px] h-[400px]" />
+        </div>
+        <div ref={bgKiwi2Ref} className="absolute -bottom-32 -right-16 opacity-10">
+          <KiwiSVG className="w-[500px] h-[500px]" />
+        </div>
       </div>
 
       {/* Contenido principal */}
