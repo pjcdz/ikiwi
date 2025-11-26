@@ -219,33 +219,43 @@ export default function ContactoPage() {
           </div>
         </section>
 
-        {/* Location Map Placeholder */}
+        {/* Location Map */}
         <section className="mb-16">
           <h2 className="text-2xl font-bold text-center mb-8">Nuestra Ubicación</h2>
           <Card>
-            <CardContent className="p-0">
-              <div className="aspect-video bg-muted rounded-lg flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="text-6xl mb-4">📍</div>
-                  <h3 className="text-xl font-semibold mb-2">Sierra de los Padres</h3>
-                  <p className="text-muted-foreground mb-4">
-                    Mar del Plata, Buenos Aires, Argentina
-                  </p>
-                  <p className="text-sm text-muted-foreground mb-6">
-                    A 25 km del centro de Mar del Plata, en la zona rural del Partido de General Pueyrredón.
-                    Nuestra ubicación privilegiada nos permite cultivar kiwis de la más alta calidad
-                    gracias al clima atlántico único de la región.
-                  </p>
-                  <Button variant="outline" asChild>
-                    <a 
-                      href="https://maps.google.com/?q=Sierra+de+los+Padres,+Mar+del+Plata,+Argentina" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                    >
-                      Ver en Google Maps
-                    </a>
-                  </Button>
-                </div>
+            <CardContent className="p-0 overflow-hidden rounded-lg">
+              <div className="aspect-video w-full">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12548.847891036647!2d-57.79832!3d-37.94286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9584d8ef1e9a8f27%3A0x8a0e7e9e0d0b0c0d!2sSierra%20de%20los%20Padres%2C%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1700000000000!5m2!1ses!2sar"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Ubicación de iKiwi - Sierra de los Padres, Mar del Plata"
+                  className="w-full h-full"
+                />
+              </div>
+              <div className="p-6 text-center bg-card">
+                <h3 className="text-xl font-semibold mb-2">Sierra de los Padres</h3>
+                <p className="text-muted-foreground mb-4">
+                  Mar del Plata, Buenos Aires, Argentina
+                </p>
+                <p className="text-sm text-muted-foreground mb-6 max-w-2xl mx-auto">
+                  A 25 km del centro de Mar del Plata, en la zona rural del Partido de General Pueyrredón.
+                  Nuestra ubicación privilegiada nos permite cultivar kiwis de la más alta calidad
+                  gracias al clima atlántico único de la región.
+                </p>
+                <Button variant="outline" asChild>
+                  <a 
+                    href="https://maps.google.com/?q=Sierra+de+los+Padres,+Mar+del+Plata,+Argentina" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
+                    Ver en Google Maps
+                  </a>
+                </Button>
               </div>
             </CardContent>
           </Card>
