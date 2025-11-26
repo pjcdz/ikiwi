@@ -19,25 +19,25 @@ export function AboutPreview() {
               </div>
               
               {/* Stats overlay */}
-              <div className="absolute bottom-4 left-4 right-4 flex gap-4">
-                <div className="bg-white/90 backdrop-blur rounded-lg px-4 py-3 flex-1 text-center">
-                  <p className="text-2xl font-bold text-primary">90+</p>
-                  <p className="text-xs text-muted-foreground">Empleados</p>
+              <div className="absolute bottom-2 md:bottom-4 left-2 md:left-4 right-2 md:right-4 flex gap-2 md:gap-4">
+                <div className="bg-white/90 backdrop-blur rounded-lg px-2 md:px-4 py-2 md:py-3 flex-1 text-center">
+                  <p className="text-lg md:text-2xl font-bold text-primary">90+</p>
+                  <p className="text-[10px] md:text-xs text-muted-foreground">Empleados</p>
                 </div>
-                <div className="bg-white/90 backdrop-blur rounded-lg px-4 py-3 flex-1 text-center">
-                  <p className="text-2xl font-bold text-primary">270</p>
-                  <p className="text-xs text-muted-foreground">Hectáreas</p>
+                <div className="bg-white/90 backdrop-blur rounded-lg px-2 md:px-4 py-2 md:py-3 flex-1 text-center">
+                  <p className="text-lg md:text-2xl font-bold text-primary">270</p>
+                  <p className="text-[10px] md:text-xs text-muted-foreground">Hectáreas</p>
                 </div>
-                <div className="bg-white/90 backdrop-blur rounded-lg px-4 py-3 flex-1 text-center">
-                  <p className="text-2xl font-bold text-primary">4</p>
-                  <p className="text-xs text-muted-foreground">Países</p>
+                <div className="bg-white/90 backdrop-blur rounded-lg px-2 md:px-4 py-2 md:py-3 flex-1 text-center">
+                  <p className="text-lg md:text-2xl font-bold text-primary">4</p>
+                  <p className="text-[10px] md:text-xs text-muted-foreground">Países</p>
                 </div>
               </div>
             </div>
 
             {/* Floating badge */}
-            <div className="absolute -top-4 -right-4 bg-primary text-primary-foreground px-6 py-3 rounded-full shadow-lg">
-              <span className="font-bold">Desde 2006</span>
+            <div className="absolute -top-2 md:-top-4 -right-2 md:-right-4 bg-primary text-primary-foreground px-4 md:px-6 py-2 md:py-3 rounded-full shadow-lg">
+              <span className="font-bold text-sm md:text-base">Desde 2006</span>
             </div>
           </div>
 

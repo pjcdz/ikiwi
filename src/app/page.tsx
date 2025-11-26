@@ -1,21 +1,21 @@
-import { HeroSection } from "@/components/sections/hero";
-import { ProductsSection } from "@/components/sections/products";
+import { HeroWow } from "@/components/sections/hero-wow";
+import { ProductsWow } from "@/components/sections/products-wow";
 import { BenefitsSection } from "@/components/sections/benefits";
 import { AboutPreview } from "@/components/sections/about-preview";
-import { RecipesPreview } from "@/components/sections/recipes-preview";
-import { NewsPreview } from "@/components/sections/news-preview";
-import { CTASection } from "@/components/sections/cta";
+import { RecipesWow } from "@/components/sections/recipes-wow";
+import { InstagramGallery } from "@/components/sections/instagram-gallery";
+import { CTAWow } from "@/components/sections/cta-wow";
 
 export default function Home() {
   return (
     <>
-      <HeroSection />
-      <ProductsSection />
+      <HeroWow />
+      <ProductsWow />
       <BenefitsSection />
       <AboutPreview />
-      <RecipesPreview />
-      <NewsPreview />
-      <CTASection />
+      <RecipesWow />
+      <InstagramGallery />
+      <CTAWow />
     </>
   );
 }

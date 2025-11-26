@@ -27,7 +27,7 @@ const contactInfo = [
   {
     icon: "🌐",
     title: "Redes Sociales",
-    lines: ["@kiwi.argentino", "Instagram & Facebook"],
+    lines: ["@kiwi_argentino", "Instagram"],
   },
 ];
 
@@ -261,13 +261,8 @@ export default function ContactoPage() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button asChild>
-                <a href="https://instagram.com/kiwi.argentino" target="_blank" rel="noopener noreferrer">
+                <a href="https://instagram.com/kiwi_argentino" target="_blank" rel="noopener noreferrer">
                   📸 Instagram
-                </a>
-              </Button>
-              <Button variant="outline" asChild>
-                <a href="https://facebook.com/kiwi.argentino" target="_blank" rel="noopener noreferrer">
-                  📘 Facebook
                 </a>
               </Button>
             </div>
