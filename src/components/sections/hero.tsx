@@ -25,8 +25,8 @@ export function HeroSection() {
                 <span className="text-primary">Atlántico Sur</span>
               </h1>
               <p className="text-xl text-muted-foreground max-w-lg">
-                Descubre el kiwi argentino premium, cultivado con pasión en Mar del Plata. 
-                Calidad excepcional con certificación orgánica y denominación de origen.
+                Descubre el kiwi argentino premium, cultivado con pasión en Sierra de los Padres. 
+                Variedades Hayward y Jingold con certificación orgánica e Indicación Geográfica.
               </p>
             </div>
 
@@ -70,7 +70,7 @@ export function HeroSection() {
                 <span className="text-sm font-medium text-primary">100% Orgánico</span>
               </div>
               <div className="absolute bottom-20 left-0 bg-white shadow-lg rounded-lg px-4 py-2 animate-bounce delay-500">
-                <span className="text-sm font-medium text-primary">Mar del Plata</span>
+                <span className="text-sm font-medium text-primary">Sierra de los Padres</span>
               </div>
             </div>
           </div>

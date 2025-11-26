@@ -14,7 +14,7 @@ export function AboutPreview() {
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center">
                   <div className="text-8xl mb-4">🌿</div>
-                  <p className="text-muted-foreground">Mar del Plata, Argentina</p>
+                  <p className="text-muted-foreground">Sierra de los Padres, Mar del Plata</p>
                 </div>
               </div>
               
@@ -50,13 +50,13 @@ export function AboutPreview() {
             <div className="space-y-4 text-muted-foreground">
               <p>
                 iKiwi nació en 2006 cuando Luis French decidió invertir en el cultivo de kiwis 
-                después de que su esposa leyó una nota periodística sobre el tema. Lo que empezó 
-                con unas pocas hectáreas se convirtió en la mayor operación productora de kiwi del país.
+                después de que su esposa leyó una nota periodística. Lo que empezó con pocas 
+                hectáreas se convirtió en la mayor productora de kiwi de Argentina.
               </p>
               <p>
-                Hoy, con sede en Mar del Plata —la mejor región de Argentina para el cultivo— 
-                producimos más de un millón de kilos anuales y exportamos a Canadá, Italia, 
-                Alemania e Inglaterra.
+                Con sede en Sierra de los Padres, Mar del Plata —la región ideal para el cultivo— 
+                y nuestra marca Moño Azul, producimos variedades Hayward y Jingold, incluyendo 
+                kiwis orgánicos certificados que exportamos a Europa.
               </p>
             </div>
 

@@ -6,29 +6,29 @@ import { Badge } from "@/components/ui/badge";
 const news = [
   {
     id: 1,
-    title: "El negocio del kiwi se expande al exterior",
-    source: "La Nación",
-    date: "14 de enero de 2025",
-    excerpt: "La producción local creció hasta 14.000 toneladas. Argentina mejoró su posición del puesto 43° al 24° en el ranking mundial de exportadores.",
+    title: "Histórico: Argentina exporta kiwi amarillo orgánico a Europa",
+    source: "Infocampo",
+    date: "Mayo 2019",
+    excerpt: "Primera exportación de kiwi Gold orgánico argentino a mercados europeos, marcando un hito para la industria frutícola nacional.",
     category: "Exportación",
     featured: true,
   },
   {
     id: 2,
-    title: "Primera exportación de kiwi orgánico a Europa",
-    source: "La Nación",
-    date: "2023",
-    excerpt: "900 toneladas de kiwis con certificación orgánica e indicación geográfica fueron enviadas a España, marcando un hito histórico.",
-    category: "Hito",
-    featured: true,
-  },
-  {
-    id: 3,
     title: "Sacaron la idea del diario y crearon la mayor productora de kiwi del país",
     source: "La Nación",
     date: "19 de marzo de 2019",
     excerpt: "La historia de iKiwi: cómo Luis French convirtió una nota periodística en el emprendimiento frutícola más grande de Argentina.",
     category: "Historia",
+    featured: true,
+  },
+  {
+    id: 3,
+    title: "Argentina aspira a tener la misma calidad de kiwis que Nueva Zelanda",
+    source: "Fresh Plaza",
+    date: "Febrero 2017",
+    excerpt: "Cobertura internacional sobre el crecimiento del kiwi argentino y las aspiraciones de calidad del sector.",
+    category: "Internacional",
     featured: false,
   },
 ];
@@ -87,9 +87,9 @@ export function NewsPreview() {
           </p>
           <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
             <div className="text-2xl font-serif font-bold text-foreground">La Nación</div>
-            <div className="text-xl font-bold text-foreground">Bichos de Campo</div>
-            <div className="text-xl font-bold text-foreground">FreshPlaza</div>
-            <div className="text-xl font-bold text-foreground">Mercado Central</div>
+            <div className="text-xl font-bold text-foreground">Infocampo</div>
+            <div className="text-xl font-bold text-foreground">Fresh Plaza</div>
+            <div className="text-xl font-bold text-foreground">INTA</div>
           </div>
         </div>
 

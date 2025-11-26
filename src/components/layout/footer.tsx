@@ -29,7 +29,6 @@ const footerLinks = {
 
 const socialLinks = [
   { name: "Instagram", href: "https://instagram.com/kiwi_argentino", icon: "📷" },
-  { name: "Facebook", href: "#", icon: "📘" },
 ];
 
 export function Footer() {
@@ -133,8 +132,8 @@ export function Footer() {
               ))}
             </ul>
             <div className="mt-4 text-sm text-muted-foreground">
-              <p>Mar del Plata, Buenos Aires</p>
-              <p>Argentina 🇦🇷</p>
+              <p>Sierra de los Padres</p>
+              <p>Mar del Plata, Argentina 🇦🇷</p>
             </div>
           </div>
         </div>
