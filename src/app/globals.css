@@ -200,3 +200,23 @@
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+/* Fix for iOS Safari dynamic viewport */
+@supports (-webkit-touch-callout: none) {
+  .fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+}
+
+/* Prevent overscroll/bounce on iOS */
+html, body {
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+}
