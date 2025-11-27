@@ -11,26 +11,26 @@ export function AboutPreview() {
           <div className="relative order-2 lg:order-1">
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-primary/10 to-accent/20">
               {/* Placeholder for image */}
-              <div className="absolute inset-0 flex items-center justify-center">
+              <div className="absolute inset-0 flex items-center justify-center pb-16 md:pb-20">
                 <div className="text-center">
-                  <div className="text-8xl mb-4">🌿</div>
-                  <p className="text-muted-foreground">Sierra de los Padres, Mar del Plata</p>
+                  <div className="text-6xl md:text-8xl mb-2 md:mb-4">🌿</div>
+                  <p className="text-sm md:text-base text-muted-foreground">Sierra de los Padres, Mar del Plata</p>
                 </div>
               </div>
               
               {/* Stats overlay */}
-              <div className="absolute bottom-2 md:bottom-4 left-2 md:left-4 right-2 md:right-4 flex gap-2 md:gap-4">
-                <div className="bg-white/90 backdrop-blur rounded-lg px-2 md:px-4 py-2 md:py-3 flex-1 text-center">
-                  <p className="text-lg md:text-2xl font-bold text-primary">90+</p>
-                  <p className="text-[10px] md:text-xs text-muted-foreground">Empleados</p>
+              <div className="absolute bottom-2 md:bottom-4 left-2 md:left-4 right-2 md:right-4 flex gap-1.5 md:gap-4">
+                <div className="bg-white/95 backdrop-blur rounded-lg px-1.5 md:px-4 py-1.5 md:py-3 flex-1 text-center shadow-sm">
+                  <p className="text-base md:text-2xl font-bold text-primary">90+</p>
+                  <p className="text-[9px] md:text-xs text-muted-foreground leading-tight">Empleados</p>
                 </div>
-                <div className="bg-white/90 backdrop-blur rounded-lg px-2 md:px-4 py-2 md:py-3 flex-1 text-center">
-                  <p className="text-lg md:text-2xl font-bold text-primary">270</p>
-                  <p className="text-[10px] md:text-xs text-muted-foreground">Hectáreas</p>
+                <div className="bg-white/95 backdrop-blur rounded-lg px-1.5 md:px-4 py-1.5 md:py-3 flex-1 text-center shadow-sm">
+                  <p className="text-base md:text-2xl font-bold text-primary">270</p>
+                  <p className="text-[9px] md:text-xs text-muted-foreground leading-tight">Hectáreas</p>
                 </div>
-                <div className="bg-white/90 backdrop-blur rounded-lg px-2 md:px-4 py-2 md:py-3 flex-1 text-center">
-                  <p className="text-lg md:text-2xl font-bold text-primary">4</p>
-                  <p className="text-[10px] md:text-xs text-muted-foreground">Países</p>
+                <div className="bg-white/95 backdrop-blur rounded-lg px-1.5 md:px-4 py-1.5 md:py-3 flex-1 text-center shadow-sm">
+                  <p className="text-base md:text-2xl font-bold text-primary">4</p>
+                  <p className="text-[9px] md:text-xs text-muted-foreground leading-tight">Países</p>
                 </div>
               </div>
             </div>
@@ -49,7 +49,7 @@ export function AboutPreview() {
             </h2>
             <div className="space-y-4 text-muted-foreground">
               <p>
-                iKiwi nació en 2006 cuando Luis French decidió invertir en el cultivo de kiwis 
+                iKiwi nació en 2006 cuando Luis Franch decidió invertir en el cultivo de kiwis 
                 después de que su esposa leyó una nota periodística. Lo que empezó con pocas 
                 hectáreas se convirtió en la mayor productora de kiwi de Argentina.
               </p>

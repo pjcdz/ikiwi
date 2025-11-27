@@ -5,6 +5,7 @@ const footerLinks = {
   productos: [
     { name: "Kiwi Verde", href: "/productos#verde" },
     { name: "Kiwi Amarillo", href: "/productos#amarillo" },
+    { name: "Kiwi Rojo", href: "/productos#rojo" },
     { name: "Kiwi Orgánico", href: "/productos#organico" },
     { name: "Baby Kiwi", href: "/productos#baby" },
   ],

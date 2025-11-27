@@ -1,24 +1,20 @@
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Separator } from "@/components/ui/separator";
+"use client";
 
-export const metadata = {
-  title: "Nuestros Kiwis | Kiwi Argentino",
-  description: "Descubre las variedades de kiwi argentino: verde Hayward, amarillo Gold, orgánico y baby kiwi. Cultivados en Mar del Plata con calidad premium.",
-};
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
 
 const varieties = [
   {
     id: "verde",
-    name: "Kiwi Verde Hayward",
-    emoji: "🥝",
+    name: "KIWI VERDE",
+    variety: "Hayward",
+    tagline: "REFRESCANTE Y ÁCIDO",
     description: "La variedad más cultivada en Argentina, reconocida mundialmente por su sabor equilibrado y versatilidad.",
-    longDescription: `El kiwi Hayward es la variedad insignia de nuestra producción. Originario de Nueva Zelanda, 
-    encuentra en el sudeste bonaerense las condiciones ideales para desarrollar su máximo potencial de sabor y dulzura.
-    
-    Su pulpa verde brillante, salpicada de pequeñas semillas negras comestibles, ofrece un sabor único que combina 
-    notas dulces y ácidas en perfecto equilibrio. Es ideal tanto para consumo fresco como para recetas.`,
+    longDescription: "Variedad insignia de nuestra producción. Originario de Nueva Zelanda, encuentra en el sudeste bonaerense las condiciones ideales. Su pulpa verde brillante ofrece un sabor único con notas dulces y ácidas en perfecto equilibrio.",
+    color: "from-green-500 to-emerald-600",
+    pulpColor: "from-lime-300 to-green-400",
+    skinColor: "from-amber-700 to-amber-900",
+    badge: "Más Popular",
     characteristics: [
       { label: "Sabor", value: "Dulce-ácido equilibrado" },
       { label: "Textura", value: "Jugosa y suave" },
@@ -37,16 +33,16 @@ const varieties = [
     uses: ["Consumo fresco", "Smoothies y jugos", "Postres", "Ensaladas", "Salsas para carnes"],
   },
   {
-    id: "amarillo",
-    name: "Kiwi Amarillo Gold",
-    emoji: "🌟",
+    id: "gold",
+    name: "KIWI GOLD",
+    variety: "Jingold",
+    tagline: "DULCE Y TROPICAL",
     description: "Variedad premium con pulpa dorada, sabor más dulce y tropical. Menos ácido que el verde.",
-    longDescription: `El kiwi amarillo representa la evolución premium de esta fruta. Desarrollado para aquellos 
-    que buscan una experiencia más dulce y tropical, se ha convertido en la elección favorita de los paladares exigentes.
-    
-    Su piel más lisa y su pulpa de color amarillo dorado intenso lo distinguen visualmente. El sabor es notablemente 
-    más dulce, con notas que recuerdan a frutas tropicales como el mango y la piña. Trabajamos con la Universidad de 
-    Bolonia para desarrollar nuevas variedades adaptadas a nuestro terroir.`,
+    longDescription: "La evolución premium del kiwi. Desarrollado para quienes buscan una experiencia más dulce y tropical. Su piel lisa y pulpa dorada intensa lo distinguen. Trabajamos con la Universidad de Bolonia para nuevas variedades.",
+    color: "from-yellow-500 to-amber-500",
+    pulpColor: "from-yellow-300 to-amber-400",
+    skinColor: "from-amber-600 to-amber-800",
+    badge: "Premium",
     characteristics: [
       { label: "Sabor", value: "Dulce tropical" },
       { label: "Textura", value: "Suave y cremosa" },
@@ -65,17 +61,44 @@ const varieties = [
     uses: ["Consumo fresco", "Postres gourmet", "Macedonias", "Decoración", "Exportación"],
   },
   {
+    id: "rojo",
+    name: "KIWI ROJO",
+    variety: "Red Passion",
+    tagline: "EXÓTICO Y ÚNICO",
+    description: "Variedad exótica con centro rojo intenso. Sabor más dulce y aromático, con notas a frutos rojos.",
+    longDescription: "La joya más reciente de nuestra producción. Su pulpa combina tonos verdes con un corazón rojo intenso, creando un contraste visual espectacular. Sabor más dulce con notas a frutos rojos. Desarrollado con la Universidad de Bolonia.",
+    color: "from-rose-500 to-red-600",
+    pulpColor: "from-lime-200 to-green-300",
+    skinColor: "from-amber-600 to-amber-800",
+    centerColor: "red",
+    badge: "Exclusivo",
+    characteristics: [
+      { label: "Sabor", value: "Dulce con notas a frutos rojos" },
+      { label: "Textura", value: "Suave y jugosa" },
+      { label: "Piel", value: "Lisa, similar al amarillo" },
+      { label: "Color interior", value: "Verde con centro rojo" },
+      { label: "Disponibilidad", value: "Edición limitada" },
+      { label: "Desarrollo", value: "Con U. de Bolonia" },
+    ],
+    nutrition: [
+      { nutrient: "Vitamina C", value: "Alto", percent: "—" },
+      { nutrient: "Antocianinas", value: "Presente", percent: "—" },
+      { nutrient: "Fibra", value: "2.5g", percent: "10%" },
+      { nutrient: "Antioxidantes", value: "Muy alto", percent: "—" },
+    ],
+    uses: ["Consumo fresco", "Presentaciones gourmet", "Decoración premium", "Regalo exclusivo"],
+  },
+  {
     id: "organico",
-    name: "Kiwi Orgánico",
-    emoji: "🌱",
+    name: "KIWI ORGÁNICO",
+    variety: "Certificado",
+    tagline: "PURO Y NATURAL",
     description: "Producido sin agroquímicos con certificación orgánica. La opción más sustentable y natural.",
-    longDescription: `Nuestro kiwi orgánico representa el compromiso de iKiwi con la sustentabilidad y el cuidado 
-    del medio ambiente. Cultivado siguiendo estrictos protocolos que excluyen el uso de agroquímicos sintéticos, 
-    fertilizantes artificiales y organismos genéticamente modificados.
-    
-    La certificación orgánica nos ha abierto las puertas al exigente mercado europeo y estadounidense. En 2023, 
-    logramos nuestra primera exportación de kiwi orgánico a España, un hito que demuestra la calidad de nuestra 
-    producción sustentable.`,
+    longDescription: "Representa nuestro compromiso con la sustentabilidad. Cultivado sin agroquímicos sintéticos ni fertilizantes artificiales. En 2023 logramos nuestra primera exportación a España.",
+    color: "from-emerald-600 to-green-700",
+    pulpColor: "from-green-300 to-emerald-400",
+    skinColor: "from-amber-700 to-amber-900",
+    badge: "Orgánico",
     characteristics: [
       { label: "Certificación", value: "Orgánico Argentina / USDA" },
       { label: "Cultivo", value: "Sin agroquímicos" },
@@ -94,14 +117,15 @@ const varieties = [
   },
   {
     id: "baby",
-    name: "Baby Kiwi (Kiwiberry)",
-    emoji: "✨",
+    name: "BABY KIWI",
+    variety: "Kiwiberry",
+    tagline: "MINI Y PRÁCTICO",
     description: "Miniatura del kiwi tradicional, del tamaño de una uva grande. Se come entero con cáscara.",
-    longDescription: `El baby kiwi o kiwiberry es una delicia en miniatura. Del tamaño de una uva grande o cereza, 
-    este pequeño fruto se distingue por su piel lisa y comestible, lo que permite disfrutarlo sin necesidad de pelarlo.
-    
-    Su sabor es intenso y concentrado, combinando la esencia del kiwi tradicional con notas más dulces. 
-    Es perfecto como snack saludable, para decorar postres o añadir a ensaladas de frutas.`,
+    longDescription: "Una delicia en miniatura. Del tamaño de una uva grande, su piel lisa y comestible permite disfrutarlo sin pelarlo. Sabor intenso y concentrado con notas más dulces que el kiwi tradicional.",
+    color: "from-teal-500 to-emerald-600",
+    pulpColor: "from-lime-300 to-green-400",
+    skinColor: "from-green-600 to-green-800",
+    badge: "Mini",
     characteristics: [
       { label: "Tamaño", value: "Como una uva grande" },
       { label: "Piel", value: "Lisa y comestible" },
@@ -119,163 +143,151 @@ const varieties = [
   },
 ];
 
+// Componente visual del Kiwi
+function KiwiVisual({ pulpColor, skinColor, centerColor }: { pulpColor: string; skinColor: string; centerColor?: string }) {
+  return (
+    <div className="relative flex items-center justify-center">
+      {/* Kiwi entero */}
+      <div className={`relative w-16 h-24 bg-linear-to-br ${skinColor} rounded-[50%] shadow-lg`}>
+        <div className="absolute inset-0 opacity-20">
+          {[...Array(6)].map((_, i) => (
+            <div key={i} className="absolute w-1 h-1 bg-amber-950 rounded-full" 
+              style={{ top: `${20 + i * 12}%`, left: `${25 + (i % 3) * 20}%` }} />
+          ))}
+        </div>
+      </div>
+
+      {/* Kiwi cortado */}
+      <div className={`absolute -right-6 w-14 h-14 bg-linear-to-br ${pulpColor} rounded-full shadow-xl flex items-center justify-center overflow-hidden`}>
+        {centerColor === "red" ? (
+          <>
+            {[...Array(16)].map((_, i) => (
+              <div key={i} className="absolute bg-red-500" style={{
+                width: '2px', height: '35%', top: '50%', left: '50%',
+                transform: `rotate(${i * 22.5}deg)`, transformOrigin: 'top center'
+              }} />
+            ))}
+            <div className="absolute inset-[28%] rounded-full bg-red-600" />
+            <div className="absolute inset-[38%] rounded-full bg-yellow-50" />
+          </>
+        ) : (
+          <>
+            <div className="w-2.5 h-2.5 rounded-full bg-white/80" />
+            {[...Array(8)].map((_, i) => (
+              <div key={i} className="absolute w-0.5 h-1.5 bg-gray-800/50 rounded-full" style={{
+                top: '50%', left: '50%',
+                transform: `rotate(${i * 45}deg) translateY(-120%)`, transformOrigin: 'center'
+              }} />
+            ))}
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
+
 export default function ProductosPage() {
   return (
-    <div className="py-12">
+    <div className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <Badge variant="outline" className="mb-4">Nuestros Productos</Badge>
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Variedades de Kiwi Argentino
+        <div className="text-center mb-12">
+          <Badge className="bg-green-100 text-green-800 mb-4">NUESTROS KIWIS</Badge>
+          <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
+            VARIEDADES <span className="text-green-600">EXTRAORDINARIAS</span>
           </h1>
-          <p className="text-xl text-muted-foreground">
-            Cultivamos las mejores variedades de kiwi en el sudeste bonaerense, 
-            aprovechando las condiciones únicas de nuestro terroir atlántico.
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Cada variedad es única. Todas son deliciosas.
           </p>
         </div>
 
-        {/* Quality badges */}
-        <div className="flex flex-wrap justify-center gap-4 mb-16">
-          <div className="flex items-center gap-2 bg-secondary px-4 py-2 rounded-full">
-            <span>🏅</span>
-            <span className="text-sm font-medium">IG Mar y Sierras</span>
-          </div>
-          <div className="flex items-center gap-2 bg-secondary px-4 py-2 rounded-full">
-            <span>🌱</span>
-            <span className="text-sm font-medium">Certificación Orgánica</span>
-          </div>
-          <div className="flex items-center gap-2 bg-secondary px-4 py-2 rounded-full">
-            <span>✅</span>
-            <span className="text-sm font-medium">GlobalGAP</span>
-          </div>
-          <div className="flex items-center gap-2 bg-secondary px-4 py-2 rounded-full">
-            <span>🧪</span>
-            <span className="text-sm font-medium">Control de Calidad</span>
-          </div>
+        {/* Grid de productos */}
+        <div className="flex flex-wrap justify-center gap-6 max-w-7xl mx-auto">
+          {varieties.map((variety) => (
+            <Card key={variety.id} className="overflow-hidden hover:shadow-xl transition-shadow gap-0 p-0 flex flex-col w-full md:w-[calc(50%-0.75rem)] xl:w-[calc(33.333%-1rem)] max-w-md">
+              {/* Header con gradiente y kiwi */}
+              <div className={`relative h-36 bg-linear-to-br ${variety.color} flex items-center justify-center shrink-0`}>
+                <Badge className="absolute top-3 right-3 bg-white/90 text-gray-800 font-semibold text-xs">
+                  {variety.badge}
+                </Badge>
+                <KiwiVisual 
+                  pulpColor={variety.pulpColor} 
+                  skinColor={variety.skinColor}
+                  centerColor={variety.centerColor}
+                />
+              </div>
+
+              {/* Contenido */}
+              <CardContent className="p-4 flex flex-col flex-1">
+                {/* Título */}
+                <div className="mb-3">
+                  <div className="flex items-baseline gap-2">
+                    <h3 className="text-lg font-black text-gray-900">{variety.name}</h3>
+                    <span className="text-xs text-gray-500">({variety.variety})</span>
+                  </div>
+                  <p className="text-xs font-bold text-green-700">{variety.tagline}</p>
+                </div>
+
+                {/* Descripción */}
+                <p className="text-sm text-gray-600 mb-3 min-h-[4.5rem]">{variety.longDescription}</p>
+
+                {/* Características - altura fija */}
+                <div className="mb-3 min-h-[9rem]">
+                  <h4 className="text-xs font-bold text-gray-900 uppercase mb-2">Características</h4>
+                  <div className="space-y-1">
+                    {variety.characteristics.map((char) => (
+                      <div key={char.label} className="flex justify-between text-xs">
+                        <span className="text-gray-500">{char.label}</span>
+                        <span className="font-medium text-gray-800 text-right">{char.value}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Nutrición - altura fija */}
+                <div className="mb-3 min-h-[4.5rem]">
+                  <h4 className="text-xs font-bold text-gray-900 uppercase mb-2">Nutrición (por 100g)</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {variety.nutrition.map((nut) => (
+                      <div key={nut.nutrient} className="bg-gray-100 rounded px-2 py-1 text-xs">
+                        <span className="font-semibold">{nut.value}</span>
+                        <span className="text-gray-500 ml-1">{nut.nutrient}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Usos */}
+                <div className="mt-auto">
+                  <h4 className="text-xs font-bold text-gray-900 uppercase mb-2">Usos</h4>
+                  <div className="flex flex-wrap gap-1">
+                    {variety.uses.map((use) => (
+                      <Badge key={use} variant="outline" className="text-xs font-normal">
+                        {use}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
 
-        {/* Varieties Tabs */}
-        <Tabs defaultValue="verde" className="space-y-8">
-          <TabsList className="grid w-full grid-cols-2 lg:grid-cols-4 h-auto gap-2">
-            {varieties.map((variety) => (
-              <TabsTrigger 
-                key={variety.id} 
-                value={variety.id}
-                className="flex items-center gap-2 py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
-              >
-                <span className="text-xl">{variety.emoji}</span>
-                <span className="hidden sm:inline">{variety.name.split(" ")[1]}</span>
-              </TabsTrigger>
-            ))}
-          </TabsList>
-
-          {varieties.map((variety) => (
-            <TabsContent key={variety.id} value={variety.id} className="space-y-8">
-              <Card>
-                <CardHeader>
-                  <div className="flex items-center gap-4">
-                    <span className="text-6xl">{variety.emoji}</span>
-                    <div>
-                      <CardTitle className="text-2xl md:text-3xl">{variety.name}</CardTitle>
-                      <CardDescription className="text-lg mt-2">
-                        {variety.description}
-                      </CardDescription>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-8">
-                  {/* Description */}
-                  <div>
-                    <h3 className="font-semibold text-lg mb-3">Acerca de esta variedad</h3>
-                    <p className="text-muted-foreground whitespace-pre-line">
-                      {variety.longDescription}
-                    </p>
-                  </div>
-
-                  <Separator />
-
-                  {/* Characteristics and Nutrition */}
-                  <div className="grid md:grid-cols-2 gap-8">
-                    <div>
-                      <h3 className="font-semibold text-lg mb-4">Características</h3>
-                      <div className="space-y-3">
-                        {variety.characteristics.map((char, i) => (
-                          <div key={i} className="flex justify-between items-center py-2 border-b border-border/50">
-                            <span className="text-muted-foreground">{char.label}</span>
-                            <span className="font-medium">{char.value}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div>
-                      <h3 className="font-semibold text-lg mb-4">Información Nutricional</h3>
-                      <p className="text-sm text-muted-foreground mb-4">Por cada 100g de fruta</p>
-                      <div className="space-y-3">
-                        {variety.nutrition.map((nut, i) => (
-                          <div key={i} className="flex justify-between items-center py-2 border-b border-border/50">
-                            <span className="text-muted-foreground">{nut.nutrient}</span>
-                            <div className="text-right">
-                              <span className="font-medium">{nut.value}</span>
-                              {nut.percent !== "—" && (
-                                <span className="text-xs text-muted-foreground ml-2">
-                                  ({nut.percent} VD)
-                                </span>
-                              )}
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
-                  <Separator />
-
-                  {/* Uses */}
-                  <div>
-                    <h3 className="font-semibold text-lg mb-4">Usos Recomendados</h3>
-                    <div className="flex flex-wrap gap-2">
-                      {variety.uses.map((use, i) => (
-                        <Badge key={i} variant="secondary" className="px-4 py-2">
-                          {use}
-                        </Badge>
-                      ))}
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </TabsContent>
-          ))}
-        </Tabs>
-
-        {/* Harvest Calendar */}
-        <div className="mt-16">
-          <h2 className="text-2xl font-bold text-center mb-8">Calendario de Cosecha</h2>
-          <Card>
+        {/* Calendario */}
+        <div className="mt-16 max-w-3xl mx-auto">
+          <h2 className="text-2xl font-bold text-center text-gray-900 mb-6">Temporada de Cosecha</h2>
+          <Card className="p-0">
             <CardContent className="p-6">
-              <div className="grid grid-cols-12 gap-1 text-center text-sm">
-                {["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"].map((month, i) => (
-                  <div key={month} className="font-medium text-muted-foreground py-2">
-                    {month}
-                  </div>
-                ))}
-                {[false, false, false, false, true, true, true, true, true, true, false, false].map((available, i) => (
-                  <div 
-                    key={i} 
-                    className={`py-4 rounded ${
-                      available 
-                        ? "bg-primary text-primary-foreground" 
-                        : "bg-muted text-muted-foreground"
-                    }`}
-                  >
-                    {available ? "🥝" : "—"}
+              <div className="flex justify-between items-center mb-4">
+                {["E", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"].map((m, i) => (
+                  <div key={i} className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-medium
+                    ${i >= 4 && i <= 9 ? 'bg-green-500 text-white' : 'bg-gray-200 text-gray-500'}`}>
+                    {m}
                   </div>
                 ))}
               </div>
-              <p className="text-center text-muted-foreground mt-4">
-                La temporada de kiwi argentino va de <strong>mayo a octubre</strong>, 
-                ofreciendo fruta fresca cuando el hemisferio norte está en contraestación.
+              <p className="text-center text-sm text-gray-600">
+                🥝 Kiwi fresco de <strong>mayo a octubre</strong>
               </p>
             </CardContent>
           </Card>

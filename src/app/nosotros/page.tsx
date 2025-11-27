@@ -11,7 +11,7 @@ const timeline = [
   {
     year: "2006",
     title: "El Nacimiento",
-    description: "Luis French, un abogado, decide invertir en el cultivo de kiwis después de que su esposa lee una nota periodística sobre el tema. Comienzan con unas pocas hectáreas en Mar del Plata.",
+    description: "Luis Franch, un abogado, decide invertir en el cultivo de kiwis después de que su esposa lee una nota periodística sobre el tema. Comienzan con unas pocas hectáreas en Mar del Plata.",
   },
   {
     year: "2010",
@@ -139,7 +139,7 @@ export default function NosotrosPage() {
               <h2 className="text-3xl font-bold">El Origen de iKiwi</h2>
               <div className="space-y-4 text-muted-foreground">
                 <p>
-                  Todo comenzó en 2006 cuando Luis French, un abogado de profesión, descubrió 
+                  Todo comenzó en 2006 cuando Luis Franch, un abogado de profesión, descubrió 
                   una oportunidad inesperada. Su esposa había leído una nota periodística sobre 
                   el cultivo de kiwis en Argentina y le comentó la idea.
                 </p>
