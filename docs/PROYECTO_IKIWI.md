@@ -417,8 +417,7 @@ npm run lint
 ## 📞 Contacto
 
 **Pablo** - Desarrollador Freelance  
-- 💬 WhatsApp: (tu número)
-- 📧 Email: (tu email)
+- 📧 Email: pablo@cardozo.com.ar
 - 💼 Precio: $10 USD/hora
 
 ---
