@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🥝 Ikiwi - Sitio Web Institucional
 
-## Getting Started
+> Sitio web para **Ikiwi** (Kiwi Argentino), la mayor productora de kiwi de Argentina.
 
-First, run the development server:
+![Next.js](https://img.shields.io/badge/Next.js-15-black?logo=next.js)
+![React](https://img.shields.io/badge/React-19-blue?logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-3-38B2AC?logo=tailwind-css)
+
+## 🚀 Inicio Rápido
 
 ```bash
+# Instalar dependencias
+npm install
+
+# Ejecutar en desarrollo
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build de producción
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abrir [http://localhost:3000](http://localhost:3000) en el navegador.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📁 Estructura del Proyecto
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/                    # Páginas (Next.js App Router)
+│   ├── page.tsx           # Home
+│   ├── nosotros/          # Página "Sobre Nosotros"
+│   ├── productos/         # Catálogo de productos
+│   ├── recetas/           # Recetas con kiwi
+│   ├── noticias/          # Notas de prensa
+│   ├── nutricion/         # Beneficios nutricionales
+│   └── contacto/          # Formulario de contacto
+│
+├── components/             # Componentes React
+│   ├── layout/            # Header, Footer
+│   ├── sections/          # Secciones de página
+│   ├── animations/        # Componentes animados
+│   └── ui/                # Componentes UI (shadcn)
+│
+└── lib/                    # Utilidades
+```
 
-## Learn More
+## 📚 Documentación
 
-To learn more about Next.js, take a look at the following resources:
+| Documento | Descripción |
+|-----------|-------------|
+| [📋 Proyecto Ikiwi](./docs/PROYECTO_IKIWI.md) | **Guía completa del proyecto, fases y cómo modificar** |
+| [🔍 Investigación](./docs/research.md) | Análisis de mercado y estrategia de marca |
+| [📝 Propuesta](./docs/deepsearch.md) | Propuesta inicial del sitio web |
+| [🤖 Agent Research](./docs/agent.md) | Información recopilada con IA |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🛠️ Stack Tecnológico
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Framework:** [Next.js 15](https://nextjs.org/) (App Router)
+- **UI Library:** [React 19](https://react.dev/)
+- **Lenguaje:** [TypeScript](https://www.typescriptlang.org/)
+- **Estilos:** [Tailwind CSS](https://tailwindcss.com/)
+- **Componentes:** [shadcn/ui](https://ui.shadcn.com/)
+- **Iconos:** [Lucide React](https://lucide.dev/)
 
-## Deploy on Vercel
+## 🌐 Deploy
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+El sitio está optimizado para deploy en [Vercel](https://vercel.com):
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+# Build de producción
+npm run build
+
+# Preview local del build
+npm run start
+```
+
+## 📞 Contacto
+
+**Desarrollado por Pablo** - Freelance Developer  
+📧 Consultas sobre el proyecto
+
+---
+
+> **Nota:** Para instrucciones detalladas sobre cómo modificar el sitio, ver [docs/PROYECTO_IKIWI.md](./docs/PROYECTO_IKIWI.md)
