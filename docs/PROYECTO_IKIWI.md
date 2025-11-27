@@ -360,7 +360,7 @@ Además del desarrollo de la web, ofrezco los siguientes servicios:
 ### Proyecto
 
 - 📂 **Repositorio:** [github.com/pjcdz/ikiwi](https://github.com/pjcdz/ikiwi)
-- 🌐 **Preview:** (próximamente en Vercel)
+- 🌐 **Preview:** [ikiwi.cardozo.com.ar](https://ikiwi.cardozo.com.ar/)
 
 ### Documentación Técnica
 
@@ -378,7 +378,7 @@ Además del desarrollo de la web, ofrezco los siguientes servicios:
 
 ### Referencias
 
-- 🥝 [Zespri (competencia)](https://www.zespri.com/en-US)
+- 🥝 [Zespri](https://www.zespri.com/en-US)
 - 📸 [Instagram Kiwi Argentino](https://www.instagram.com/kiwi_argentino/)
 
 ### Notas de Prensa
