@@ -20,9 +20,9 @@ Es una funcionalidad de modelos como **Gemini 3.0** y **ChatGPT** que permite ha
 
 ### Lo que hice:
 
-1. **Gemini 3.0 Pro con Deep Research**
+1. **Gemini 3.0 con Deep Research** (GC Tier 1 - de pago)
    - Le di el Instagram de Ikiwi y el de Zespri
-   - En **14 minutos**, hizo **40 búsquedas iterativas**
+   - Investigación profunda automatizada
    - Me devolvió:
      - Análisis de mercado del kiwi en Argentina
      - Tono de voz inferido de la marca

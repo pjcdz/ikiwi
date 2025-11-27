@@ -44,6 +44,8 @@ Este proyecto es el desarrollo de una **página web institucional** para **Ikiwi
 **Estado:** En desarrollo  
 **Objetivo:** Mostrar una primera versión visual e ilustrativa
 
+> 📄 **¿Cómo se hizo esta fase?** Ver [PROCESO_IA.md](./PROCESO_IA.md) para conocer el proceso de investigación y desarrollo con IA.
+
 En esta fase se crea:
 - Estructura general del sitio
 - Diseño visual inspirado en Zespri pero con identidad local
@@ -60,16 +62,16 @@ En esta fase se crea:
 - 📞 Contacto (Formulario + redes sociales)
 
 **Correcciones pendientes identificadas:**
-- [ ] Kiwi rojo (agregar información correcta)
-- [ ] Apellido correcto del papá de Agus
-- [ ] Otras correcciones menores de contenido
+- [x] Kiwi rojo (agregar información correcta)
+- [x] Apellido correcto del papá de Agus
+- [x] Otras correcciones menores de contenido
 
 ---
 
 ### Fase 2: Producto para Review
 
 **Estado:** Próximamente  
-**Objetivo:** Versión casi terminada con todas las funcionalidades
+**Objetivo:** Versión casi terminada con todas las funcionalidades + Transferencia de conocimiento
 
 En esta fase se incluye:
 - ✨ Todas las fotos reales de Ikiwi (del Instagram y nuevas)
@@ -85,6 +87,35 @@ En esta fase se incluye:
 3. Pulir animaciones y experiencia de usuario
 4. Testing en múltiples dispositivos
 5. Iteraciones y cambios según feedback
+
+**🎓 TRANSFERENCIA DE CONOCIMIENTO (Objetivo Central)**
+
+Durante esta fase también nos enfocaremos en **enseñarte todo lo que necesitás saber** para que puedas:
+
+**Desarrollo & Código:**
+- Modificar el código React/Next.js por tu cuenta
+- Cambiar textos, colores, imágenes sin ayuda
+- Agregar páginas nuevas
+- Entender la estructura del proyecto
+- Usar GitHub para guardar cambios y versiones
+
+**Infraestructura & Cuentas (TODO a tu nombre):**
+- 🌐 **Vercel:** Deploy automático del sitio (gratis/pagos según necesites)
+- 🔗 **Dominio:** `ikiwi.com.ar` configurado y bajo tu control
+- 📧 **Email corporativo:** mica@ikiwi.com.ar, info@ikiwi.com.ar (Google Workspace)
+- 🔒 **SSL/HTTPS:** Certificados de seguridad automáticos
+- 📊 **Google Analytics:** Tracking y reportes de visitas
+- 🔑 **Google Search Console:** Indexación y posicionamiento en Google
+- 🛡️ **Acceso a todo:** Todas las contraseñas, claves de API y configuraciones documentadas y en tu poder
+
+**Documentación Personalizada:**
+- 📖 Guía paso a paso de cómo modificar **cada sección** del sitio
+- 📝 Manual de mantenimiento mensual
+- 🔧 Troubleshooting: qué hacer si algo se rompe
+- 🎯 Lista de checklist para publicar cambios sin errores
+- 🤖 Recomendaciones de herramientas IA que podés usar (Copilot, ChatGPT, etc.)
+
+**El Objetivo Principal:** Que Ikiwi sea completamente **independiente** de mí. No es un trabajo que solo yo hago; es un proyecto que quedará en tus manos con la capacidad de evolucionar sin limitaciones.
 
 ---
 
