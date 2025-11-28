@@ -146,7 +146,7 @@ export default function TrabajaConNosotrosPage() {
                     <ul className="text-sm text-muted-foreground space-y-1">
                       {area.tasks.map((task, i) => (
                         <li key={i} className="flex items-center gap-2">
-                          <span className="w-1.5 h-1.5 bg-amber-600 rounded-full" />
+                          <span className="w-1.5 h-1.5 bg-green-600 rounded-full" />
                           {task}
                         </li>
                       ))}
@@ -284,7 +284,7 @@ export default function TrabajaConNosotrosPage() {
                       id="cv"
                       name="cv"
                       accept=".pdf,.doc,.docx"
-                      className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-amber-500 file:mr-4 file:py-1 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-amber-100 file:text-amber-700 hover:file:bg-amber-200"
+                      className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-green-500 file:mr-4 file:py-1 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-green-100 file:text-green-700 hover:file:bg-green-200"
                     />
                     <p className="text-xs text-muted-foreground mt-1">
                       Formatos aceptados: PDF, DOC, DOCX (máx. 5MB)
@@ -306,7 +306,7 @@ export default function TrabajaConNosotrosPage() {
         </section>
 
         {/* CTA Final */}
-        <section className="bg-amber-50 rounded-2xl p-8 md:p-12 text-center">
+        <section className="bg-green-50 rounded-2xl p-8 md:p-12 text-center">
           <span className="text-4xl">🥝</span>
           <h2 className="text-2xl font-bold mt-4 mb-4">¿Tenés Dudas?</h2>
           <p className="text-muted-foreground mb-6 max-w-xl mx-auto">

@@ -35,7 +35,7 @@ const b2bServices = [
 export function B2BCTA({ variant = "full", className = "" }: B2BCTAProps) {
   if (variant === "compact") {
     return (
-      <div className={`bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 rounded-xl p-6 ${className}`}>
+      <div className={`bg-gradient-to-r from-green-50 to-green-50 border border-green-200 rounded-xl p-6 ${className}`}>
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <span className="text-3xl">🤝</span>
@@ -46,7 +46,7 @@ export function B2BCTA({ variant = "full", className = "" }: B2BCTAProps) {
               </p>
             </div>
           </div>
-          <Button asChild className="bg-amber-600 hover:bg-amber-700">
+          <Button asChild className="bg-green-600 hover:bg-green-700">
             <Link href="/contacto#exportadores">Contacto Comercial</Link>
           </Button>
         </div>
@@ -64,9 +64,9 @@ export function B2BCTA({ variant = "full", className = "" }: B2BCTAProps) {
       <div className="absolute inset-0 bg-gradient-to-t from-[#faf8f5]/80 via-[#faf8f5]/65 to-[#faf8f5]/80 md:from-[#faf8f5]/70 md:via-[#faf8f5]/55 md:to-[#faf8f5]/70" />
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="bg-gradient-to-br from-amber-50/98 via-orange-50/98 to-yellow-50/98 backdrop-blur-md rounded-2xl p-8 md:p-12 border border-amber-200/50 shadow-2xl">
+        <div className="bg-gradient-to-br from-green-50/98 via-green-50/98 to-green-50/98 backdrop-blur-md rounded-2xl p-8 md:p-12 border border-green-200/50 shadow-2xl">
           <div className="text-center mb-12">
-            <Badge className="bg-amber-100 text-amber-800 mb-4">
+            <Badge className="bg-green-100 text-green-800 mb-4">
               Para Empresas
             </Badge>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -80,7 +80,7 @@ export function B2BCTA({ variant = "full", className = "" }: B2BCTAProps) {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
             {b2bServices.map((service, index) => (
-              <Card key={index} className="bg-white/95 backdrop-blur-md border-amber-200/50 shadow-md hover:shadow-lg transition-shadow">
+              <Card key={index} className="bg-white/95 backdrop-blur-md border-green-200/50 shadow-md hover:shadow-lg transition-shadow">
                 <CardContent className="p-6 text-center">
                   <div className="text-4xl mb-4">{service.icon}</div>
                   <h3 className="font-semibold mb-2">{service.title}</h3>
@@ -92,10 +92,10 @@ export function B2BCTA({ variant = "full", className = "" }: B2BCTAProps) {
 
           <div className="text-center">
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-              <Button asChild size="lg" className="bg-amber-600 hover:bg-amber-700">
+              <Button asChild size="lg" className="bg-green-600 hover:bg-green-700">
                 <Link href="/contacto#exportadores">Solicitar Información Comercial</Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="border-amber-300 hover:bg-amber-50">
+              <Button asChild variant="outline" size="lg" className="border-green-300 hover:bg-green-50">
                 <a href="mailto:ventas@ikiwi.com.ar">ventas@ikiwi.com.ar</a>
               </Button>
             </div>

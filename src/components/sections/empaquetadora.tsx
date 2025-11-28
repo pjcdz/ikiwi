@@ -109,7 +109,7 @@ export function Empaquetadora({ className = "" }: EmpaquetadoraProps) {
             <div className="grid grid-cols-3 gap-4 pt-6 border-t">
               {stats.map((stat, index) => (
                 <div key={index} className="text-center">
-                  <p className="text-2xl md:text-3xl font-bold text-amber-700">
+                  <p className="text-2xl md:text-3xl font-bold text-green-700">
                     {stat.value}
                   </p>
                   <p className="text-xs text-muted-foreground">{stat.label}</p>
@@ -141,7 +141,7 @@ export function Empaquetadora({ className = "" }: EmpaquetadoraProps) {
         </div>
 
         {/* Bottom Banner */}
-        <div className="mt-12 bg-amber-100 rounded-2xl p-6 md:p-8">
+        <div className="mt-12 bg-green-100 rounded-2xl p-6 md:p-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-4">
               <Image src="/logo-globalgap.png" alt="GlobalGAP" width={48} height={48} className="w-12 h-12 object-contain" />

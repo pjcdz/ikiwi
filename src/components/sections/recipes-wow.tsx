@@ -172,14 +172,14 @@ export function RecipesWow() {
             <Button 
               asChild 
               size="lg" 
-              className="bg-white text-amber-700 hover:bg-yellow-300 hover:text-amber-900 text-lg px-10 py-6 rounded-full font-bold shadow-xl hover:shadow-2xl transition-all transform hover:scale-105"
+              className="bg-white text-green-700 hover:bg-yellow-300 hover:text-green-900 text-lg px-10 py-6 rounded-full font-bold shadow-xl hover:shadow-2xl transition-all transform hover:scale-105"
             >
               <Link href="/recetas">VER TODAS LAS RECETAS</Link>
             </Button>
             <Button 
               asChild 
               size="lg" 
-              className="bg-white/20 border-2 border-white text-white hover:bg-white hover:text-amber-700 text-lg px-10 py-6 rounded-full font-bold backdrop-blur-sm group/ig"
+              className="bg-white/20 border-2 border-white text-white hover:bg-white hover:text-green-700 text-lg px-10 py-6 rounded-full font-bold backdrop-blur-sm group/ig"
             >
               <a href="https://instagram.com/kiwi_argentino" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3">
                 <Image 

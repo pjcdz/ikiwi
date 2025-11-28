@@ -151,7 +151,7 @@ function KiwiVisual({ pulpColor, skinColor, centerColor }: { pulpColor: string; 
       <div className={`relative w-16 h-24 bg-linear-to-br ${skinColor} rounded-[50%] shadow-lg`}>
         <div className="absolute inset-0 opacity-20">
           {[...Array(6)].map((_, i) => (
-            <div key={i} className="absolute w-1 h-1 bg-amber-950 rounded-full" 
+            <div key={i} className="absolute w-1 h-1 bg-green-950 rounded-full" 
               style={{ top: `${20 + i * 12}%`, left: `${25 + (i % 3) * 20}%` }} />
           ))}
         </div>
@@ -225,7 +225,7 @@ export default function ProductosPage() {
                     <h3 className="text-lg font-black text-gray-900">{variety.name}</h3>
                     <span className="text-xs text-gray-500">({variety.variety})</span>
                   </div>
-                  <p className="text-xs font-bold text-amber-700">{variety.tagline}</p>
+                  <p className="text-xs font-bold text-green-700">{variety.tagline}</p>
                 </div>
 
                 {/* Descripción */}
@@ -281,7 +281,7 @@ export default function ProductosPage() {
               <div className="flex justify-between items-center mb-4">
                 {["E", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"].map((m, i) => (
                   <div key={i} className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-medium
-                    ${i >= 4 && i <= 9 ? 'bg-amber-600 text-white' : 'bg-gray-200 text-gray-500'}`}>
+                    ${i >= 4 && i <= 9 ? 'bg-green-600 text-white' : 'bg-gray-200 text-gray-500'}`}>
                     {m}
                   </div>
                 ))}

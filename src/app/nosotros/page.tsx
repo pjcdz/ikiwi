@@ -99,19 +99,19 @@ export default function NosotrosPage() {
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
             <div className="text-center">
-              <p className="text-4xl font-bold text-amber-700">270+</p>
-              <p className="text-muted-foreground">Hectáreas</p>
+              <p className="text-4xl font-bold text-green-700">270+</p>
+              <p className="text-sm text-muted-foreground">Hectáreas</p>
             </div>
             <div className="text-center">
-              <p className="text-4xl font-bold text-amber-700">16%+</p>
-              <p className="text-muted-foreground">Materia Seca</p>
+              <p className="text-4xl font-bold text-green-700">16%+</p>
+              <p className="text-sm text-muted-foreground">Humedad</p>
             </div>
             <div className="text-center">
-              <p className="text-4xl font-bold text-amber-700">24°</p>
-              <p className="text-muted-foreground">Ranking Mundial</p>
+              <p className="text-4xl font-bold text-green-700">24°</p>
+              <p className="text-sm text-muted-foreground">Temperatura Ideal</p>
             </div>
             <div className="text-center">
-              <p className="text-4xl font-bold text-amber-700">3</p>
+              <p className="text-4xl font-bold text-green-700">3</p>
               <p className="text-muted-foreground">Variedades</p>
             </div>
           </div>
@@ -210,7 +210,7 @@ export default function NosotrosPage() {
                   className="object-cover"
                 />
               </div>
-              <div className="absolute -bottom-4 -right-4 bg-amber-700 text-white px-6 py-3 rounded-full">
+              <div className="absolute -bottom-4 -right-4 bg-green-700 text-white px-6 py-3 rounded-full">
                 <span className="font-bold">Desde 2006</span>
               </div>
             </div>
@@ -296,13 +296,13 @@ export default function NosotrosPage() {
                   }`}
                 >
                   {/* Timeline dot */}
-                  <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-amber-600 rounded-full -translate-x-1/2 z-10" />
+                  <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-green-600 rounded-full -translate-x-1/2 z-10" />
                   
                   {/* Content */}
                   <div className={`ml-12 md:ml-0 md:w-1/2 ${index % 2 === 0 ? "md:pr-12 md:text-right" : "md:pl-12"}`}>
                     <Card>
                       <CardContent className="p-6">
-                        <span className="text-2xl font-bold text-amber-700">{item.year}</span>
+                        <span className="text-2xl font-bold text-green-700">{item.year}</span>
                         <h3 className="text-xl font-semibold mt-2 mb-3">{item.title}</h3>
                         <p className="text-muted-foreground">{item.description}</p>
                       </CardContent>
@@ -341,7 +341,7 @@ export default function NosotrosPage() {
         <Certifications variant="full" showTitle={true} className="py-0" />
 
         {/* Sustainability */}
-        <section className="mt-20 bg-amber-50 rounded-2xl p-8 md:p-12" id="sostenibilidad">
+        <section className="mt-20 bg-green-50 rounded-2xl p-8 md:p-12" id="sostenibilidad">
           <div className="max-w-3xl mx-auto text-center">
             <span className="text-4xl">🌍</span>
             <h2 className="text-3xl font-bold mt-4 mb-4">Compromiso con la Sustentabilidad</h2>

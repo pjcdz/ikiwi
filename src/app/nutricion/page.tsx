@@ -121,7 +121,7 @@ export default function NutricionPage() {
 
         {/* Vitamin C Comparison Hero */}
         <section className="mb-16">
-          <Card className="bg-amber-50 border-amber-200">
+          <Card className="bg-green-50 border-green-200">
             <CardContent className="p-8 md:p-12">
               <div className="text-center mb-8">
                 <span className="text-6xl mb-4 block">🥝</span>

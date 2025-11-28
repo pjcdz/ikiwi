@@ -33,7 +33,7 @@ export function CTAWow() {
       <div className="container mx-auto px-4 relative z-10">
         <AnimatedSection animation="fadeUp" className="max-w-4xl mx-auto text-center">
           {/* Título principal */}
-          <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-amber-900 leading-none mb-6">
+          <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-green-900 leading-none mb-6">
             PROBÁ EL SABOR
             <br />
             <span className="text-white drop-shadow-lg">AUTÉNTICO</span>
@@ -50,7 +50,7 @@ export function CTAWow() {
             <Button 
               asChild 
               size="lg" 
-              className="w-full sm:w-auto bg-amber-800 hover:bg-amber-900 text-white text-xl px-12 py-7 rounded-full font-bold shadow-2xl hover:shadow-3xl transition-all transform hover:scale-105"
+              className="w-full sm:w-auto bg-green-800 hover:bg-green-900 text-white text-xl px-12 py-7 rounded-full font-bold shadow-2xl hover:shadow-3xl transition-all transform hover:scale-105"
             >
               <Link href="/contacto">DÓNDE COMPRAR</Link>
             </Button>
@@ -58,7 +58,7 @@ export function CTAWow() {
               asChild 
               variant="outline" 
               size="lg" 
-              className="w-full sm:w-auto border-3 border-amber-800 text-amber-800 hover:bg-amber-800 hover:text-white text-xl px-12 py-7 rounded-full font-bold"
+              className="w-full sm:w-auto border-3 border-green-800 text-green-800 hover:bg-green-800 hover:text-white text-xl px-12 py-7 rounded-full font-bold"
             >
               <Link href="/nosotros">NUESTRA HISTORIA</Link>
             </Button>

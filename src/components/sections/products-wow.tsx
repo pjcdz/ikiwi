@@ -30,7 +30,7 @@ const varieties = [
     tagline: "DULCE Y TROPICAL",
     description: "Pulpa dorada intensamente dulce con notas tropicales. 3 veces más vitamina C que una naranja. Piel más suave.",
     color: "from-yellow-500 to-amber-500",
-    textColor: "text-amber-800",
+    textColor: "text-green-800",
     badge: "Premium",
     image: "/product-kiwi-amarillo.png",
     stats: [
@@ -147,7 +147,7 @@ export function ProductsWow() {
           <Button 
             asChild 
             size="lg" 
-            className="bg-amber-700 hover:bg-amber-800 text-white text-lg px-10 py-6 rounded-full font-bold shadow-xl hover:shadow-2xl transition-all transform hover:scale-105"
+            className="bg-green-700 hover:bg-green-800 text-white text-lg px-10 py-6 rounded-full font-bold shadow-xl hover:shadow-2xl transition-all transform hover:scale-105"
           >
             <Link href="/productos">VER TODOS LOS PRODUCTOS</Link>
           </Button>

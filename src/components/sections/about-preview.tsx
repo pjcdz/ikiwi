@@ -45,7 +45,7 @@ export function AboutPreview() {
             </div>
 
             {/* Floating badge */}
-            <div className="absolute -top-2 md:-top-4 -right-2 md:-right-4 bg-amber-700 text-white px-4 md:px-6 py-2 md:py-3 rounded-full shadow-lg">
+            <div className="absolute -top-2 md:-top-4 -right-2 md:-right-4 bg-green-700 text-white px-4 md:px-6 py-2 md:py-3 rounded-full shadow-lg">
               <span className="font-bold text-sm md:text-base">Desde 2006</span>
             </div>
           </div>

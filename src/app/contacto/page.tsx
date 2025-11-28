@@ -263,7 +263,7 @@ export default function ContactoPage() {
         </section>
 
         {/* Social CTA */}
-        <section className="bg-amber-50 rounded-2xl p-8 md:p-12">
+        <section className="bg-green-50 rounded-2xl p-8 md:p-12">
           <div className="text-center">
             <h2 className="text-2xl font-bold mb-4">Seguinos en Redes</h2>
             <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
@@ -279,7 +279,7 @@ export default function ContactoPage() {
             </div>
             
             <div className="mt-8 pt-8 border-t border-border">
-              <Badge className="bg-amber-100 text-amber-800 hover:bg-amber-200 flex items-center gap-2 w-fit mx-auto px-4 py-2">
+              <Badge className="bg-green-100 text-green-800 hover:bg-green-200 flex items-center gap-2 w-fit mx-auto px-4 py-2">
                 <Image src="/logo-ig.png" alt="IG Mar y Sierras" width={24} height={24} className="w-6 h-6 object-contain" />
                 IG Mar y Sierras
               </Badge>

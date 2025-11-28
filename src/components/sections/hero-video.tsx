@@ -99,7 +99,7 @@ export function HeroVideo() {
             <Button
               asChild
               size="lg"
-              className="bg-amber-100 text-amber-900 hover:bg-amber-200 hover:text-amber-950 text-base md:text-lg px-8 py-6 font-bold rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_50px_rgba(0,0,0,0.35)] transition-all duration-300 hover:scale-105 hover:-translate-y-1"
+              className="bg-green-100 text-green-900 hover:bg-green-200 hover:text-green-950 text-base md:text-lg px-8 py-6 font-bold rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_50px_rgba(0,0,0,0.35)] transition-all duration-300 hover:scale-105 hover:-translate-y-1"
             >
               <Link href="/productos">CONOCÉ NUESTROS KIWIS</Link>
             </Button>
@@ -107,7 +107,7 @@ export function HeroVideo() {
               asChild
               variant="ghost"
               size="lg"
-              className="bg-white/15 border-2 border-white/80 text-white hover:bg-white hover:text-amber-900 text-base md:text-lg px-8 py-6 font-bold rounded-full backdrop-blur-md shadow-[0_8px_32px_rgba(0,0,0,0.2)] transition-all duration-300 hover:scale-105 hover:-translate-y-1"
+              className="bg-white/15 border-2 border-white/80 text-white hover:bg-white hover:text-green-900 text-base md:text-lg px-8 py-6 font-bold rounded-full backdrop-blur-md shadow-[0_8px_32px_rgba(0,0,0,0.2)] transition-all duration-300 hover:scale-105 hover:-translate-y-1"
             >
               <Link href="/contacto#exportadores">CONTACTO COMERCIAL</Link>
             </Button>
@@ -116,25 +116,25 @@ export function HeroVideo() {
           {/* Stats rápidos - más profesional/B2B */}
           <div ref={statsRef} className="grid grid-cols-4 gap-4 mt-12 md:mt-16 pt-8 max-w-2xl mx-auto">
             <div className="text-center">
-              <p className="text-2xl md:text-3xl font-black text-amber-200 drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]">
+              <p className="text-2xl md:text-3xl font-black text-green-200 drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]">
                 270+
               </p>
               <p className="text-white/80 text-xs font-medium">Hectáreas</p>
             </div>
             <div className="text-center">
-              <p className="text-2xl md:text-3xl font-black text-amber-200 drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]">
+              <p className="text-2xl md:text-3xl font-black text-green-200 drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]">
                 1M+
               </p>
               <p className="text-white/80 text-xs font-medium">Kilos/Año</p>
             </div>
             <div className="text-center">
-              <p className="text-2xl md:text-3xl font-black text-amber-200 drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]">
+              <p className="text-2xl md:text-3xl font-black text-green-200 drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]">
                 4
               </p>
               <p className="text-white/80 text-xs font-medium">Países Export.</p>
             </div>
             <div className="text-center">
-              <p className="text-2xl md:text-3xl font-black text-amber-200 drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]">
+              <p className="text-2xl md:text-3xl font-black text-green-200 drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]">
                 90+
               </p>
               <p className="text-white/80 text-xs font-medium">Empleados</p>

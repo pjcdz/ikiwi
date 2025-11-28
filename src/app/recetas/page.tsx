@@ -233,7 +233,7 @@ function RecipeCard({ recipe }: { recipe: typeof recipes[0] }) {
         </div>
         <h3 className="text-xl font-semibold mb-2">{recipe.title}</h3>
         <p className="text-muted-foreground text-sm mb-4">{recipe.description}</p>
-        <p className="text-sm text-amber-700 font-medium">{recipe.servings}</p>
+        <p className="text-sm text-green-700 font-medium">{recipe.servings}</p>
       </CardContent>
       <CardFooter className="p-6 pt-0">
         <Button variant="outline" className="w-full" asChild>
@@ -263,7 +263,7 @@ function RecipeDetail({ recipe }: { recipe: typeof recipes[0] }) {
           <ul className="space-y-2">
             {recipe.ingredients.map((ingredient, i) => (
               <li key={i} className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-amber-600 flex-shrink-0" />
+                <span className="w-2 h-2 rounded-full bg-green-600 flex-shrink-0" />
                 <span className="text-muted-foreground">{ingredient}</span>
               </li>
             ))}
@@ -275,7 +275,7 @@ function RecipeDetail({ recipe }: { recipe: typeof recipes[0] }) {
           <ol className="space-y-3">
             {recipe.steps.map((step, i) => (
               <li key={i} className="flex gap-3">
-                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-amber-600 text-white text-sm flex items-center justify-center font-medium">
+                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-green-600 text-white text-sm flex items-center justify-center font-medium">
                   {i + 1}
                 </span>
                 <span className="text-muted-foreground">{step}</span>
@@ -285,7 +285,7 @@ function RecipeDetail({ recipe }: { recipe: typeof recipes[0] }) {
         </div>
       </div>
       
-      <div className="mt-6 p-4 bg-amber-50 rounded-lg">
+      <div className="mt-6 p-4 bg-green-50 rounded-lg">
         <p className="text-sm">
           <span className="font-semibold">💡 Tip: </span>
           <span className="text-muted-foreground">{recipe.tips}</span>
@@ -355,7 +355,7 @@ export default function RecetasPage() {
         </section>
 
         {/* Tips Section */}
-        <section className="mt-20 bg-amber-50 rounded-2xl p-8 md:p-12">
+        <section className="mt-20 bg-green-50 rounded-2xl p-8 md:p-12">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl font-bold mb-6">Consejos para Cocinar con Kiwi</h2>
             <div className="grid md:grid-cols-2 gap-6 text-left">

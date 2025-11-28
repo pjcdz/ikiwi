@@ -192,7 +192,7 @@ export function InstagramGallery() {
         {/* Stats del Instagram */}
         <AnimatedSection animation="stagger" className="grid grid-cols-3 gap-4 max-w-2xl mx-auto mt-12">
           <div className="text-center bg-white/95 backdrop-blur-md rounded-2xl p-6 shadow-lg border border-white/50">
-            <p className="text-3xl md:text-4xl font-black text-amber-700">171</p>
+            <p className="text-3xl md:text-4xl font-black text-green-700">171</p>
             <p className="text-gray-600 text-sm">Posts</p>
           </div>
           <div className="text-center bg-white/95 backdrop-blur-md rounded-2xl p-6 shadow-lg border border-white/50">
@@ -200,7 +200,7 @@ export function InstagramGallery() {
             <p className="text-gray-600 text-sm">Seguidores</p>
           </div>
           <div className="text-center bg-white/95 backdrop-blur-md rounded-2xl p-6 shadow-lg border border-white/50">
-            <p className="text-3xl md:text-4xl font-black text-amber-600">5+</p>
+            <p className="text-3xl md:text-4xl font-black text-green-600">5+</p>
             <p className="text-gray-600 text-sm">Años</p>
           </div>
         </AnimatedSection>

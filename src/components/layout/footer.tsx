@@ -37,17 +37,17 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-[#f5f0e8] border-t border-amber-200">
+    <footer className="bg-[#f5f0e8] border-t border-green-200">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-full bg-amber-700 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-full bg-green-700 flex items-center justify-center">
                 <span className="text-2xl">🥝</span>
               </div>
               <div className="flex flex-col">
-                <span className="font-bold text-lg text-amber-800 leading-tight">iKiwi</span>
+                <span className="font-bold text-lg text-green-800 leading-tight">iKiwi</span>
                 <span className="text-xs text-muted-foreground leading-tight">Kiwi Argentino</span>
               </div>
             </Link>
@@ -61,7 +61,7 @@ export function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center hover:bg-amber-200 transition-colors"
+                  className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center hover:bg-green-200 transition-colors"
                 >
                   <span className="text-lg">{social.icon}</span>
                 </a>
@@ -145,17 +145,17 @@ export function Footer() {
         <Separator className="my-8" />
 
         {/* B2B Contact Banner */}
-        <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-8">
+        <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-8">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
             <div className="flex items-center gap-2 text-sm">
               <span>🤝</span>
-              <span className="text-amber-800 font-medium">
+              <span className="text-green-800 font-medium">
                 ¿Sos mayorista, restaurante o exportador?
               </span>
             </div>
             <Link
               href="/contacto#exportadores"
-              className="text-sm font-semibold text-amber-700 hover:text-amber-900 transition-colors"
+              className="text-sm font-semibold text-green-700 hover:text-green-900 transition-colors"
             >
               Contacto Comercial →
             </Link>
