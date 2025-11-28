@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -116,7 +117,7 @@ export default function ContactoPage() {
                         id="nombre"
                         name="nombre"
                         required
-                        className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary"
+                        className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-amber-500"
                         placeholder="Tu nombre"
                       />
                     </div>
@@ -129,7 +130,7 @@ export default function ContactoPage() {
                         id="email"
                         name="email"
                         required
-                        className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary"
+                        className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-amber-500"
                         placeholder="tu@email.com"
                       />
                     </div>
@@ -143,7 +144,7 @@ export default function ContactoPage() {
                       type="text"
                       id="empresa"
                       name="empresa"
-                      className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary"
+                      className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-amber-500"
                       placeholder="Nombre de tu empresa (opcional)"
                     />
                   </div>
@@ -156,7 +157,7 @@ export default function ContactoPage() {
                       id="motivo"
                       name="motivo"
                       required
-                      className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary"
+                      className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-amber-500"
                     >
                       <option value="">Selecciona una opción</option>
                       <option value="compra">Compra directa</option>
@@ -178,7 +179,7 @@ export default function ContactoPage() {
                       name="mensaje"
                       required
                       rows={5}
-                      className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary resize-none"
+                      className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-amber-500 resize-none"
                       placeholder="Contanos en qué podemos ayudarte..."
                     />
                   </div>
@@ -262,7 +263,7 @@ export default function ContactoPage() {
         </section>
 
         {/* Social CTA */}
-        <section className="bg-primary/5 rounded-2xl p-8 md:p-12">
+        <section className="bg-amber-50 rounded-2xl p-8 md:p-12">
           <div className="text-center">
             <h2 className="text-2xl font-bold mb-4">Seguinos en Redes</h2>
             <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
@@ -278,8 +279,9 @@ export default function ContactoPage() {
             </div>
             
             <div className="mt-8 pt-8 border-t border-border">
-              <Badge className="bg-primary/20 text-primary hover:bg-primary/30">
-                🏅 IG Mar y Sierras
+              <Badge className="bg-amber-100 text-amber-800 hover:bg-amber-200 flex items-center gap-2 w-fit mx-auto px-4 py-2">
+                <Image src="/logo-ig.png" alt="IG Mar y Sierras" width={24} height={24} className="w-6 h-6 object-contain" />
+                IG Mar y Sierras
               </Badge>
               <p className="text-sm text-muted-foreground mt-2">
                 Kiwi con Indicación Geográfica del Sudeste Bonaerense

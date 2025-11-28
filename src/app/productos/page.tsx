@@ -188,13 +188,13 @@ function KiwiVisual({ pulpColor, skinColor, centerColor }: { pulpColor: string; 
 
 export default function ProductosPage() {
   return (
-    <div className="py-16 bg-gray-50">
+    <div className="py-16 bg-[#faf8f5]">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
-          <Badge className="bg-green-100 text-green-800 mb-4">NUESTROS KIWIS</Badge>
+          <Badge className="bg-amber-100 text-amber-800 mb-4">NUESTROS KIWIS</Badge>
           <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
-            VARIEDADES <span className="text-green-600">EXTRAORDINARIAS</span>
+            VARIEDADES <span className="text-amber-700">EXTRAORDINARIAS</span>
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Cada variedad es única. Todas son deliciosas.
@@ -225,7 +225,7 @@ export default function ProductosPage() {
                     <h3 className="text-lg font-black text-gray-900">{variety.name}</h3>
                     <span className="text-xs text-gray-500">({variety.variety})</span>
                   </div>
-                  <p className="text-xs font-bold text-green-700">{variety.tagline}</p>
+                  <p className="text-xs font-bold text-amber-700">{variety.tagline}</p>
                 </div>
 
                 {/* Descripción */}
@@ -281,7 +281,7 @@ export default function ProductosPage() {
               <div className="flex justify-between items-center mb-4">
                 {["E", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"].map((m, i) => (
                   <div key={i} className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-medium
-                    ${i >= 4 && i <= 9 ? 'bg-green-500 text-white' : 'bg-gray-200 text-gray-500'}`}>
+                    ${i >= 4 && i <= 9 ? 'bg-amber-600 text-white' : 'bg-gray-200 text-gray-500'}`}>
                     {m}
                   </div>
                 ))}

@@ -1,6 +1,9 @@
+import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { Empaquetadora } from "@/components/sections/empaquetadora";
+import { Certifications } from "@/components/sections/certifications";
 
 export const metadata = {
   title: "Nosotros | Kiwi Argentino - iKiwi",
@@ -11,42 +14,47 @@ const timeline = [
   {
     year: "2006",
     title: "El Nacimiento",
-    description: "Luis Franch, un abogado, decide invertir en el cultivo de kiwis después de que su esposa lee una nota periodística sobre el tema. Comienzan con unas pocas hectáreas en Mar del Plata.",
+    description: "Luis Franch, un abogado, decide invertir en el cultivo de kiwis después de que su esposa lee una nota periodística sobre el tema. Comienzan con unas pocas hectáreas en Mar del Plata, descubriendo el potencial único del terroir bonaerense.",
   },
   {
     year: "2010",
     title: "Expansión Inicial",
-    description: "La empresa crece con la incorporación de nuevas hectáreas y la construcción de la primera planta de empaque y frío.",
+    description: "La empresa crece con la incorporación de nuevas hectáreas y la construcción de la primera planta de empaque y frío. Se confirma la calidad excepcional del kiwi argentino gracias al suelo rico en materia orgánica.",
   },
   {
     year: "2015",
-    title: "Alianza con Bologna",
-    description: "Se establece colaboración con la Universidad de Bolonia para el desarrollo de nuevas variedades amarillas y rojas.",
+    title: "Convenio con Bologna",
+    description: "Se firma un convenio estratégico con la Universidad de Bolonia (Italia), líder mundial en investigación genética de Actinidia, para acceder a germoplasma avanzado y desarrollar variedades amarillas y rojas.",
+  },
+  {
+    year: "2017",
+    title: "Visión Premium",
+    description: "Luis Franch articula públicamente la meta de alcanzar 10 millones de kilos y ser reconocidos como productores de calidad Premium, comparable a Nueva Zelanda.",
   },
   {
     year: "2019",
-    title: "270 Hectáreas",
-    description: "iKiwi alcanza las 270 hectáreas cultivadas, consolidándose como la mayor productora de kiwi del país. La Nación publica un extenso reportaje sobre la empresa.",
+    title: "Hitos de Exportación",
+    description: "iKiwi alcanza las 270 hectáreas. Primera exportación de kiwi amarillo orgánico (variedad Jintao) a Europa. La Nación publica un extenso reportaje sobre la empresa.",
   },
   {
     year: "2021",
-    title: "Cooperativa Ecco Kiwi",
-    description: "Se forma la cooperativa Ecco Kiwi, agrupando productores del sudeste bonaerense para mejorar la comercialización conjunta.",
+    title: "Cooperativa Ecco Argentina",
+    description: "Se forma la Cooperativa Ecco Argentina en General Alvarado (Miramar), agrupando productores del sudeste bonaerense. Se inaugura planta propia de frío y empaque.",
   },
   {
     year: "2022",
     title: "Indicación Geográfica",
-    description: "El kiwi del sudeste bonaerense obtiene la IG 'Kiwi Mar y Sierras' y Denominación de Origen, reconociendo oficialmente su calidad diferenciada.",
+    description: "Mediante Resolución N° 33/2022, el 'Kiwi Mar y Sierras del Sudeste de Buenos Aires' obtiene la IG, reconociendo oficialmente su calidad diferenciada vinculada al origen geográfico.",
   },
   {
     year: "2023",
-    title: "Primera Exportación a Europa",
-    description: "Hito histórico: 900 toneladas de kiwi orgánico certificado son exportadas a España, la primera operación con IG a Europa.",
+    title: "Primera Exportación con IG",
+    description: "Hito histórico: 22,400 kg de kiwi orgánico con sello IG son exportados a España. La planta de empaque genera empleo directo para 20 familias locales.",
   },
   {
     year: "2025",
     title: "Expansión Global",
-    description: "Argentina mejora del puesto 43° al 24° en el ranking mundial de exportadores. Se exploran nuevos mercados en Oriente Medio y Norteamérica.",
+    description: "Argentina sube del puesto 43° al 24° en exportadores mundiales. Se concretan alianzas con Emiratos Árabes Unidos y se exploran mercados en China, con el kiwi rojo como próxima innovación.",
   },
 ];
 
@@ -73,29 +81,6 @@ const values = [
   },
 ];
 
-const certifications = [
-  {
-    name: "IG Mar y Sierras",
-    description: "Indicación Geográfica que certifica el origen y calidad diferenciada del kiwi del sudeste bonaerense.",
-    icon: "🏅",
-  },
-  {
-    name: "Orgánico Argentina",
-    description: "Certificación nacional de producción orgánica sin uso de agroquímicos sintéticos.",
-    icon: "🌿",
-  },
-  {
-    name: "USDA Organic",
-    description: "Certificación del Departamento de Agricultura de Estados Unidos para exportación.",
-    icon: "🇺🇸",
-  },
-  {
-    name: "GlobalGAP",
-    description: "Estándar internacional de buenas prácticas agrícolas para seguridad alimentaria.",
-    icon: "✅",
-  },
-];
-
 export default function NosotrosPage() {
   return (
     <div className="py-12">
@@ -114,23 +99,74 @@ export default function NosotrosPage() {
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
             <div className="text-center">
-              <p className="text-4xl font-bold text-primary">270+</p>
+              <p className="text-4xl font-bold text-amber-700">270+</p>
               <p className="text-muted-foreground">Hectáreas</p>
             </div>
             <div className="text-center">
-              <p className="text-4xl font-bold text-primary">1M+</p>
-              <p className="text-muted-foreground">Kilos/Año</p>
+              <p className="text-4xl font-bold text-amber-700">16%+</p>
+              <p className="text-muted-foreground">Materia Seca</p>
             </div>
             <div className="text-center">
-              <p className="text-4xl font-bold text-primary">90+</p>
-              <p className="text-muted-foreground">Empleados</p>
+              <p className="text-4xl font-bold text-amber-700">24°</p>
+              <p className="text-muted-foreground">Ranking Mundial</p>
             </div>
             <div className="text-center">
-              <p className="text-4xl font-bold text-primary">4</p>
-              <p className="text-muted-foreground">Países Exportación</p>
+              <p className="text-4xl font-bold text-amber-700">3</p>
+              <p className="text-muted-foreground">Variedades</p>
             </div>
           </div>
         </div>
+
+        {/* Terroir Section */}
+        <section className="mb-20 bg-gradient-to-br from-green-50 to-amber-50 rounded-2xl p-8 md:p-12">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-center mb-8">El Terroir: Mar y Sierras</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-xl font-semibold mb-4">🌍 Ubicación Privilegiada</h3>
+                <p className="text-muted-foreground mb-4">
+                  La zona núcleo de producción abarca los partidos de <strong>General Pueyrredón, 
+                  General Alvarado, Balcarce, Lobería, Necochea, San Cayetano, Tres Arroyos, 
+                  Mar Chiquita y General Madariaga</strong>.
+                </p>
+                <p className="text-muted-foreground">
+                  La franja costera influenciada por el Océano Atlántico y protegida por el 
+                  sistema serrano de Tandilia ofrece condiciones únicas que diferencian al 
+                  producto argentino de sus competidores.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold mb-4">🌱 Suelos Excepcionales</h3>
+                <p className="text-muted-foreground mb-4">
+                  A diferencia de Nueva Zelanda (suelos volcánicos), el sudeste bonaerense 
+                  posee suelos con <strong>horizontes profundos y alto contenido de materia 
+                  orgánica</strong>.
+                </p>
+                <p className="text-muted-foreground">
+                  Esta riqueza permite una retención de humedad y disponibilidad de nutrientes 
+                  que favorece el desarrollo de raíces robustas sin dependencia excesiva de 
+                  fertirrigación sintética.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold mb-4">🌡️ Clima Atlántico Moderado</h3>
+                <p className="text-muted-foreground">
+                  La influencia oceánica reduce la amplitud térmica extrema durante el verano 
+                  y minimiza el riesgo de heladas tempranas en otoño, permitiendo que la fruta 
+                  permanezca en la vid <strong>hasta 20 días extra</strong>.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold mb-4">⭐ Calidad Superior</h3>
+                <p className="text-muted-foreground">
+                  El "hang time" extra permite una acumulación de metabolitos y azúcares que 
+                  elevan el perfil de sabor. Nuestro kiwi alcanza un mínimo de <strong>16% de 
+                  materia seca</strong> y <strong>6.5° Brix</strong> promedio.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* Origin Story */}
         <section className="mb-20">
@@ -146,29 +182,99 @@ export default function NosotrosPage() {
                 <p>
                   Lo que empezó como una inversión modesta en unas pocas hectáreas en la zona 
                   de Mar del Plata se transformó en la mayor operación productora de kiwi del país. 
-                  La región costera del sudeste bonaerense resultó tener condiciones ideales: 
-                  suelo, clima atlántico y las horas de frío necesarias para producir kiwis 
-                  de calidad excepcional.
+                  La región del sudeste bonaerense —entre el mar y las sierras de Tandilia— posee 
+                  un <strong>terroir único</strong>: suelos con alto contenido de materia orgánica 
+                  (superior a los suelos volcánicos de Nueva Zelanda), clima atlántico moderado, 
+                  y la ausencia de heladas tempranas que permite que la fruta permanezca en la 
+                  vid hasta 20 días extra, desarrollando un perfil de sabor excepcional.
+                </p>
+                <p>
+                  Como explicó Franch: <em>"Las condiciones climáticas y el suelo son propicios 
+                  para este cultivo. Tenemos una posición similar a Nueva Zelanda, pero nuestros 
+                  suelos hacen la diferencia. La riqueza y el alto contenido orgánico es la clave 
+                  de la calidad del kiwi."</em>
                 </p>
                 <p>
                   Hoy, iKiwi produce más de un millón de kilos de kiwi al año, emplea a más de 
-                  90 personas y exporta a Canadá, Italia, Alemania e Inglaterra. Pero la visión 
+                  90 personas y exporta a España, Italia, Alemania e Inglaterra. Pero la visión 
                   sigue siendo la misma: producir el mejor kiwi del mundo.
                 </p>
               </div>
             </div>
             <div className="relative">
-              <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary/10 to-accent/20 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-8xl mb-4">🌿</div>
-                  <p className="text-lg font-medium text-foreground">Mar del Plata</p>
-                  <p className="text-muted-foreground">Sierra de los Padres</p>
-                </div>
+              <div className="aspect-square rounded-2xl overflow-hidden relative">
+                <Image
+                  src="/image11.png"
+                  alt="Cosecha de kiwis en Sierra de los Padres, Mar del Plata"
+                  fill
+                  className="object-cover"
+                />
               </div>
-              <div className="absolute -bottom-4 -right-4 bg-primary text-primary-foreground px-6 py-3 rounded-full">
+              <div className="absolute -bottom-4 -right-4 bg-amber-700 text-white px-6 py-3 rounded-full">
                 <span className="font-bold">Desde 2006</span>
               </div>
             </div>
+          </div>
+        </section>
+
+        <Separator className="my-16" />
+
+        {/* Varieties Section */}
+        <section className="mb-20">
+          <h2 className="text-3xl font-bold text-center mb-4">Nuestras Variedades</h2>
+          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+            Gracias al convenio con la Universidad de Bolonia, hemos diversificado nuestra 
+            producción con variedades de alta demanda en los mercados internacionales.
+          </p>
+          <div className="grid md:grid-cols-3 gap-6">
+            <Card className="overflow-hidden">
+              <div className="h-32 bg-gradient-to-br from-green-600 to-green-400 flex items-center justify-center">
+                <span className="text-6xl">🥝</span>
+              </div>
+              <CardContent className="p-6">
+                <Badge className="mb-3 bg-green-100 text-green-800 hover:bg-green-100">Hayward</Badge>
+                <h3 className="text-xl font-semibold mb-2">Kiwi Verde</h3>
+                <p className="text-sm text-muted-foreground mb-4">
+                  El clásico. Pulpa verde esmeralda, sabor acidulce y complejo. 
+                  Cosecha en noviembre. Es nuestro volumen principal de producción.
+                </p>
+                <div className="text-xs text-muted-foreground">
+                  <span className="font-medium">Mercado:</span> Consumo global
+                </div>
+              </CardContent>
+            </Card>
+            <Card className="overflow-hidden">
+              <div className="h-32 bg-gradient-to-br from-yellow-500 to-yellow-300 flex items-center justify-center">
+                <span className="text-6xl">🟡</span>
+              </div>
+              <CardContent className="p-6">
+                <Badge className="mb-3 bg-yellow-100 text-yellow-800 hover:bg-yellow-100">Jintao</Badge>
+                <h3 className="text-xl font-semibold mb-2">Kiwi Amarillo</h3>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Pulpa amarilla, piel suave, perfil tropical y dulce. Requiere 
+                  menos horas de frío (350-450h). Cosecha temprana en septiembre/octubre.
+                </p>
+                <div className="text-xs text-muted-foreground">
+                  <span className="font-medium">Mercado:</span> Europa, Asia
+                </div>
+              </CardContent>
+            </Card>
+            <Card className="overflow-hidden border-dashed border-2">
+              <div className="h-32 bg-gradient-to-br from-red-500 to-red-300 flex items-center justify-center">
+                <span className="text-6xl">❤️</span>
+              </div>
+              <CardContent className="p-6">
+                <Badge className="mb-3 bg-red-100 text-red-800 hover:bg-red-100">Experimental</Badge>
+                <h3 className="text-xl font-semibold mb-2">Kiwi Rojo</h3>
+                <p className="text-sm text-muted-foreground mb-4">
+                  La próxima innovación. Muy dulce, notas a berries. Cosecha en 
+                  octubre, llenando el hueco entre amarillo y verde.
+                </p>
+                <div className="text-xs text-muted-foreground">
+                  <span className="font-medium">Mercado:</span> China, retail de lujo
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </section>
 
@@ -190,13 +296,13 @@ export default function NosotrosPage() {
                   }`}
                 >
                   {/* Timeline dot */}
-                  <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-primary rounded-full -translate-x-1/2 z-10" />
+                  <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-amber-600 rounded-full -translate-x-1/2 z-10" />
                   
                   {/* Content */}
                   <div className={`ml-12 md:ml-0 md:w-1/2 ${index % 2 === 0 ? "md:pr-12 md:text-right" : "md:pl-12"}`}>
                     <Card>
                       <CardContent className="p-6">
-                        <span className="text-2xl font-bold text-primary">{item.year}</span>
+                        <span className="text-2xl font-bold text-amber-700">{item.year}</span>
                         <h3 className="text-xl font-semibold mt-2 mb-3">{item.title}</h3>
                         <p className="text-muted-foreground">{item.description}</p>
                       </CardContent>
@@ -225,31 +331,17 @@ export default function NosotrosPage() {
             ))}
           </div>
         </section>
+      </div>
 
-        <Separator className="my-16" />
+      {/* Empaquetadora Section - Full width */}
+      <Empaquetadora />
 
-        {/* Certifications */}
-        <section id="certificaciones">
-          <h2 className="text-3xl font-bold text-center mb-4">Certificaciones</h2>
-          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-            Nuestro compromiso con la calidad está respaldado por las más exigentes 
-            certificaciones nacionales e internacionales.
-          </p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {certifications.map((cert, index) => (
-              <Card key={index}>
-                <CardContent className="p-6 text-center">
-                  <div className="text-4xl mb-4">{cert.icon}</div>
-                  <h3 className="font-semibold mb-2">{cert.name}</h3>
-                  <p className="text-sm text-muted-foreground">{cert.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </section>
+      <div className="container mx-auto px-4">
+        {/* Certifications - Using new component */}
+        <Certifications variant="full" showTitle={true} className="py-0" />
 
         {/* Sustainability */}
-        <section className="mt-20 bg-primary/5 rounded-2xl p-8 md:p-12" id="sostenibilidad">
+        <section className="mt-20 bg-amber-50 rounded-2xl p-8 md:p-12" id="sostenibilidad">
           <div className="max-w-3xl mx-auto text-center">
             <span className="text-4xl">🌍</span>
             <h2 className="text-3xl font-bold mt-4 mb-4">Compromiso con la Sustentabilidad</h2>

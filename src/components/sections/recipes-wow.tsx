@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { AnimatedSection } from "@/components/animations/animated-section";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -12,8 +13,9 @@ const recipes = [
     title: "Mini Pavlovas con Kiwi",
     category: "Postres",
     time: "45 min",
-    image: "🍰",
-    gradient: "from-pink-400 to-rose-500",
+    image: "/recipe-tarta-kiwi.png",
+    emoji: "🍰",
+    overlayColor: "from-pink-600/40 via-rose-500/30 to-pink-700/50",
     description: "Merengue, crema batida y kiwi fresco",
     instagramUrl: "https://www.instagram.com/p/CeT5vPfOtMr/",
   },
@@ -22,19 +24,21 @@ const recipes = [
     title: "Smoothie Bowl Verde",
     category: "Desayunos",
     time: "10 min",
-    image: "🥣",
-    gradient: "from-green-400 to-emerald-500",
+    image: "/recipe-smoothie-bowl.png",
+    emoji: "🥣",
+    overlayColor: "from-green-600/40 via-emerald-500/30 to-green-700/50",
     description: "Banana, espinaca, kiwi y toppings",
     instagramUrl: "https://www.instagram.com/p/B-GDS53j4ee/",
   },
   {
     id: 3,
-    title: "Bubble Tea de Kiwi",
+    title: "Limonada de Kiwi",
     category: "Bebidas",
-    time: "40 min",
-    image: "🧋",
-    gradient: "from-lime-400 to-green-500",
-    description: "Té con perlas de tapioca y kiwi",
+    time: "15 min",
+    image: "/recipe-limonada-kiwi.png",
+    emoji: "🍹",
+    overlayColor: "from-lime-600/40 via-green-500/30 to-lime-700/50",
+    description: "Refrescante con menta y hielo",
     instagramUrl: "https://www.instagram.com/p/CQyoP_uAgBt/",
   },
   {
@@ -42,8 +46,9 @@ const recipes = [
     title: "Salmón al Kiwi",
     category: "Platos",
     time: "30 min",
-    image: "🐟",
-    gradient: "from-orange-400 to-red-500",
+    image: "/recipe-salmon-kiwi.png",
+    emoji: "🐟",
+    overlayColor: "from-orange-600/40 via-red-500/30 to-orange-700/50",
     description: "Con salsa de kiwi y cilantro",
     instagramUrl: "https://www.instagram.com/p/CDwhe4fDdTX/",
   },
@@ -52,8 +57,9 @@ const recipes = [
     title: "Rodajas con Chocolate",
     category: "Snacks",
     time: "15 min",
-    image: "🍫",
-    gradient: "from-amber-600 to-amber-800",
+    image: "/recipe-chocolate-kiwi.png",
+    emoji: "🍫",
+    overlayColor: "from-amber-800/40 via-amber-700/30 to-amber-900/50",
     description: "Kiwi bañado en chocolate negro",
     instagramUrl: "https://www.instagram.com/p/BdvVyQYFQJ-/",
   },
@@ -61,7 +67,14 @@ const recipes = [
 
 export function RecipesWow() {
   return (
-    <section className="py-24 bg-linear-to-br from-green-600 via-emerald-500 to-green-700 overflow-hidden relative">
+<section className="py-24 overflow-hidden relative">
+      {/* Background Image - bg-fixed solo en desktop (no funciona en mobile) */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat md:bg-fixed"
+        style={{ backgroundImage: "url('/bg-recipes-kitchen.png')" }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-br from-amber-700/85 via-amber-600/80 to-amber-800/85 md:from-amber-700/75 md:via-amber-600/70 md:to-amber-800/75" />
+      
       {/* Decoración */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 right-20 text-[200px]">🥝</div>
@@ -95,56 +108,56 @@ export function RecipesWow() {
                 href={recipe.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`group block rounded-2xl md:rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:rotate-1 bg-linear-to-br ${recipe.gradient} ${index === 0 ? "h-full min-h-[140px] md:min-h-[400px]" : "min-h-[140px] sm:aspect-square"}`}
+                className={`group block rounded-2xl md:rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:rotate-1 relative ${index === 0 ? "h-full min-h-[200px] md:min-h-[400px]" : "min-h-[200px] sm:aspect-square"}`}
               >
-                <div className="h-full p-4 md:p-6 flex flex-row sm:flex-col justify-between relative">
-                  {/* Overlay para hover */}
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
-                  
-                  {/* Contenido izquierdo/superior */}
-                  <div className="flex flex-col justify-between flex-1 relative z-10">
-                    {/* Badge de categoría */}
-                    <Badge className="w-fit bg-white/30 backdrop-blur-sm text-white text-xs relative z-10">
+                {/* Imagen de fondo */}
+                <div className="absolute inset-0">
+                  <Image
+                    src={recipe.image}
+                    alt={recipe.title}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                </div>
+                
+                {/* Overlay con gradiente de color */}
+                <div className={`absolute inset-0 bg-gradient-to-b ${recipe.overlayColor} group-hover:opacity-80 transition-opacity duration-300`} />
+                
+                {/* Contenido */}
+                <div className="h-full p-4 md:p-6 flex flex-col justify-between relative z-10">
+                  {/* Badge de categoría */}
+                  <div className="flex justify-between items-start">
+                    <Badge className="bg-white/30 backdrop-blur-sm text-white text-xs shadow-lg">
                       {recipe.category}
                     </Badge>
-
-                    {/* Info inferior (visible en mobile a la izquierda) */}
-                    <div className="mt-auto sm:hidden">
-                      <h3 className="text-white font-bold text-lg mb-1 group-hover:underline">
-                        {recipe.title}
-                      </h3>
-                      <p className="text-white/70 text-sm mb-2">{recipe.description}</p>
-                      <div className="flex items-center gap-2 text-white/60 text-sm">
-                        <span>⏱️ {recipe.time}</span>
+                    
+                    {/* Icono de Instagram */}
+                    <div className="opacity-0 group-hover:opacity-100 transition-opacity">
+                      <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+                        <span className="text-lg">📷</span>
                       </div>
                     </div>
                   </div>
 
-                  {/* Emoji - a la derecha en mobile, centrado en desktop */}
-                  <div className="flex items-center justify-center relative z-10 sm:flex-1 pl-4 sm:pl-0">
-                    <span className={`${index === 0 ? "text-7xl md:text-9xl" : "text-6xl md:text-7xl"} group-hover:scale-110 transition-transform duration-300`}>
-                      {recipe.image}
+                  {/* Emoji centrado - solo visible en desktop */}
+                  <div className="flex-1 flex items-center justify-center">
+                    <span className={`hidden md:block ${index === 0 ? "text-7xl md:text-9xl" : "text-6xl md:text-7xl"} drop-shadow-2xl group-hover:scale-125 transition-transform duration-500 filter drop-shadow-lg`}>
+                      {recipe.emoji}
                     </span>
                   </div>
 
-                  {/* Info inferior - solo visible en desktop */}
-                  <div className="hidden sm:block relative z-10">
-                    <h3 className="text-white font-bold text-xl mb-1 group-hover:underline">
+                  {/* Info inferior */}
+                  <div className="bg-black/20 backdrop-blur-sm rounded-xl p-3 md:p-4">
+                    <h3 className="text-white font-bold text-lg md:text-xl mb-1 group-hover:underline drop-shadow-md">
                       {recipe.title}
                     </h3>
-                    <p className="text-white/70 text-sm mb-2 line-clamp-2">{recipe.description}</p>
-                    <div className="flex items-center gap-2 text-white/60 text-sm">
+                    <p className="text-white/80 text-sm mb-2 line-clamp-1 drop-shadow-sm">{recipe.description}</p>
+                    <div className="flex items-center justify-between text-white/70 text-sm">
                       <span>⏱️ {recipe.time}</span>
-                      <span className="opacity-0 group-hover:opacity-100 transition-opacity">
-                        → Ver en Instagram
+                      <span className="opacity-0 group-hover:opacity-100 transition-opacity text-white">
+                        Ver en Instagram →
                       </span>
-                    </div>
-                  </div>
-
-                  {/* Icono de Instagram */}
-                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity z-10">
-                    <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
-                      <span className="text-lg">📷</span>
                     </div>
                   </div>
                 </div>
@@ -159,16 +172,24 @@ export function RecipesWow() {
             <Button 
               asChild 
               size="lg" 
-              className="bg-white text-green-700 hover:bg-yellow-300 hover:text-green-900 text-lg px-10 py-6 rounded-full font-bold shadow-xl hover:shadow-2xl transition-all transform hover:scale-105"
+              className="bg-white text-amber-700 hover:bg-yellow-300 hover:text-amber-900 text-lg px-10 py-6 rounded-full font-bold shadow-xl hover:shadow-2xl transition-all transform hover:scale-105"
             >
               <Link href="/recetas">VER TODAS LAS RECETAS</Link>
             </Button>
             <Button 
               asChild 
               size="lg" 
-              className="bg-white/20 border-2 border-white text-white hover:bg-white hover:text-green-700 text-lg px-10 py-6 rounded-full font-bold backdrop-blur-sm"
+              className="bg-white/20 border-2 border-white text-white hover:bg-white hover:text-amber-700 text-lg px-10 py-6 rounded-full font-bold backdrop-blur-sm group/ig"
             >
-              <a href="https://instagram.com/kiwi_argentino" target="_blank" rel="noopener noreferrer">
+              <a href="https://instagram.com/kiwi_argentino" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3">
+                <Image 
+                  src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" 
+                  alt="Instagram" 
+                  width={24} 
+                  height={24} 
+                  className="w-6 h-6 brightness-0 invert group-hover/ig:brightness-100 group-hover/ig:invert-0 transition-all" 
+                  unoptimized 
+                />
                 SEGUINOS EN IG
               </a>
             </Button>

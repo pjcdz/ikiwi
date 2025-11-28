@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { AnimatedSection } from "@/components/animations/animated-section";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -13,12 +14,9 @@ const varieties = [
     tagline: "REFRESCANTE Y ÁCIDO",
     description: "El clásico. Pulpa verde brillante con el balance perfecto de dulzura y acidez. Rico en actinidina para una mejor digestión.",
     color: "from-green-500 to-emerald-600",
-    bgColor: "bg-green-500",
     textColor: "text-green-800",
-    borderColor: "border-green-600",
-    pulpColor: "from-lime-300 to-green-400",
-    skinColor: "from-amber-700 to-amber-900",
     badge: "Más Popular",
+    image: "/product-kiwi-verde.png",
     stats: [
       { label: "Vitamina C", value: "92mg" },
       { label: "Fibra", value: "3g" },
@@ -32,12 +30,9 @@ const varieties = [
     tagline: "DULCE Y TROPICAL",
     description: "Pulpa dorada intensamente dulce con notas tropicales. 3 veces más vitamina C que una naranja. Piel más suave.",
     color: "from-yellow-500 to-amber-500",
-    bgColor: "bg-yellow-500",
     textColor: "text-amber-800",
-    borderColor: "border-amber-500",
-    pulpColor: "from-yellow-300 to-amber-400",
-    skinColor: "from-amber-600 to-amber-800",
     badge: "Premium",
+    image: "/product-kiwi-amarillo.png",
     stats: [
       { label: "Vitamina C", value: "161mg" },
       { label: "Fibra", value: "2g" },
@@ -51,12 +46,9 @@ const varieties = [
     tagline: "PURO Y NATURAL",
     description: "Cultivado sin agroquímicos con certificación orgánica. Exportado a Europa. El mismo sabor, cero químicos.",
     color: "from-emerald-600 to-green-700",
-    bgColor: "bg-emerald-600",
     textColor: "text-emerald-800",
-    borderColor: "border-emerald-600",
-    pulpColor: "from-green-300 to-emerald-400",
-    skinColor: "from-amber-700 to-amber-900",
     badge: "Orgánico",
+    image: "/product-kiwi-organico.png",
     stats: [
       { label: "Químicos", value: "0%" },
       { label: "Natural", value: "100%" },
@@ -67,15 +59,21 @@ const varieties = [
 
 export function ProductsWow() {
   return (
-    <section className="py-24 bg-white overflow-hidden">
-      <div className="container mx-auto px-4">
+    <section className="py-24 overflow-hidden relative">
+      {/* Background Image - bg-fixed solo en desktop (no funciona en mobile) */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat md:bg-fixed"
+        style={{ backgroundImage: "url('/bg-products-orchard-bokeh.png')" }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#faf8f5]/80 via-[#faf8f5]/65 to-[#faf8f5]/80 md:from-[#faf8f5]/70 md:via-[#faf8f5]/55 md:to-[#faf8f5]/70" />
+      <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <AnimatedSection animation="fadeUp" className="text-center mb-16">
-          <Badge className="bg-green-100 text-green-800 text-sm px-4 py-1 mb-4">
+          <Badge className="bg-amber-100 text-amber-800 text-sm px-4 py-1 mb-4">
             NUESTROS KIWIS
           </Badge>
           <h2 className="text-4xl md:text-6xl font-black text-gray-900 mb-4">
-            VARIEDADES <span className="text-green-600">EXTRAORDINARIAS</span>
+            VARIEDADES <span className="text-amber-700">EXTRAORDINARIAS</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Cada variedad es única. Todas son deliciosas.
@@ -100,53 +98,16 @@ export function ProductsWow() {
                   </Badge>
                 </div>
 
-                {/* Visual del kiwi */}
-                <div className="relative h-64 flex items-center justify-center p-8">
-                  {/* Kiwi visual */}
-                  <div className="relative transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
-                    {/* Sombra */}
-                    <div className="absolute inset-0 bg-black/20 rounded-full blur-xl translate-y-4" />
-                    
-                    {/* Kiwi entero */}
-                    <div className={`relative w-32 h-40 bg-linear-to-br ${variety.skinColor} rounded-[50%] shadow-lg border-4 border-white/20`}>
-                      {/* Textura de la piel - posiciones fijas para evitar hydration mismatch */}
-                      <div className="absolute inset-0 opacity-30">
-                        <div className="absolute w-1 h-1 bg-amber-950 rounded-full" style={{ top: '15%', left: '25%' }} />
-                        <div className="absolute w-1 h-1 bg-amber-950 rounded-full" style={{ top: '25%', left: '65%' }} />
-                        <div className="absolute w-1 h-1 bg-amber-950 rounded-full" style={{ top: '35%', left: '15%' }} />
-                        <div className="absolute w-1 h-1 bg-amber-950 rounded-full" style={{ top: '45%', left: '75%' }} />
-                        <div className="absolute w-1 h-1 bg-amber-950 rounded-full" style={{ top: '55%', left: '35%' }} />
-                        <div className="absolute w-1 h-1 bg-amber-950 rounded-full" style={{ top: '65%', left: '55%' }} />
-                        <div className="absolute w-1 h-1 bg-amber-950 rounded-full" style={{ top: '75%', left: '20%' }} />
-                        <div className="absolute w-1 h-1 bg-amber-950 rounded-full" style={{ top: '85%', left: '70%' }} />
-                        <div className="absolute w-1 h-1 bg-amber-950 rounded-full" style={{ top: '20%', left: '45%' }} />
-                        <div className="absolute w-1 h-1 bg-amber-950 rounded-full" style={{ top: '40%', left: '50%' }} />
-                        <div className="absolute w-1 h-1 bg-amber-950 rounded-full" style={{ top: '60%', left: '80%' }} />
-                        <div className="absolute w-1 h-1 bg-amber-950 rounded-full" style={{ top: '80%', left: '40%' }} />
-                      </div>
-                    </div>
-
-                    {/* Kiwi cortado (pulpa visible) */}
-                    <div className={`absolute -right-16 top-4 w-28 h-28 bg-linear-to-br ${variety.pulpColor} rounded-full shadow-xl border-4 border-white/30 flex items-center justify-center`}>
-                      {/* Centro */}
-                      <div className="w-6 h-6 bg-white/80 rounded-full" />
-                      {/* Semillas */}
-                      <div className="absolute inset-0">
-                        {[...Array(8)].map((_, i) => (
-                          <div 
-                            key={i}
-                            className="absolute w-1.5 h-3 bg-gray-800/60 rounded-full"
-                            style={{
-                              top: '50%',
-                              left: '50%',
-                              transform: `rotate(${i * 45}deg) translateY(-30px)`,
-                              transformOrigin: 'center center'
-                            }}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                  </div>
+                {/* Visual del kiwi con imagen real */}
+                <div className="relative h-64 flex items-center justify-center overflow-hidden">
+                  <Image
+                    src={variety.image}
+                    alt={variety.name}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
                 </div>
 
                 {/* Contenido */}
@@ -186,7 +147,7 @@ export function ProductsWow() {
           <Button 
             asChild 
             size="lg" 
-            className="bg-green-600 hover:bg-green-700 text-white text-lg px-10 py-6 rounded-full font-bold shadow-xl hover:shadow-2xl transition-all transform hover:scale-105"
+            className="bg-amber-700 hover:bg-amber-800 text-white text-lg px-10 py-6 rounded-full font-bold shadow-xl hover:shadow-2xl transition-all transform hover:scale-105"
           >
             <Link href="/productos">VER TODOS LOS PRODUCTOS</Link>
           </Button>
