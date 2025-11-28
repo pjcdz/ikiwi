@@ -48,8 +48,14 @@ const benefits = [
 
 export function BenefitsSection() {
   return (
-    <section className="py-20">
-      <div className="container mx-auto px-4">
+    <section className="py-20 relative">
+      {/* Background Image - bg-fixed solo en desktop (no funciona en mobile) */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat md:bg-fixed"
+        style={{ backgroundImage: "url('/bg-benefits-breakfast.png')" }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#faf8f5]/85 via-[#faf8f5]/70 to-[#faf8f5]/85 md:from-[#faf8f5]/75 md:via-[#faf8f5]/60 md:to-[#faf8f5]/75" />
+      <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <Badge variant="outline" className="mb-4">Nutrición y Salud</Badge>
@@ -67,7 +73,7 @@ export function BenefitsSection() {
           {benefits.map((benefit, index) => (
             <Card 
               key={index} 
-              className="group hover:shadow-lg transition-all duration-300 hover:border-primary/50"
+              className="group hover:shadow-lg transition-all duration-300 hover:border-amber-500/50 bg-white/95 backdrop-blur-md border border-white/50 shadow-md"
             >
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
@@ -82,7 +88,7 @@ export function BenefitsSection() {
                       {benefit.description}
                     </p>
                     <div className="flex items-baseline gap-2">
-                      <span className="text-2xl font-bold text-primary">
+                      <span className="text-2xl font-bold text-amber-700">
                         {benefit.stat}
                       </span>
                       <span className="text-xs text-muted-foreground">
@@ -97,11 +103,11 @@ export function BenefitsSection() {
         </div>
 
         {/* Comparison callout */}
-        <div className="mt-12 bg-primary/5 rounded-2xl p-8 text-center">
+        <div className="mt-12 bg-amber-50/95 backdrop-blur-sm rounded-2xl p-8 text-center border border-amber-100/50 shadow-lg">
           <p className="text-lg text-foreground mb-2">
             <span className="font-bold">¿Sabías que?</span>
           </p>
-          <p className="text-2xl md:text-3xl font-bold text-primary">
+          <p className="text-2xl md:text-3xl font-bold text-amber-700">
             1 kiwi = 1 kilo de limones en vitamina C
           </p>
           <p className="text-muted-foreground mt-2">

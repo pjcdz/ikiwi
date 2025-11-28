@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
@@ -120,7 +121,7 @@ export default function NutricionPage() {
 
         {/* Vitamin C Comparison Hero */}
         <section className="mb-16">
-          <Card className="bg-primary/5 border-primary/20">
+          <Card className="bg-amber-50 border-amber-200">
             <CardContent className="p-8 md:p-12">
               <div className="text-center mb-8">
                 <span className="text-6xl mb-4 block">🥝</span>
@@ -141,7 +142,7 @@ export default function NutricionPage() {
                       </div>
                       <div className="h-3 bg-muted rounded-full overflow-hidden">
                         <div 
-                          className={`h-full ${index === 0 ? 'bg-primary' : 'bg-muted-foreground/30'} rounded-full transition-all`}
+                          className={`h-full ${index === 0 ? 'bg-amber-600' : 'bg-muted-foreground/30'} rounded-full transition-all`}
                           style={{ width: `${item.percentage}%` }}
                         />
                       </div>
@@ -189,7 +190,7 @@ export default function NutricionPage() {
                   <div className="text-4xl mb-4">{benefit.icon}</div>
                   <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
                   <p className="text-muted-foreground mb-4">{benefit.description}</p>
-                  <p className="text-sm text-primary/80">{benefit.detail}</p>
+                  <p className="text-sm text-amber-700">{benefit.detail}</p>
                 </CardContent>
               </Card>
             ))}
@@ -200,7 +201,7 @@ export default function NutricionPage() {
 
         {/* Actinidin Section */}
         <section className="mb-16">
-          <div className="bg-accent/10 rounded-2xl p-8 md:p-12">
+          <div className="bg-amber-50 rounded-2xl p-8 md:p-12">
             <div className="max-w-3xl mx-auto">
               <div className="text-center mb-8">
                 <span className="text-5xl">🧬</span>
@@ -224,19 +225,19 @@ export default function NutricionPage() {
                   <h3 className="font-semibold mb-3">Beneficios</h3>
                   <ul className="space-y-2 text-sm text-muted-foreground">
                     <li className="flex items-start gap-2">
-                      <span className="text-primary">✓</span>
+                      <span className="text-amber-600">✓</span>
                       Mejora la digestión de proteínas
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-primary">✓</span>
+                      <span className="text-amber-600">✓</span>
                       Reduce la hinchazón después de comidas pesadas
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-primary">✓</span>
+                      <span className="text-amber-600">✓</span>
                       Ideal como postre después de carnes
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-primary">✓</span>
+                      <span className="text-amber-600">✓</span>
                       Puede usarse como ablandador natural de carnes
                     </li>
                   </ul>
@@ -250,10 +251,12 @@ export default function NutricionPage() {
         <section className="mb-16">
           <h2 className="text-2xl font-bold text-center mb-8">Kiwi Verde vs. Kiwi Amarillo</h2>
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            <Card className="border-primary/30">
+            <Card className="border-amber-500/30">
               <CardContent className="p-6">
                 <div className="text-center mb-4">
-                  <span className="text-5xl">🥝</span>
+                  <div className="relative w-24 h-24 mx-auto mb-2">
+                    <Image src="/image12.png" alt="Kiwi Verde Hayward" fill className="object-contain" />
+                  </div>
                   <h3 className="text-xl font-semibold mt-2">Kiwi Verde (Hayward)</h3>
                 </div>
                 <ul className="space-y-3 text-sm">
@@ -263,11 +266,11 @@ export default function NutricionPage() {
                   </li>
                   <li className="flex justify-between">
                     <span>Fibra</span>
-                    <span className="font-medium text-primary">3g (más alto)</span>
+                    <span className="font-medium text-amber-700">3g (más alto)</span>
                   </li>
                   <li className="flex justify-between">
                     <span>Actinidina</span>
-                    <span className="font-medium text-primary">Alta concentración</span>
+                    <span className="font-medium text-amber-700">Alta concentración</span>
                   </li>
                   <li className="flex justify-between">
                     <span>Sabor</span>
@@ -284,7 +287,9 @@ export default function NutricionPage() {
             <Card className="border-accent/30">
               <CardContent className="p-6">
                 <div className="text-center mb-4">
-                  <span className="text-5xl">🟡</span>
+                  <div className="relative w-24 h-24 mx-auto mb-2">
+                    <Image src="/image13.png" alt="Kiwi Gold Amarillo" fill className="object-contain" />
+                  </div>
                   <h3 className="text-xl font-semibold mt-2">Kiwi Amarillo (Jintao/Dorí)</h3>
                 </div>
                 <ul className="space-y-3 text-sm">
@@ -334,7 +339,7 @@ export default function NutricionPage() {
         </section>
 
         {/* CTA */}
-        <section className="mt-20 text-center bg-primary/5 rounded-2xl p-8 md:p-12">
+        <section className="mt-20 text-center bg-amber-50 rounded-2xl p-8 md:p-12">
           <span className="text-5xl mb-4 block">🥝</span>
           <h2 className="text-2xl font-bold mb-4">Incorpora el Kiwi a Tu Dieta</h2>
           <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
