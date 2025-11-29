@@ -87,8 +87,8 @@ interface CertificationCardProps {
 
 function CertificationCard({ certification, variant }: CertificationCardProps) {
   const categoryColors = {
-    origin: "bg-green-100 text-green-800",
-    organic: "bg-green-100 text-green-800",
+    origin: "bg-[#3f7528]/20 text-[#3f7528]",
+    organic: "bg-[#3f7528]/20 text-[#3f7528]",
     quality: "bg-blue-100 text-blue-800",
     international: "bg-purple-100 text-purple-800",
   };

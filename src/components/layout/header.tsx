@@ -49,7 +49,7 @@ export function Header() {
                   />
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-bold text-lg text-green-800 leading-tight">iKiwi</span>
+                  <span className="font-bold text-lg text-[#3f7528] leading-tight">iKiwi</span>
                   <span className="text-xs text-muted-foreground leading-tight hidden sm:block">Kiwi Argentino</span>
                 </div>
               </div>
@@ -62,7 +62,7 @@ export function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="px-2.5 py-2 text-sm font-medium text-muted-foreground hover:text-green-700 transition-colors rounded-md hover:bg-green-50 whitespace-nowrap"
+                className="px-2.5 py-2 text-sm font-medium text-muted-foreground hover:text-[#3f7528] transition-colors rounded-md hover:bg-[#3f7528]/10 whitespace-nowrap"
               >
                 {item.name}
               </Link>
@@ -71,21 +71,21 @@ export function Header() {
 
           {/* CTA Buttons - Desktop - Fixed width to balance with left side */}
           <div className="hidden xl:flex flex-1 items-center justify-end space-x-2 min-w-0">
-            <Button asChild variant="outline" size="sm" className="text-green-700 border-green-700 hover:bg-green-700 hover:text-white shrink-0 h-9">
+            <Button asChild variant="outline" size="sm" className="text-[#3f7528] border-[#3f7528] hover:bg-[#3f7528] hover:text-white shrink-0 h-9">
               <Link href="/trabaja-con-nosotros">
                 <Briefcase className="mr-1.5 h-4 w-4" />
                 <span className="hidden 2xl:inline">Trabajá con Nosotros</span>
                 <span className="2xl:hidden">Trabajá</span>
               </Link>
             </Button>
-            <Button asChild size="sm" className="bg-green-700 hover:bg-green-800 shrink-0 h-9">
+            <Button asChild size="sm" className="bg-[#3f7528] hover:bg-[#3f7528]/90 shrink-0 h-9">
               <Link href="/contacto">Dónde Comprar</Link>
             </Button>
           </div>
           
           {/* Simplified CTA for medium screens (lg only) */}
           <div className="hidden lg:flex xl:hidden items-center space-x-2">
-            <Button asChild size="sm" className="bg-green-700 hover:bg-green-800">
+            <Button asChild size="sm" className="bg-[#3f7528] hover:bg-[#3f7528]/90">
               <Link href="/contacto">Dónde Comprar</Link>
             </Button>
           </div>
@@ -112,7 +112,7 @@ export function Header() {
                   key={item.name}
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center gap-4 px-4 py-4 text-lg font-medium text-foreground hover:text-green-700 hover:bg-green-50 rounded-xl transition-colors"
+                  className="flex items-center gap-4 px-4 py-4 text-lg font-medium text-foreground hover:text-[#3f7528] hover:bg-[#3f7528]/10 rounded-xl transition-colors"
                 >
                   <span className="text-2xl">{item.icon}</span>
                   <span>{item.name}</span>
@@ -123,7 +123,7 @@ export function Header() {
               <Link
                 href="/trabaja-con-nosotros"
                 onClick={() => setIsOpen(false)}
-                className="flex items-center gap-4 px-4 py-4 text-lg font-medium text-green-700 bg-green-50 hover:bg-green-100 rounded-xl transition-colors mt-2"
+                className="flex items-center gap-4 px-4 py-4 text-lg font-medium text-[#3f7528] bg-[#3f7528]/10 hover:bg-[#3f7528]/20 rounded-xl transition-colors mt-2"
               >
                 <span className="text-2xl">💼</span>
                 <span>Trabajá con Nosotros</span>

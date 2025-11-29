@@ -166,7 +166,7 @@ export default function NoticiasPage() {
 
         {/* Featured News */}
         <section className="mb-16">
-          <div className="bg-gradient-to-br from-amber-100 to-amber-50 rounded-2xl overflow-hidden">
+          <div className="bg-gradient-to-br from-[#3f7528]/10 to-[#3f7528]/5 rounded-2xl overflow-hidden">
             <div className="grid lg:grid-cols-2">
               <div className="p-8 md:p-12 flex flex-col justify-center">
                 <div className="flex items-center gap-3 mb-4">
@@ -233,7 +233,7 @@ export default function NoticiasPage() {
                 </div>
                 <CardContent className="p-6 flex-1">
                   <p className="text-xs text-muted-foreground mb-2">{item.date}</p>
-                  <h3 className="text-lg font-semibold mb-3 group-hover:text-amber-700 transition-colors">
+                  <h3 className="text-lg font-semibold mb-3 group-hover:text-[#3f7528] transition-colors">
                     {item.title}
                   </h3>
                   <p className="text-sm text-muted-foreground">{item.excerpt}</p>
@@ -262,28 +262,28 @@ export default function NoticiasPage() {
           <div className="grid md:grid-cols-4 gap-6">
             <Card>
               <CardContent className="p-6 text-center">
-                <p className="text-4xl font-bold text-amber-700 mb-2">0,45kg</p>
+                <p className="text-4xl font-bold text-[#3f7528] mb-2">0,45kg</p>
                 <p className="text-sm text-muted-foreground">Consumo Per Cápita</p>
                 <p className="text-xs text-muted-foreground mt-1">Mayor de Latinoamérica</p>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="p-6 text-center">
-                <p className="text-4xl font-bold text-amber-700 mb-2">9</p>
+                <p className="text-4xl font-bold text-[#3f7528] mb-2">9</p>
                 <p className="text-sm text-muted-foreground">Partidos en la IG</p>
                 <p className="text-xs text-muted-foreground mt-1">Mar y Sierras del Sudeste</p>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="p-6 text-center">
-                <p className="text-4xl font-bold text-amber-700 mb-2">16,5%</p>
+                <p className="text-4xl font-bold text-[#3f7528] mb-2">16,5%</p>
                 <p className="text-sm text-muted-foreground">Materia Seca Mínima</p>
                 <p className="text-xs text-muted-foreground mt-1">Requisito de la IG</p>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="p-6 text-center">
-                <p className="text-4xl font-bold text-amber-700 mb-2">900t</p>
+                <p className="text-4xl font-bold text-[#3f7528] mb-2">900t</p>
                 <p className="text-sm text-muted-foreground">Capacidad Ecco Argentina</p>
                 <p className="text-xs text-muted-foreground mt-1">Planta de frío Miramar</p>
               </CardContent>

@@ -61,14 +61,14 @@ export function HeroVideo() {
       />
 
       {/* Gradiente cálido/terroso para sensación campestre */}
-      <div className="absolute inset-0 bg-gradient-to-b from-amber-900/20 via-transparent to-amber-950/40 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#3f7528]/20 via-transparent to-[#2d5a1c]/40 pointer-events-none" />
 
       {/* Contenido principal */}
       <div className="relative z-10 container mx-auto px-4 py-16 md:py-20 min-h-screen flex items-center">
         <div className="max-w-4xl mx-auto text-center">
           {/* Badge cosecha */}
           <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-md text-white px-4 py-2 rounded-full text-sm font-medium mb-6 border border-white/20">
-            <span className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></span>
+            <span className="w-2 h-2 bg-lime-400 rounded-full animate-pulse"></span>
             Cosecha 2025 disponible
           </div>
 
@@ -81,7 +81,7 @@ export function HeroVideo() {
               KIWI
             </span>
             <br />
-            <span className="inline-block text-yellow-300 drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]">
+            <span className="inline-block text-lime-300 drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]">
               ARGENTINO
             </span>
           </h1>
@@ -90,7 +90,7 @@ export function HeroVideo() {
             ref={subtitleRef}
             className="text-lg md:text-2xl text-white/90 mb-8 md:mb-10 font-medium max-w-2xl mx-auto drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]"
           >
-            Cultivado con pasión en <span className="text-amber-200 font-semibold">Sierra de los Padres, Mar del Plata</span>.
+            Cultivado con pasión en <span className="text-lime-200 font-semibold">Sierra de los Padres, Mar del Plata</span>.
             <br className="hidden md:block" />
             La mayor productora de kiwi de Argentina.
           </p>
@@ -99,7 +99,7 @@ export function HeroVideo() {
             <Button
               asChild
               size="lg"
-              className="bg-green-100 text-green-900 hover:bg-green-200 hover:text-green-950 text-base md:text-lg px-8 py-6 font-bold rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_50px_rgba(0,0,0,0.35)] transition-all duration-300 hover:scale-105 hover:-translate-y-1"
+              className="bg-[#3f7528] text-white hover:bg-[#3f7528]/90 hover:text-white text-base md:text-lg px-8 py-6 font-bold rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_50px_rgba(0,0,0,0.35)] transition-all duration-300 hover:scale-105 hover:-translate-y-1"
             >
               <Link href="/productos">CONOCÉ NUESTROS KIWIS</Link>
             </Button>
@@ -107,7 +107,7 @@ export function HeroVideo() {
               asChild
               variant="ghost"
               size="lg"
-              className="bg-white/15 border-2 border-white/80 text-white hover:bg-white hover:text-green-900 text-base md:text-lg px-8 py-6 font-bold rounded-full backdrop-blur-md shadow-[0_8px_32px_rgba(0,0,0,0.2)] transition-all duration-300 hover:scale-105 hover:-translate-y-1"
+              className="bg-white/15 border-2 border-white/80 text-white hover:bg-white hover:text-[#3f7528] text-base md:text-lg px-8 py-6 font-bold rounded-full backdrop-blur-md shadow-[0_8px_32px_rgba(0,0,0,0.2)] transition-all duration-300 hover:scale-105 hover:-translate-y-1"
             >
               <Link href="/contacto#exportadores">CONTACTO COMERCIAL</Link>
             </Button>

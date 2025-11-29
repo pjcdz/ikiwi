@@ -9,7 +9,7 @@ interface TrabajaCTAProps {
 export function TrabajaCTA({ variant = "default", className = "" }: TrabajaCTAProps) {
   if (variant === "compact") {
     return (
-      <div className={`bg-green-50 rounded-xl p-6 ${className}`}>
+      <div className={`bg-[#3f7528]/10 rounded-xl p-6 ${className}`}>
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <span className="text-3xl">👩‍🌾</span>
@@ -31,7 +31,7 @@ export function TrabajaCTA({ variant = "default", className = "" }: TrabajaCTAPr
   return (
     <section className={`py-16 md:py-24 ${className}`}>
       <div className="container mx-auto px-4">
-        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-green-700 via-green-600 to-green-800 p-8 md:p-12 lg:p-16">
+        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#3f7528] via-[#3f7528]/90 to-[#3f7528] p-8 md:p-12 lg:p-16">
           {/* Background decoration */}
           <div className="absolute -top-24 -right-24 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
           <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
@@ -50,7 +50,7 @@ export function TrabajaCTA({ variant = "default", className = "" }: TrabajaCTAPr
               <Button
                 asChild
                 size="lg"
-                className="bg-white text-green-700 hover:bg-green-50 font-semibold px-8"
+                className="bg-white text-[#3f7528] hover:bg-[#3f7528]/10 font-semibold px-8"
               >
                 <Link href="/trabaja-con-nosotros">Ver Oportunidades</Link>
               </Button>

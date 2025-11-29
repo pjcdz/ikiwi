@@ -111,15 +111,15 @@ export default function TrabajaConNosotrosPage() {
           {/* Stats */}
           <div className="grid grid-cols-3 gap-6 mt-12 max-w-lg mx-auto">
             <div className="text-center">
-              <p className="text-4xl font-bold text-amber-700">90+</p>
+              <p className="text-4xl font-bold text-[#3f7528]">90+</p>
               <p className="text-muted-foreground text-sm">Empleados</p>
             </div>
             <div className="text-center">
-              <p className="text-4xl font-bold text-amber-700">15+</p>
+              <p className="text-4xl font-bold text-[#3f7528]">15+</p>
               <p className="text-muted-foreground text-sm">Años</p>
             </div>
             <div className="text-center">
-              <p className="text-4xl font-bold text-amber-700">270</p>
+              <p className="text-4xl font-bold text-[#3f7528]">270</p>
               <p className="text-muted-foreground text-sm">Hectáreas</p>
             </div>
           </div>
@@ -146,7 +146,7 @@ export default function TrabajaConNosotrosPage() {
                     <ul className="text-sm text-muted-foreground space-y-1">
                       {area.tasks.map((task, i) => (
                         <li key={i} className="flex items-center gap-2">
-                          <span className="w-1.5 h-1.5 bg-green-600 rounded-full" />
+                          <span className="w-1.5 h-1.5 bg-[#3f7528] rounded-full" />
                           {task}
                         </li>
                       ))}
@@ -210,7 +210,7 @@ export default function TrabajaConNosotrosPage() {
                         id="nombre"
                         name="nombre"
                         required
-                        className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-amber-500"
+                        className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-[#3f7528]"
                         placeholder="Tu nombre"
                       />
                     </div>
@@ -223,7 +223,7 @@ export default function TrabajaConNosotrosPage() {
                         id="email"
                         name="email"
                         required
-                        className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-amber-500"
+                        className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-[#3f7528]"
                         placeholder="tu@email.com"
                       />
                     </div>
@@ -239,7 +239,7 @@ export default function TrabajaConNosotrosPage() {
                         id="telefono"
                         name="telefono"
                         required
-                        className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-amber-500"
+                        className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-[#3f7528]"
                         placeholder="+54 223 XXX-XXXX"
                       />
                     </div>
@@ -251,7 +251,7 @@ export default function TrabajaConNosotrosPage() {
                         id="area"
                         name="area"
                         required
-                        className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-amber-500"
+                        className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-[#3f7528]"
                       >
                         <option value="">Selecciona un área</option>
                         <option value="campo">Campo</option>
@@ -270,7 +270,7 @@ export default function TrabajaConNosotrosPage() {
                       id="mensaje"
                       name="mensaje"
                       rows={4}
-                      className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-amber-500 resize-none"
+                      className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-[#3f7528] resize-none"
                       placeholder="Tu experiencia laboral, habilidades, disponibilidad..."
                     />
                   </div>
@@ -284,7 +284,7 @@ export default function TrabajaConNosotrosPage() {
                       id="cv"
                       name="cv"
                       accept=".pdf,.doc,.docx"
-                      className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-green-500 file:mr-4 file:py-1 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-green-100 file:text-green-700 hover:file:bg-green-200"
+                      className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-[#3f7528] file:mr-4 file:py-1 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#3f7528]/20 file:text-[#3f7528] hover:file:bg-[#3f7528]/30"
                     />
                     <p className="text-xs text-muted-foreground mt-1">
                       Formatos aceptados: PDF, DOC, DOCX (máx. 5MB)
@@ -306,7 +306,7 @@ export default function TrabajaConNosotrosPage() {
         </section>
 
         {/* CTA Final */}
-        <section className="bg-green-50 rounded-2xl p-8 md:p-12 text-center">
+        <section className="bg-[#3f7528]/10 rounded-2xl p-8 md:p-12 text-center">
           <span className="text-4xl">🥝</span>
           <h2 className="text-2xl font-bold mt-4 mb-4">¿Tenés Dudas?</h2>
           <p className="text-muted-foreground mb-6 max-w-xl mx-auto">

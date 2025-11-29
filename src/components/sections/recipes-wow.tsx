@@ -48,7 +48,7 @@ const recipes = [
     time: "30 min",
     image: "/recipe-salmon-kiwi.png",
     emoji: "🐟",
-    overlayColor: "from-orange-600/40 via-red-500/30 to-orange-700/50",
+    overlayColor: "from-[#3f7528]/40 via-[#4a8a30]/30 to-[#2d5a1c]/50",
     description: "Con salsa de kiwi y cilantro",
     instagramUrl: "https://www.instagram.com/p/CDwhe4fDdTX/",
   },
@@ -59,7 +59,7 @@ const recipes = [
     time: "15 min",
     image: "/recipe-chocolate-kiwi.png",
     emoji: "🍫",
-    overlayColor: "from-amber-800/40 via-amber-700/30 to-amber-900/50",
+    overlayColor: "from-[#5d4037]/40 via-[#4e342e]/30 to-[#3e2723]/50",
     description: "Kiwi bañado en chocolate negro",
     instagramUrl: "https://www.instagram.com/p/BdvVyQYFQJ-/",
   },
@@ -73,7 +73,7 @@ export function RecipesWow() {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat md:bg-fixed"
         style={{ backgroundImage: "url('/bg-recipes-kitchen.png')" }}
       />
-      <div className="absolute inset-0 bg-gradient-to-br from-amber-700/85 via-amber-600/80 to-amber-800/85 md:from-amber-700/75 md:via-amber-600/70 md:to-amber-800/75" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#3f7528]/85 via-[#4a8a30]/80 to-[#2d5a1c]/85 md:from-[#3f7528]/75 md:via-[#4a8a30]/70 md:to-[#2d5a1c]/75" />
       
       {/* Decoración */}
       <div className="absolute inset-0 opacity-10">
@@ -88,7 +88,7 @@ export function RecipesWow() {
             DEL INSTAGRAM
           </Badge>
           <h2 className="text-4xl md:text-6xl font-black text-white mb-4">
-            RECETAS <span className="text-yellow-300">DELICIOSAS</span>
+            RECETAS <span className="text-lime-300">DELICIOSAS</span>
           </h2>
           <p className="text-xl text-white/80 max-w-2xl mx-auto">
             Inspiradas en nuestras publicaciones más populares
@@ -172,14 +172,14 @@ export function RecipesWow() {
             <Button 
               asChild 
               size="lg" 
-              className="bg-white text-green-700 hover:bg-yellow-300 hover:text-green-900 text-lg px-10 py-6 rounded-full font-bold shadow-xl hover:shadow-2xl transition-all transform hover:scale-105"
+              className="bg-white text-[#3f7528] hover:bg-lime-200 hover:text-[#3f7528] text-lg px-10 py-6 rounded-full font-bold shadow-xl hover:shadow-2xl transition-all transform hover:scale-105"
             >
               <Link href="/recetas">VER TODAS LAS RECETAS</Link>
             </Button>
             <Button 
               asChild 
               size="lg" 
-              className="bg-white/20 border-2 border-white text-white hover:bg-white hover:text-green-700 text-lg px-10 py-6 rounded-full font-bold backdrop-blur-sm group/ig"
+              className="bg-white/20 border-2 border-white text-white hover:bg-white hover:text-[#3f7528] text-lg px-10 py-6 rounded-full font-bold backdrop-blur-sm group/ig"
             >
               <a href="https://instagram.com/kiwi_argentino" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3">
                 <Image 

@@ -73,7 +73,7 @@ export function BenefitsSection() {
           {benefits.map((benefit, index) => (
             <Card 
               key={index} 
-              className="group hover:shadow-lg transition-all duration-300 hover:border-green-500/50 bg-white/95 backdrop-blur-md border border-white/50 shadow-md"
+              className="group hover:shadow-lg transition-all duration-300 hover:border-[#3f7528]/50 bg-white/95 backdrop-blur-md border border-white/50 shadow-md"
             >
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
@@ -88,7 +88,7 @@ export function BenefitsSection() {
                       {benefit.description}
                     </p>
                     <div className="flex items-baseline gap-2">
-                      <span className="text-2xl font-bold text-green-700">
+                      <span className="text-2xl font-bold text-[#3f7528]">
                         {benefit.stat}
                       </span>
                       <span className="text-xs text-muted-foreground">
@@ -103,11 +103,11 @@ export function BenefitsSection() {
         </div>
 
         {/* Comparison callout */}
-        <div className="mt-12 bg-green-50/95 backdrop-blur-sm rounded-2xl p-8 text-center border border-green-100/50 shadow-lg">
+        <div className="mt-12 bg-[#3f7528]/10 backdrop-blur-sm rounded-2xl p-8 text-center border border-[#3f7528]/15 shadow-lg">
           <p className="text-lg text-foreground mb-2">
             <span className="font-bold">¿Sabías que?</span>
           </p>
-          <p className="text-2xl md:text-3xl font-bold text-green-700">
+          <p className="text-2xl md:text-3xl font-bold text-[#3f7528]">
             1 kiwi = 1 kilo de limones en vitamina C
           </p>
           <p className="text-muted-foreground mt-2">

@@ -43,7 +43,7 @@ const instagramPosts = [
     likes: 89,
     url: "https://www.instagram.com/p/COlIe2vLyW8/",
     image: "/ig-home-cosecha.png",
-    overlayColor: "from-amber-500/30 to-orange-600/40",
+    overlayColor: "from-[#3f7528]/30 to-[#2d5a1c]/40",
     emoji: "🌾",
   },
   {
@@ -73,7 +73,7 @@ const instagramPosts = [
     likes: 72,
     url: "https://www.instagram.com/p/BdvVyQYFQJ-/",
     image: "/ig-home-chocolate.png",
-    overlayColor: "from-amber-600/30 to-amber-800/40",
+    overlayColor: "from-[#5d4037]/30 to-[#3e2723]/40",
     emoji: "🍫",
   },
   {
@@ -93,7 +93,7 @@ const instagramPosts = [
     likes: 96,
     url: "https://www.instagram.com/p/B5vnguUldGm/",
     image: "/ig-home-helado.png",
-    overlayColor: "from-yellow-500/30 to-amber-600/40",
+    overlayColor: "from-lime-500/30 to-[#3f7528]/40",
     emoji: "🍦",
   },
 ];
@@ -175,7 +175,7 @@ export function InstagramGallery() {
             href="https://instagram.com/kiwi_argentino"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-purple-600 via-pink-500 to-orange-500 text-white px-8 md:px-10 py-5 md:py-6 rounded-full font-bold text-lg md:text-xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 hover:-translate-y-1"
+            className="inline-flex items-center justify-center gap-3 bg-[#3f7528] hover:bg-[#5a9c3a] text-white px-8 md:px-10 py-5 md:py-6 rounded-full font-bold text-lg md:text-xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 hover:-translate-y-1"
           >
             <Image 
               src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" 
@@ -192,7 +192,7 @@ export function InstagramGallery() {
         {/* Stats del Instagram */}
         <AnimatedSection animation="stagger" className="grid grid-cols-3 gap-4 max-w-2xl mx-auto mt-12">
           <div className="text-center bg-white/95 backdrop-blur-md rounded-2xl p-6 shadow-lg border border-white/50">
-            <p className="text-3xl md:text-4xl font-black text-green-700">171</p>
+            <p className="text-3xl md:text-4xl font-black text-[#3f7528]">171</p>
             <p className="text-gray-600 text-sm">Posts</p>
           </div>
           <div className="text-center bg-white/95 backdrop-blur-md rounded-2xl p-6 shadow-lg border border-white/50">
@@ -200,7 +200,7 @@ export function InstagramGallery() {
             <p className="text-gray-600 text-sm">Seguidores</p>
           </div>
           <div className="text-center bg-white/95 backdrop-blur-md rounded-2xl p-6 shadow-lg border border-white/50">
-            <p className="text-3xl md:text-4xl font-black text-green-600">5+</p>
+            <p className="text-3xl md:text-4xl font-black text-[#3f7528]">5+</p>
             <p className="text-gray-600 text-sm">Años</p>
           </div>
         </AnimatedSection>

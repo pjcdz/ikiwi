@@ -12,7 +12,7 @@ export function CTAWow() {
         style={{ backgroundImage: "url('/bg-cta-gaucho-sunset.png')" }}
       />
       {/* Overlay con gradiente - más opaco en mobile para mejor legibilidad */}
-      <div className="absolute inset-0 bg-gradient-to-br from-amber-400/75 via-amber-500/65 to-amber-600/75 md:from-amber-400/60 md:via-amber-500/50 md:to-amber-600/60" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#5a9c3a]/75 via-[#4a8a30]/65 to-[#3f7528]/75 md:from-[#5a9c3a]/60 md:via-[#4a8a30]/50 md:to-[#3f7528]/60" />
       
       {/* Patrón decorativo de kiwis */}
       <div className="absolute inset-0 opacity-5">
@@ -33,7 +33,7 @@ export function CTAWow() {
       <div className="container mx-auto px-4 relative z-10">
         <AnimatedSection animation="fadeUp" className="max-w-4xl mx-auto text-center">
           {/* Título principal */}
-          <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-green-900 leading-none mb-6">
+          <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-[#3f7528] leading-none mb-6">
             PROBÁ EL SABOR
             <br />
             <span className="text-white drop-shadow-lg">AUTÉNTICO</span>
@@ -50,7 +50,7 @@ export function CTAWow() {
             <Button 
               asChild 
               size="lg" 
-              className="w-full sm:w-auto bg-green-800 hover:bg-green-900 text-white text-xl px-12 py-7 rounded-full font-bold shadow-2xl hover:shadow-3xl transition-all transform hover:scale-105"
+              className="w-full sm:w-auto bg-[#3f7528] hover:bg-[#3f7528]/90 text-white text-xl px-12 py-7 rounded-full font-bold shadow-2xl hover:shadow-3xl transition-all transform hover:scale-105"
             >
               <Link href="/contacto">DÓNDE COMPRAR</Link>
             </Button>
@@ -58,7 +58,7 @@ export function CTAWow() {
               asChild 
               variant="outline" 
               size="lg" 
-              className="w-full sm:w-auto border-3 border-green-800 text-green-800 hover:bg-green-800 hover:text-white text-xl px-12 py-7 rounded-full font-bold"
+              className="w-full sm:w-auto border-3 border-[#3f7528] text-[#3f7528] hover:bg-[#3f7528] hover:text-white text-xl px-12 py-7 rounded-full font-bold"
             >
               <Link href="/nosotros">NUESTRA HISTORIA</Link>
             </Button>
@@ -68,15 +68,15 @@ export function CTAWow() {
           <div className="flex flex-wrap justify-center gap-4">
             <div className="bg-white/95 backdrop-blur-md px-6 py-3 rounded-full shadow-lg flex items-center gap-3 border border-white/50">
               <Image src="/logo-ig.png" alt="IG Mar y Sierras" width={28} height={28} className="w-7 h-7 object-contain" />
-              <span className="font-bold text-amber-900">IG Mar y Sierras</span>
+              <span className="font-bold text-[#3f7528]">IG Mar y Sierras</span>
             </div>
             <div className="bg-white/95 backdrop-blur-md px-6 py-3 rounded-full shadow-lg flex items-center gap-3 border border-white/50">
               <Image src="https://upload.wikimedia.org/wikipedia/commons/e/ea/USDA_organic_seal.svg" alt="Orgánico Certificado" width={28} height={28} className="w-7 h-7 object-contain" unoptimized />
-              <span className="font-bold text-amber-900">Orgánico Certificado</span>
+              <span className="font-bold text-[#3f7528]">Orgánico Certificado</span>
             </div>
             <div className="bg-white/95 backdrop-blur-md px-6 py-3 rounded-full shadow-lg flex items-center gap-3 border border-white/50">
               <Image src="/logo-ue-organica.png" alt="Exportación EU" width={28} height={28} className="w-7 h-7 object-contain" />
-              <span className="font-bold text-amber-900">Exportación EU</span>
+              <span className="font-bold text-[#3f7528]">Exportación EU</span>
             </div>
           </div>
         </AnimatedSection>

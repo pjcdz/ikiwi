@@ -193,8 +193,8 @@ export function HeroWow() {
           {/* Texto principal */}
           <div className="text-center lg:text-left">
             {/* Badge cosecha */}
-            <div className="inline-flex items-center gap-2 bg-green-800/30 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium mb-6 border border-white/10">
-              <span className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></span>
+            <div className="inline-flex items-center gap-2 bg-[#3f7528]/30 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium mb-6 border border-white/10">
+              <span className="w-2 h-2 bg-lime-400 rounded-full animate-pulse"></span>
               Cosecha 2025 disponible
             </div>
             
@@ -205,21 +205,21 @@ export function HeroWow() {
             >
               <span className="inline-block text-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.3)] [text-shadow:2px_2px_0_rgba(0,0,0,0.1),-1px_-1px_0_rgba(255,255,255,0.1)]">SABOR</span>
               <br />
-              <span className="inline-block text-yellow-300 drop-shadow-[0_4px_12px_rgba(0,0,0,0.25)] [text-shadow:3px_3px_0_rgba(0,0,0,0.15),-1px_-1px_0_rgba(255,255,255,0.2)]">ARGENTINO</span>
+              <span className="inline-block text-lime-300 drop-shadow-[0_4px_12px_rgba(0,0,0,0.25)] [text-shadow:3px_3px_0_rgba(0,0,0,0.15),-1px_-1px_0_rgba(255,255,255,0.2)]">ARGENTINO</span>
             </h1>
             
             <p 
               ref={subtitleRef}
               className="text-base md:text-2xl text-white/90 mb-6 md:mb-8 font-medium max-w-sm md:max-w-lg mx-auto lg:mx-0 drop-shadow-[0_2px_4px_rgba(0,0,0,0.2)]"
             >
-              Cultivado con pasión en Sierra de los Padres. <span className="text-yellow-300 font-semibold">Dulce, jugoso</span> y lleno de vitamina&nbsp;C.
+              Cultivado con pasión en Sierra de los Padres. <span className="text-lime-300 font-semibold">Dulce, jugoso</span> y lleno de vitamina&nbsp;C.
             </p>
 
             <div ref={buttonsRef} className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center lg:justify-start">
               <Button 
                 asChild 
                 size="lg" 
-                className="bg-white text-green-700 hover:bg-yellow-300 hover:text-green-800 text-base md:text-lg px-6 md:px-8 py-5 md:py-6 font-bold rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.2)] hover:shadow-[0_15px_50px_rgba(0,0,0,0.25)] transition-[background-color,box-shadow,color] duration-300 hover:scale-105 hover:-translate-y-1"
+                className="bg-white text-[#3f7528] hover:bg-lime-200 hover:text-[#3f7528] text-base md:text-lg px-6 md:px-8 py-5 md:py-6 font-bold rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.2)] hover:shadow-[0_15px_50px_rgba(0,0,0,0.25)] transition-[background-color,box-shadow,color] duration-300 hover:scale-105 hover:-translate-y-1"
               >
                 <Link href="/productos">DESCUBRIR KIWIS</Link>
               </Button>
@@ -227,7 +227,7 @@ export function HeroWow() {
                 asChild 
                 variant="ghost"
                 size="lg" 
-                className="bg-white/15 border-2 border-white/80 text-white hover:bg-white hover:text-green-700 text-base md:text-lg px-6 md:px-8 py-5 md:py-6 font-bold rounded-full backdrop-blur-md shadow-[0_8px_32px_rgba(0,0,0,0.15)] transition-[background-color,box-shadow,color,border-color] duration-300 hover:scale-105 hover:-translate-y-1"
+                className="bg-white/15 border-2 border-white/80 text-white hover:bg-white hover:text-[#3f7528] text-base md:text-lg px-6 md:px-8 py-5 md:py-6 font-bold rounded-full backdrop-blur-md shadow-[0_8px_32px_rgba(0,0,0,0.15)] transition-[background-color,box-shadow,color,border-color] duration-300 hover:scale-105 hover:-translate-y-1"
               >
                 <Link href="/recetas">VER RECETAS</Link>
               </Button>
@@ -236,11 +236,11 @@ export function HeroWow() {
             {/* Stats rápidos */}
             <div ref={statsRef} className="grid grid-cols-2 gap-3 md:gap-6 mt-8 md:mt-12 pt-8 max-w-xs mx-auto lg:mx-0 lg:max-w-md">
               <div className="text-center lg:text-left">
-                <p className="text-3xl md:text-5xl font-black text-yellow-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.2)]">100%</p>
+                <p className="text-3xl md:text-5xl font-black text-lime-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.2)]">100%</p>
                 <p className="text-white/80 text-xs md:text-sm font-medium">Orgánico</p>
               </div>
               <div className="text-center lg:text-left">
-                <p className="text-3xl md:text-5xl font-black text-yellow-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.2)]">0</p>
+                <p className="text-3xl md:text-5xl font-black text-lime-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.2)]">0</p>
                 <p className="text-white/80 text-xs md:text-sm font-medium">Agroquímicos</p>
               </div>
             </div>
@@ -250,7 +250,7 @@ export function HeroWow() {
           <div className="relative hidden lg:block">
             <div className="relative w-full aspect-square max-w-lg mx-auto">
               {/* Glow effect de fondo */}
-              <div className="absolute inset-0 bg-linear-to-br from-yellow-300/20 via-transparent to-green-300/20 rounded-full blur-3xl scale-125" />
+              <div className="absolute inset-0 bg-linear-to-br from-lime-300/20 via-transparent to-green-300/20 rounded-full blur-3xl scale-125" />
               
               {/* Kiwi principal grande */}
               <div ref={kiwiRef} className="absolute inset-0 flex items-center justify-center">
@@ -324,7 +324,7 @@ export function HeroWow() {
               {/* Badge Vitamina C - arriba derecha */}
               <div 
                 ref={el => { if (el) badgesRef.current[0] = el; }}
-                className="absolute -top-2 right-0 bg-linear-to-r from-yellow-400 to-yellow-500 text-green-800 px-5 py-2.5 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.2)] font-bold text-sm flex items-center gap-2"
+                className="absolute -top-2 right-0 bg-linear-to-r from-lime-400 to-lime-500 text-[#3f7528] px-5 py-2.5 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.2)] font-bold text-sm flex items-center gap-2"
               >
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
@@ -335,7 +335,7 @@ export function HeroWow() {
               {/* Badge Mar del Plata - abajo */}
               <div 
                 ref={el => { if (el) badgesRef.current[1] = el; }}
-                className="absolute bottom-8 left-1/2 -translate-x-1/2 bg-white text-green-700 px-5 py-2.5 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.15)] font-bold text-sm flex items-center gap-2"
+                className="absolute bottom-8 left-1/2 -translate-x-1/2 bg-white text-[#3f7528] px-5 py-2.5 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.15)] font-bold text-sm flex items-center gap-2"
               >
                 <span className="text-blue-500">🏔️</span>
                 Mar del Plata
@@ -344,10 +344,10 @@ export function HeroWow() {
               {/* Kiwi Gold pequeño decorativo */}
               <div 
                 ref={el => { if (el) badgesRef.current[2] = el; }}
-                className="absolute top-16 left-4 w-20 h-20 bg-linear-to-br from-amber-300 via-yellow-400 to-amber-500 rounded-full shadow-[0_15px_40px_rgba(0,0,0,0.2)] border-4 border-amber-500/30 flex items-center justify-center"
+                className="absolute top-16 left-4 w-20 h-20 bg-linear-to-br from-[#c4a000] via-[#d4b800] to-[#a08000] rounded-full shadow-[0_15px_40px_rgba(0,0,0,0.2)] border-4 border-[#a08000]/30 flex items-center justify-center"
               >
-                <div className="w-14 h-14 bg-linear-to-br from-yellow-200 to-amber-300 rounded-full flex items-center justify-center shadow-inner">
-                  <span className="text-xs font-black text-amber-700 tracking-wide">GOLD</span>
+                <div className="w-14 h-14 bg-linear-to-br from-[#f0d000] to-[#c4a000] rounded-full flex items-center justify-center shadow-inner">
+                  <span className="text-xs font-black text-[#5a4400] tracking-wide">GOLD</span>
                 </div>
               </div>
             </div>

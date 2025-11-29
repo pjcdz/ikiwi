@@ -13,7 +13,7 @@ const varieties = [
     longDescription: "Variedad insignia de nuestra producción. Originario de Nueva Zelanda, encuentra en el sudeste bonaerense las condiciones ideales. Su pulpa verde brillante ofrece un sabor único con notas dulces y ácidas en perfecto equilibrio.",
     color: "from-green-500 to-emerald-600",
     pulpColor: "from-lime-300 to-green-400",
-    skinColor: "from-amber-700 to-amber-900",
+    skinColor: "from-[#8B4513] to-[#5D4037]",
     badge: "Más Popular",
     characteristics: [
       { label: "Sabor", value: "Dulce-ácido equilibrado" },
@@ -39,9 +39,9 @@ const varieties = [
     tagline: "DULCE Y TROPICAL",
     description: "Variedad premium con pulpa dorada, sabor más dulce y tropical. Menos ácido que el verde.",
     longDescription: "La evolución premium del kiwi. Desarrollado para quienes buscan una experiencia más dulce y tropical. Su piel lisa y pulpa dorada intensa lo distinguen. Trabajamos con la Universidad de Bolonia para nuevas variedades.",
-    color: "from-yellow-500 to-amber-500",
-    pulpColor: "from-yellow-300 to-amber-400",
-    skinColor: "from-amber-600 to-amber-800",
+    color: "from-[#c4a000] to-[#a08000]",
+    pulpColor: "from-[#f0d000] to-[#d4a800]",
+    skinColor: "from-[#a68b00] to-[#7a6500]",
     badge: "Premium",
     characteristics: [
       { label: "Sabor", value: "Dulce tropical" },
@@ -69,7 +69,7 @@ const varieties = [
     longDescription: "La joya más reciente de nuestra producción. Su pulpa combina tonos verdes con un corazón rojo intenso, creando un contraste visual espectacular. Sabor más dulce con notas a frutos rojos. Desarrollado con la Universidad de Bolonia.",
     color: "from-rose-500 to-red-600",
     pulpColor: "from-lime-200 to-green-300",
-    skinColor: "from-amber-600 to-amber-800",
+    skinColor: "from-[#a68b00] to-[#7a6500]",
     centerColor: "red",
     badge: "Exclusivo",
     characteristics: [
@@ -97,7 +97,7 @@ const varieties = [
     longDescription: "Representa nuestro compromiso con la sustentabilidad. Cultivado sin agroquímicos sintéticos ni fertilizantes artificiales. En 2023 logramos nuestra primera exportación a España.",
     color: "from-emerald-600 to-green-700",
     pulpColor: "from-green-300 to-emerald-400",
-    skinColor: "from-amber-700 to-amber-900",
+    skinColor: "from-[#8B4513] to-[#5D4037]",
     badge: "Orgánico",
     characteristics: [
       { label: "Certificación", value: "Orgánico Argentina / USDA" },
@@ -168,7 +168,7 @@ function KiwiVisual({ pulpColor, skinColor, centerColor }: { pulpColor: string; 
               }} />
             ))}
             <div className="absolute inset-[28%] rounded-full bg-red-600" />
-            <div className="absolute inset-[38%] rounded-full bg-yellow-50" />
+            <div className="absolute inset-[38%] rounded-full bg-lime-50" />
           </>
         ) : (
           <>
@@ -192,9 +192,9 @@ export default function ProductosPage() {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
-          <Badge className="bg-amber-100 text-amber-800 mb-4">NUESTROS KIWIS</Badge>
+          <Badge className="bg-[#3f7528]/10 text-[#3f7528] mb-4">NUESTROS KIWIS</Badge>
           <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
-            VARIEDADES <span className="text-amber-700">EXTRAORDINARIAS</span>
+            VARIEDADES <span className="text-[#3f7528]">EXTRAORDINARIAS</span>
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Cada variedad es única. Todas son deliciosas.
@@ -225,7 +225,7 @@ export default function ProductosPage() {
                     <h3 className="text-lg font-black text-gray-900">{variety.name}</h3>
                     <span className="text-xs text-gray-500">({variety.variety})</span>
                   </div>
-                  <p className="text-xs font-bold text-green-700">{variety.tagline}</p>
+                  <p className="text-xs font-bold text-[#3f7528]">{variety.tagline}</p>
                 </div>
 
                 {/* Descripción */}
@@ -281,7 +281,7 @@ export default function ProductosPage() {
               <div className="flex justify-between items-center mb-4">
                 {["E", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"].map((m, i) => (
                   <div key={i} className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-medium
-                    ${i >= 4 && i <= 9 ? 'bg-green-600 text-white' : 'bg-gray-200 text-gray-500'}`}>
+                    ${i >= 4 && i <= 9 ? 'bg-[#3f7528] text-white' : 'bg-gray-200 text-gray-500'}`}>
                     {m}
                   </div>
                 ))}
