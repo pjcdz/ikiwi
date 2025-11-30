@@ -17,7 +17,6 @@ export function HeroStorytelling() {
   const titleLine2Ref = useRef<HTMLSpanElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
-  const scrollIndicatorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -50,12 +49,6 @@ export function HeroStorytelling() {
           { y: 30, opacity: 0 },
           { y: 0, opacity: 1, duration: 0.6 },
           "-=0.3"
-        )
-        .fromTo(
-          scrollIndicatorRef.current,
-          { opacity: 0 },
-          { opacity: 1, duration: 0.5 },
-          "-=0.2"
         );
 
       // Parallax effect on scroll
@@ -72,25 +65,8 @@ export function HeroStorytelling() {
       });
     }, heroRef);
 
-    // Hide scroll indicator on first scroll with smooth fade
-    let hasScrolled = false;
-    const handleScroll = () => {
-      if (!hasScrolled && window.scrollY > 10) {
-        hasScrolled = true;
-        gsap.to(scrollIndicatorRef.current, {
-          opacity: 0,
-          y: 20,
-          duration: 0.6,
-          ease: "power2.out",
-        });
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
     return () => {
       ctx.revert();
-      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -182,19 +158,6 @@ export function HeroStorytelling() {
               <Link href="/nosotros">NUESTRA HISTORIA</Link>
             </Button>
           </div>
-        </div>
-      </div>
-
-      {/* Indicador de scroll */}
-      <div
-        ref={scrollIndicatorRef}
-        className="absolute bottom-32 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-3 text-white/70"
-      >
-        <span className="text-xs font-medium tracking-[0.3em] uppercase">
-          Explorá
-        </span>
-        <div className="w-7 h-12 border-2 border-white/40 rounded-full flex justify-center pt-2">
-          <div className="w-1.5 h-3 bg-white/70 rounded-full animate-bounce" />
         </div>
       </div>
 

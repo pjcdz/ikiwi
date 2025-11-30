@@ -47,7 +47,6 @@ function RecetasHero() {
   const titleLine1Ref = useRef<HTMLSpanElement>(null);
   const titleLine2Ref = useRef<HTMLSpanElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
-  const scrollIndicatorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -57,8 +56,7 @@ function RecetasHero() {
 
       tl.fromTo(chars1, { y: 100, opacity: 0, rotateX: -90 }, { y: 0, opacity: 1, rotateX: 0, duration: 1, stagger: 0.06 })
         .fromTo(chars2, { y: 100, opacity: 0, rotateX: -90 }, { y: 0, opacity: 1, rotateX: 0, duration: 1, stagger: 0.04 }, "-=0.6")
-        .fromTo(subtitleRef.current, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 }, "-=0.4")
-        .fromTo(scrollIndicatorRef.current, { opacity: 0 }, { opacity: 1, duration: 0.5 }, "-=0.2");
+        .fromTo(subtitleRef.current, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 }, "-=0.4");
 
       gsap.to(contentRef.current, {
         y: 150, opacity: 0, ease: "none",
@@ -66,15 +64,7 @@ function RecetasHero() {
       });
     }, heroRef);
 
-    let hasScrolled = false;
-    const handleScroll = () => {
-      if (!hasScrolled && window.scrollY > 10) {
-        hasScrolled = true;
-        gsap.to(scrollIndicatorRef.current, { opacity: 0, y: 20, duration: 0.6, ease: "power2.out" });
-      }
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => { ctx.revert(); window.removeEventListener("scroll", handleScroll); };
+    return () => { ctx.revert(); };
   }, []);
 
   const splitChars = (text: string) => text.split("").map((char, i) => (
@@ -110,12 +100,6 @@ function RecetasHero() {
         </div>
       </div>
 
-      <div ref={scrollIndicatorRef} className="absolute bottom-32 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-3 text-white/70">
-        <span className="text-xs font-medium tracking-[0.3em] uppercase">Explorá</span>
-        <div className="w-7 h-12 border-2 border-white/40 rounded-full flex justify-center pt-2">
-          <div className="w-1.5 h-3 bg-white/70 rounded-full animate-bounce" />
-        </div>
-      </div>
       <SectionTransition variant="wave" toColor="#faf8f5" height={100} className="absolute bottom-0 left-0 right-0" />
     </section>
   );

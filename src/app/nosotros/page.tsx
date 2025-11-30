@@ -527,13 +527,6 @@ export default function NosotrosPage() {
             </ScrollReveal>
           </div>
 
-          {/* Scroll Indicator - Bottom */}
-          <div className="absolute bottom-32 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/50">
-            <span className="text-xs tracking-[0.2em] uppercase">Scroll</span>
-            <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2">
-              <div className="w-1 h-2 bg-white/50 rounded-full animate-bounce" />
-            </div>
-          </div>
         </div>
 
         {/* Wave Transition to Cream */}
@@ -932,16 +925,31 @@ export default function NosotrosPage() {
               </div>
             </ScrollReveal>
 
-            {/* Certification Badges */}
+            {/* Certification Badges with Logos */}
             <ScrollReveal animation="fadeUp" delay={0.4}>
-              <div className="mt-14 flex flex-wrap justify-center gap-3">
-                {["IG Mar y Sierras", "GlobalGAP", "USDA Organic", "UE Orgánica"].map((cert) => (
-                  <span
-                    key={cert}
-                    className="px-4 py-2.5 bg-white/10 backdrop-blur-sm rounded-full text-white/90 text-sm font-medium border border-white/20 hover:bg-white/20 transition-colors cursor-default"
+              <div className="mt-14 flex flex-wrap justify-center items-center gap-4">
+                {[
+                  { name: "IG Mar y Sierras", logo: "/logo-ig.png" },
+                  { name: "GlobalGAP", logo: "/logo-globalgap.png" },
+                  { name: "USDA Organic", logo: "https://upload.wikimedia.org/wikipedia/commons/e/ea/USDA_organic_seal.svg" },
+                  { name: "UE Orgánica", logo: "/logo-ue-organica.png" },
+                ].map((cert) => (
+                  <div
+                    key={cert.name}
+                    className="group flex items-center gap-3 px-5 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105"
                   >
-                    ✓ {cert}
-                  </span>
+                    <div className="w-8 h-8 bg-white rounded-lg p-1 flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
+                      <Image
+                        src={cert.logo}
+                        alt={cert.name}
+                        width={24}
+                        height={24}
+                        className="w-6 h-6 object-contain"
+                        unoptimized
+                      />
+                    </div>
+                    <span className="text-white/90 text-sm font-medium">{cert.name}</span>
+                  </div>
                 ))}
               </div>
             </ScrollReveal>
