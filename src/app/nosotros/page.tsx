@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { gsap } from "gsap";
@@ -83,13 +83,50 @@ const terroirFeatures = [
   },
 ];
 
+// Timeline basada en noticias reales verificadas
 const timeline = [
-  { year: "2006", title: "El Nacimiento", description: "Luis Franch decide invertir en kiwis tras una nota periodística. Comienzan con pocas hectáreas en Mar del Plata.", image: "/about-campo-panoramico.png" },
-  { year: "2010", title: "Expansión Inicial", description: "Incorporación de nuevas hectáreas y construcción de la primera planta de empaque y frío.", image: "/about-empaquetadora.png" },
-  { year: "2015", title: "Convenio con Bologna", description: "Alianza estratégica con la Universidad de Bolonia para desarrollar variedades amarillas y rojas.", image: "/about-trabajadores.png" },
-  { year: "2019", title: "Hitos de Exportación", description: "iKiwi alcanza 270 hectáreas. Primera exportación de kiwi amarillo orgánico a Europa.", image: "/about-campo-panoramico.png" },
-  { year: "2022", title: "Indicación Geográfica", description: "El 'Kiwi Mar y Sierras' obtiene la IG, reconociendo su calidad diferenciada.", image: "/logo-ig.png" },
-  { year: "2023", title: "Exportación con IG", description: "22,400 kg de kiwi orgánico con sello IG exportados a España.", image: "/about-empaquetadora.png" },
+  { 
+    year: "2006", 
+    title: "El Nacimiento de iKiwi", 
+    description: "Luis Franch, abogado de profesión, decide invertir en kiwis tras leer una nota periodística. Comienza con pocas hectáreas en Mar del Plata, apostando al potencial del sudeste bonaerense.",
+    source: null,
+    link: null
+  },
+  { 
+    year: "2017", 
+    title: "La Visión Premium", 
+    description: "\"Aspiramos a tener la misma calidad de kiwis que Nueva Zelanda\". Luis Franch declara en FreshPlaza la meta de alcanzar 10 millones de kilos y competir en calidad, no en volumen.",
+    source: "FreshPlaza, Febrero 2017",
+    link: "https://www.freshplaza.es/article/3104421/argentina-aspiramos-a-tener-la-misma-calidad-de-kiwis-que-nueva-zelanda/"
+  },
+  { 
+    year: "2019", 
+    title: "Récord de Consumo Nacional", 
+    description: "Argentina alcanza el mayor consumo per cápita de kiwi en Latinoamérica: 0,45 kg/persona/año. iKiwi supera las 270 hectáreas y realiza la primera exportación de kiwi amarillo orgánico a Europa.",
+    source: "FreshPlaza, Enero 2019",
+    link: "https://www.freshplaza.com/north-america/article/9067212/argentinians-consume-0-45-kg-of-kiwis-per-capita-per-year/"
+  },
+  { 
+    year: "2021", 
+    title: "Nace Cooperativa Ecco", 
+    description: "Productores de kiwi se unen en Miramar para construir su propia planta de frío y empaque. Laureano Goycoa lidera la iniciativa que transformará la postcosecha regional.",
+    source: "Región Mar del Plata, Dic 2021",
+    link: "https://regionmardelplata.com/ver-noticia.asp?noticia=miramar-ahora-productores-de-kiwi-se-suman-al-sector-industrial-de-miramar&codigo=14249"
+  },
+  { 
+    year: "2022", 
+    title: "Indicación Geográfica", 
+    description: "Resolución 33/2022: El 'Kiwi Mar y Sierras del Sudeste de Buenos Aires' obtiene la IG, primera y única para kiwi en Argentina. Se establecen estándares de 16.5% materia seca y 6.5° Brix.",
+    source: "Boletín Oficial, Junio 2022",
+    link: "https://www.argentina.gob.ar/normativa/nacional/resoluci%C3%B3n-33-2022-366126"
+  },
+  { 
+    year: "2023", 
+    title: "Primera Exportación con IG", 
+    description: "Hito histórico: 22,400 kg de kiwi orgánico con sello de Indicación Geográfica parten hacia España desde la planta de Cooperativa Ecco, con apoyo del Estado ($50M de inversión).",
+    source: "Argentina.gob.ar, Junio 2023",
+    link: "https://www.argentina.gob.ar/noticias/agricultura-acompano-la-primera-exportacion-de-kiwi-con-indicacion-geografica-espana"
+  },
 ];
 
 const values = [
@@ -106,6 +143,249 @@ const sustainabilityPractices = [
   { icon: "💧", title: "Uso Eficiente del Agua", desc: "Sistemas de riego por goteo y monitoreo constante de humedad del suelo.", stat: "-40%" },
   { icon: "🚚", title: "Km 0", desc: "Menor huella de carbono que el kiwi importado. Producción local, calidad global.", stat: "Local" },
 ];
+
+// ============================================================================
+// TERROIR SECTION COMPONENT - Con panel expandible
+// ============================================================================
+
+interface TerroirFeature {
+  icon: string;
+  title: string;
+  subtitle: string;
+  highlight: string;
+  description: string;
+  details: string[];
+}
+
+function TerroirSection({ terroirFeatures }: { terroirFeatures: TerroirFeature[] }) {
+  const [expandedFeature, setExpandedFeature] = useState<string | null>(null);
+  const detailRef = useRef<HTMLDivElement>(null);
+
+  const toggleFeature = (title: string) => {
+    setExpandedFeature(expandedFeature === title ? null : title);
+  };
+
+  useEffect(() => {
+    if (expandedFeature && detailRef.current) {
+      gsap.fromTo(
+        detailRef.current,
+        { height: 0, opacity: 0 },
+        { height: "auto", opacity: 1, duration: 0.4, ease: "power2.out" }
+      );
+    }
+  }, [expandedFeature]);
+
+  const selectedFeature = terroirFeatures.find(f => f.title === expandedFeature);
+
+  return (
+    <section className="relative py-24 md:py-36 bg-[#3f7528] overflow-hidden">
+      {/* Decorative Blur Elements */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-lime-400/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-white/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+      <div className="absolute top-1/2 right-1/4 w-64 h-64 bg-lime-300/10 rounded-full blur-3xl" />
+
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="max-w-6xl mx-auto">
+          {/* Section Header */}
+          <div className="text-center mb-16 md:mb-20">
+            <ScrollReveal animation="fadeUp">
+              <span className="inline-block text-lime-300 text-sm font-bold tracking-[0.3em] uppercase mb-4 px-4 py-2 bg-lime-400/10 rounded-full border border-lime-400/20">
+                EL TERROIR
+              </span>
+            </ScrollReveal>
+            <AnimatedTitle
+              as="h2"
+              animation="words"
+              stagger={0.1}
+              className="font-[family-name:var(--font-playfair)] text-4xl md:text-5xl lg:text-7xl font-black text-white mb-6"
+            >
+              MAR Y SIERRAS
+            </AnimatedTitle>
+            <ScrollReveal animation="fadeUp" delay={0.2}>
+              <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+                Un microclima único en el mundo que produce kiwis de calidad excepcional
+              </p>
+            </ScrollReveal>
+          </div>
+
+          {/* Features Grid - Cards Compactas 2x2 */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+            {terroirFeatures.map((feature, index) => (
+              <ScrollReveal key={feature.title} animation="fadeUp" delay={index * 0.1} className="h-full">
+                <div
+                  onClick={() => toggleFeature(feature.title)}
+                  className={`group cursor-pointer h-full flex flex-col bg-white/10 backdrop-blur-sm rounded-2xl p-5 md:p-6 border transition-all duration-300 hover:-translate-y-2 ${
+                    expandedFeature === feature.title 
+                      ? 'border-lime-400 bg-white/20 ring-2 ring-lime-400/50' 
+                      : 'border-white/10 hover:bg-white/15 hover:border-white/20'
+                  }`}
+                >
+                  {/* Icon & Badge */}
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <span className="text-3xl">{feature.icon}</span>
+                    </div>
+                    <span className="px-2.5 py-1 bg-lime-400/20 text-lime-300 text-xs font-bold rounded-full border border-lime-400/30 whitespace-nowrap">
+                      {feature.highlight}
+                    </span>
+                  </div>
+                  
+                  {/* Title & Subtitle */}
+                  <h3 className="text-lg font-bold text-white mb-1 min-h-[3.5rem] leading-tight">{feature.title}</h3>
+                  <p className="text-lime-300/70 text-xs font-medium mb-3">{feature.subtitle}</p>
+                  
+                  {/* Short Description - Fixed height */}
+                  <p className="text-white/60 text-sm line-clamp-3 mb-4 flex-1">
+                    {feature.description}
+                  </p>
+                  
+                  {/* Ver más button - Always at bottom */}
+                  <div className={`flex items-center gap-2 text-sm font-semibold transition-colors mt-auto ${
+                    expandedFeature === feature.title ? 'text-lime-300' : 'text-white/70 group-hover:text-lime-300'
+                  }`}>
+                    <span>{expandedFeature === feature.title ? 'Cerrar' : 'Ver más'}</span>
+                    <svg
+                      className={`w-4 h-4 transition-transform duration-300 ${
+                        expandedFeature === feature.title ? 'rotate-180' : 'group-hover:translate-x-1'
+                      }`}
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      {expandedFeature === feature.title ? (
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+                      ) : (
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      )}
+                    </svg>
+                  </div>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+
+          {/* Panel Expandido con Detalles */}
+          {expandedFeature && selectedFeature && (
+            <div
+              ref={detailRef}
+              className="mt-8 overflow-hidden bg-white/10 backdrop-blur-md rounded-3xl border border-lime-400/30 shadow-2xl"
+            >
+              <div className="p-6 md:p-10">
+                {/* Header del panel */}
+                <div className="flex justify-between items-start mb-8">
+                  <div className="flex items-center gap-4">
+                    <div className="w-16 h-16 bg-lime-400/20 rounded-2xl flex items-center justify-center">
+                      <span className="text-4xl">{selectedFeature.icon}</span>
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-3 mb-1">
+                        <h3 className="font-[family-name:var(--font-playfair)] text-2xl md:text-3xl font-black text-white">
+                          {selectedFeature.title}
+                        </h3>
+                        <span className="px-3 py-1 bg-lime-400/20 text-lime-300 text-xs font-bold rounded-full border border-lime-400/30">
+                          {selectedFeature.highlight}
+                        </span>
+                      </div>
+                      <p className="text-lime-300/80 font-medium">{selectedFeature.subtitle}</p>
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => setExpandedFeature(null)}
+                    className="p-2 hover:bg-white/10 rounded-full transition-colors"
+                    aria-label="Cerrar detalle"
+                  >
+                    <svg className="w-6 h-6 text-white/60 hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+
+                {/* Descripción completa */}
+                <p className="text-white/80 text-base md:text-lg leading-relaxed mb-8">
+                  {selectedFeature.description}
+                </p>
+
+                {/* Características Clave - Grid */}
+                <div className="bg-white/5 rounded-2xl p-6 border border-white/10">
+                  <h4 className="text-white font-bold text-lg mb-5 flex items-center gap-2">
+                    <span className="w-8 h-8 bg-lime-400/20 rounded-lg flex items-center justify-center text-lime-300">✓</span>
+                    Características Clave
+                  </h4>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    {selectedFeature.details.map((detail, idx) => (
+                      <div key={idx} className="flex items-start gap-3 p-3 bg-white/5 rounded-xl">
+                        <div className="w-2 h-2 bg-lime-400 rounded-full mt-2 flex-shrink-0" />
+                        <span className="text-white/80 text-sm leading-relaxed">{detail}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Indicación Geográfica - Full Width Card */}
+          <ScrollReveal animation="fadeUp" delay={0.5}>
+            <div className="mt-16 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-white/10">
+              {/* Header */}
+              <div className="text-center mb-10">
+                <div className="inline-flex items-center justify-center w-24 h-24 bg-lime-400/20 rounded-full mb-6">
+                  <span className="text-5xl">🏆</span>
+                </div>
+                <h3 className="font-[family-name:var(--font-playfair)] text-3xl md:text-4xl font-black text-white mb-3">
+                  Indicación Geográfica Registrada
+                </h3>
+                <p className="text-white/70 text-lg">
+                  Resolución N° 33/2022 - Secretaría de Alimentos, Bioeconomía y Desarrollo Regional
+                </p>
+              </div>
+
+              {/* Stats Grid */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-10">
+                <div className="text-center p-4 md:p-6 bg-white/5 rounded-2xl border border-white/10">
+                  <div className="text-3xl md:text-5xl font-black text-lime-300 mb-2">6.5°</div>
+                  <div className="text-white/80 font-medium text-sm md:text-base">Brix Mínimo</div>
+                  <div className="text-white/50 text-xs mt-1">vs 6.2° estándar</div>
+                </div>
+                <div className="text-center p-4 md:p-6 bg-white/5 rounded-2xl border border-white/10">
+                  <div className="text-3xl md:text-5xl font-black text-lime-300 mb-2">16.5%</div>
+                  <div className="text-white/80 font-medium text-sm md:text-base">Materia Seca</div>
+                  <div className="text-white/50 text-xs mt-1">Superior al estándar</div>
+                </div>
+                <div className="text-center p-4 md:p-6 bg-white/5 rounded-2xl border border-white/10">
+                  <div className="text-3xl md:text-5xl font-black text-lime-300 mb-2">155</div>
+                  <div className="text-white/80 font-medium text-sm md:text-base">Días Mínimos</div>
+                  <div className="text-white/50 text-xs mt-1">Desde floración</div>
+                </div>
+                <div className="text-center p-4 md:p-6 bg-white/5 rounded-2xl border border-white/10">
+                  <div className="text-3xl md:text-5xl font-black text-lime-300 mb-2">10%</div>
+                  <div className="text-white/80 font-medium text-sm md:text-base">Tolerancia Máx.</div>
+                  <div className="text-white/50 text-xs mt-1">Frutos bajo 6.2° Brix</div>
+                </div>
+              </div>
+
+              {/* Footer Note */}
+              <div className="text-center">
+                <p className="inline-flex items-center gap-2 bg-lime-400/10 text-lime-200 px-6 py-3 rounded-full font-medium text-sm">
+                  <span className="text-lg">🌿</span>
+                  Primera y única Indicación Geográfica para kiwi en Argentina
+                </p>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </div>
+
+      {/* Wave Transition to Cream */}
+      <SectionTransition
+        variant="wave"
+        toColor="#faf8f5"
+        height={120}
+        className="absolute -bottom-1 left-0 right-0"
+      />
+    </section>
+  );
+}
 
 export default function NosotrosPage() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -270,177 +550,17 @@ export default function NosotrosPage() {
       ═══════════════════════════════════════════════════════════════════════ */}
       <div className="bg-[#faf8f5] relative">
         <Certifications variant="full" showTitle={true} className="py-24 md:py-36" />
-        <SectionTransition
-          variant="wave"
-          toColor="#3f7528"
-          height={100}
-          className="absolute -bottom-1 left-0 right-0"
-        />
       </div>
+
+      {/* ═══════════════════════════════════════════════════════════════════════
+          EMPAQUETADORA SECTION - Después de Certificaciones
+      ═══════════════════════════════════════════════════════════════════════ */}
+      <Empaquetadora />
 
       {/* ═══════════════════════════════════════════════════════════════════════
           TERROIR SECTION - Mar y Sierras
       ═══════════════════════════════════════════════════════════════════════ */}
-      <section className="relative py-24 md:py-36 bg-[#3f7528] overflow-hidden">
-        {/* Decorative Blur Elements */}
-        <div className="absolute top-0 left-0 w-96 h-96 bg-lime-400/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-        <div className="absolute bottom-0 right-0 w-80 h-80 bg-white/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
-        <div className="absolute top-1/2 right-1/4 w-64 h-64 bg-lime-300/10 rounded-full blur-3xl" />
-
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-6xl mx-auto">
-            {/* Section Header */}
-            <div className="text-center mb-16 md:mb-20">
-              <ScrollReveal animation="fadeUp">
-                <span className="inline-block text-lime-300 text-sm font-bold tracking-[0.3em] uppercase mb-4 px-4 py-2 bg-lime-400/10 rounded-full border border-lime-400/20">
-                  EL TERROIR
-                </span>
-              </ScrollReveal>
-              <AnimatedTitle
-                as="h2"
-                animation="words"
-                stagger={0.1}
-                className="font-[family-name:var(--font-playfair)] text-4xl md:text-5xl lg:text-7xl font-black text-white mb-6"
-              >
-                MAR Y SIERRAS
-              </AnimatedTitle>
-              <ScrollReveal animation="fadeUp" delay={0.2}>
-                <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-                  Un microclima único en el mundo que produce kiwis de calidad excepcional
-                </p>
-              </ScrollReveal>
-            </div>
-
-            {/* Features Grid - Expanded Cards with Full Information */}
-            <div className="grid lg:grid-cols-2 gap-8">
-              {terroirFeatures.map((feature, index) => (
-                <ScrollReveal key={feature.title} animation="fadeUp" delay={index * 0.1}>
-                  <div className="group bg-white/10 backdrop-blur-sm rounded-3xl p-6 md:p-8 border border-white/10 hover:bg-white/15 transition-all duration-500">
-                    {/* Header */}
-                    <div className="flex items-start gap-4 mb-6">
-                      <div className="w-16 h-16 flex-shrink-0 bg-white/10 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <span className="text-4xl">{feature.icon}</span>
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex flex-wrap items-center gap-3 mb-2">
-                          <h3 className="text-xl md:text-2xl font-bold text-white">{feature.title}</h3>
-                          <span className="px-3 py-1.5 bg-lime-400/20 text-lime-300 text-xs font-bold rounded-full border border-lime-400/30">
-                            {feature.highlight}
-                          </span>
-                        </div>
-                        <p className="text-lime-300/80 text-sm font-medium">{feature.subtitle}</p>
-                      </div>
-                    </div>
-                    
-                    {/* Description */}
-                    <p className="text-white/80 text-sm md:text-base leading-relaxed mb-6">
-                      {feature.description}
-                    </p>
-                    
-                    {/* Details List */}
-                    <div className="space-y-3 pt-4 border-t border-white/10">
-                      <h4 className="text-white/90 font-semibold text-sm uppercase tracking-wider mb-4">Características Clave</h4>
-                      {feature.details.map((detail, detailIndex) => (
-                        <div key={detailIndex} className="flex items-start gap-3">
-                          <div className="w-2 h-2 bg-lime-400 rounded-full mt-2 flex-shrink-0" />
-                          <span className="text-white/70 text-sm leading-relaxed">{detail}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
-
-            {/* Indicación Geográfica - Full Width Card */}
-            <ScrollReveal animation="fadeUp" delay={0.5}>
-              <div className="mt-16 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-white/10">
-                {/* Header */}
-                <div className="text-center mb-10">
-                  <div className="inline-flex items-center justify-center w-24 h-24 bg-lime-400/20 rounded-full mb-6">
-                    <span className="text-5xl">🏆</span>
-                  </div>
-                  <h3 className="font-[family-name:var(--font-playfair)] text-3xl md:text-4xl font-black text-white mb-3">
-                    Indicación Geográfica Registrada
-                  </h3>
-                  <p className="text-white/70 text-lg">
-                    Resolución N° 33/2022 - Secretaría de Alimentos, Bioeconomía y Desarrollo Regional
-                  </p>
-                </div>
-
-                {/* Stats Grid */}
-                <div className="grid md:grid-cols-4 gap-6 mb-10">
-                  <div className="text-center p-6 bg-white/5 rounded-2xl border border-white/10">
-                    <div className="text-4xl md:text-5xl font-black text-lime-300 mb-2">6.5°</div>
-                    <div className="text-white/80 font-medium">Brix Mínimo</div>
-                    <div className="text-white/50 text-xs mt-1">vs 6.2° estándar internacional</div>
-                  </div>
-                  <div className="text-center p-6 bg-white/5 rounded-2xl border border-white/10">
-                    <div className="text-4xl md:text-5xl font-black text-lime-300 mb-2">16.5%</div>
-                    <div className="text-white/80 font-medium">Materia Seca</div>
-                    <div className="text-white/50 text-xs mt-1">Densidad nutricional superior</div>
-                  </div>
-                  <div className="text-center p-6 bg-white/5 rounded-2xl border border-white/10">
-                    <div className="text-4xl md:text-5xl font-black text-lime-300 mb-2">155</div>
-                    <div className="text-white/80 font-medium">Días Mínimos</div>
-                    <div className="text-white/50 text-xs mt-1">Desde plena floración</div>
-                  </div>
-                  <div className="text-center p-6 bg-white/5 rounded-2xl border border-white/10">
-                    <div className="text-4xl md:text-5xl font-black text-lime-300 mb-2">10%</div>
-                    <div className="text-white/80 font-medium">Tolerancia Máx.</div>
-                    <div className="text-white/50 text-xs mt-1">Frutos bajo 6.2° Brix</div>
-                  </div>
-                </div>
-
-                {/* Protocol Details */}
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div className="space-y-4">
-                    <h4 className="text-white font-bold text-lg flex items-center gap-2">
-                      <span className="w-8 h-8 bg-lime-400/20 rounded-lg flex items-center justify-center text-lime-300">✓</span>
-                      Protocolo de Calidad
-                    </h4>
-                    <div className="space-y-3 text-white/70 text-sm">
-                      <p>• <strong className="text-white/90">Poda invernal obligatoria</strong> para control de carga frutal</p>
-                      <p>• <strong className="text-white/90">Raleo de frutos</strong> (Diciembre-Marzo) para concentrar nutrientes</p>
-                      <p>• <strong className="text-white/90">Control de Brix pre-cosecha</strong> con refractómetro calibrado</p>
-                      <p>• <strong className="text-white/90">Cosecha tardía</strong> basada en sabor óptimo, no logística</p>
-                    </div>
-                  </div>
-                  <div className="space-y-4">
-                    <h4 className="text-white font-bold text-lg flex items-center gap-2">
-                      <span className="w-8 h-8 bg-lime-400/20 rounded-lg flex items-center justify-center text-lime-300">🌍</span>
-                      Reconocimiento Internacional
-                    </h4>
-                    <div className="space-y-3 text-white/70 text-sm">
-                      <p>• <strong className="text-white/90">Primera y única IG</strong> para kiwi en Argentina</p>
-                      <p>• <strong className="text-white/90">Propiedad intelectual colectiva</strong> que protege el nombre</p>
-                      <p>• <strong className="text-white/90">Equivalente a D.O.P. e I.G.P.</strong> europeas</p>
-                      <p>• <strong className="text-white/90">Exportación certificada</strong> a España desde 2023</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Footer Note */}
-                <div className="mt-8 pt-6 border-t border-white/10 text-center">
-                  <p className="text-white/60 text-sm max-w-3xl mx-auto">
-                    La Indicación Geográfica "Kiwi Mar y Sierras del Sudeste de Buenos Aires" certifica que el producto posee 
-                    cualidades derivadas exclusivamente de su origen geográfico, garantizando al consumidor un kiwi de calidad 
-                    superior verificada por el Estado Argentino.
-                  </p>
-                </div>
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
-
-        {/* Wave Transition to Cream */}
-        <SectionTransition
-          variant="wave"
-          toColor="#faf8f5"
-          height={120}
-          className="absolute -bottom-1 left-0 right-0"
-        />
-      </section>
+      <TerroirSection terroirFeatures={terroirFeatures} />
 
       {/* ═══════════════════════════════════════════════════════════════════════
           ORIGIN STORY SECTION - La Historia del Fundador
@@ -470,38 +590,42 @@ export default function NosotrosPage() {
                   animation="words"
                   className="font-[family-name:var(--font-playfair)] text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 leading-tight"
                 >
-                  De una Idea a un Imperio del Kiwi
+                  De una Nota Periodística a Líder Nacional
                 </AnimatedTitle>
                 
                 <div className="space-y-5 text-gray-600 text-lg leading-relaxed">
                   <p>
-                    Todo comenzó en <span className="text-[#3f7528] font-bold">2006</span> cuando Luis Franch, un abogado de profesión, descubrió 
-                    una oportunidad inesperada. Su esposa había leído una nota periodística sobre 
-                    el cultivo de kiwis en Argentina.
+                    Todo comenzó en <span className="text-[#3f7528] font-bold">2006</span> cuando Luis Franch, 
+                    abogado de profesión, leyó una nota periodística sobre el potencial del kiwi en Argentina. 
+                    Lo que empezó como una inversión en pocas hectáreas en Mar del Plata se transformó en 
+                    la <span className="text-[#3f7528] font-bold">mayor operación productora de kiwi del país</span>.
                   </p>
                   <p>
-                    Lo que empezó como una inversión modesta en unas pocas hectáreas en Mar del Plata 
-                    se transformó en la <span className="text-[#3f7528] font-bold">mayor operación productora de kiwi del país</span>.
+                    En 2017, Franch declaró públicamente su visión: alcanzar los 10 millones de kilos 
+                    y competir en calidad con Nueva Zelanda. No buscaba volumen, sino excelencia.
                   </p>
                 </div>
                 
-                {/* Quote Card Premium */}
+                {/* Quote Card Premium - Cita real de FreshPlaza 2017 */}
                 <div className="bg-gradient-to-r from-[#3f7528]/10 to-[#3f7528]/5 border-l-4 border-[#3f7528] rounded-r-3xl p-6 md:p-8 shadow-lg">
                   <svg className="w-10 h-10 text-[#3f7528]/30 mb-4" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
                   </svg>
-                  <p className="italic text-gray-700 text-lg md:text-xl leading-relaxed mb-6">
-                    "Las condiciones climáticas y el suelo son propicios para este cultivo. 
-                    Tenemos una posición similar a Nueva Zelanda, pero nuestros suelos hacen la diferencia."
+                  <p className="italic text-gray-700 text-lg md:text-xl leading-relaxed mb-4">
+                    "Modestamente, nuestra aspiración es ser reconocidos por tener un producto de calidad Premium. 
+                    Siendo rigurosos en los niveles similares de control de calidad, como por ejemplo lo es Nueva Zelanda."
                   </p>
-                  <div className="flex items-center gap-4">
-                    <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#3f7528] to-[#4a8a30] flex items-center justify-center text-white font-bold text-lg shadow-lg">
-                      LF
+                  <div className="flex items-center justify-between flex-wrap gap-4">
+                    <div className="flex items-center gap-4">
+                      <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#3f7528] to-[#4a8a30] flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                        LF
+                      </div>
+                      <div>
+                        <p className="font-bold text-gray-900 text-lg">Luis Franch</p>
+                        <p className="text-sm text-[#3f7528] font-medium">Fundador de iKiwi</p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="font-bold text-gray-900 text-lg">Luis Franch</p>
-                      <p className="text-sm text-[#3f7528] font-medium">Fundador de iKiwi</p>
-                    </div>
+                    <span className="text-xs text-gray-500 italic">— FreshPlaza, Febrero 2017</span>
                   </div>
                 </div>
               </div>
@@ -511,8 +635,8 @@ export default function NosotrosPage() {
             <ScrollReveal animation="slideLeft">
               <div className="relative">
                 <ParallaxImage
-                  src="/about-campo-panoramico.png"
-                  alt="Campos de kiwi en Sierra de los Padres"
+                  src="/luis-franch-ceo.png"
+                  alt="Luis Franch, Fundador de iKiwi"
                   speed={0.15}
                   containerClassName="aspect-[4/3] rounded-3xl shadow-2xl overflow-hidden"
                   className="rounded-3xl"
@@ -534,12 +658,12 @@ export default function NosotrosPage() {
                       <p className="text-xs md:text-sm text-gray-600 font-medium">Hectáreas</p>
                     </div>
                     <div className="text-center border-x border-gray-200">
-                      <p className="text-2xl md:text-3xl font-black text-[#3f7528]">90+</p>
-                      <p className="text-xs md:text-sm text-gray-600 font-medium">Empleados</p>
+                      <p className="text-2xl md:text-3xl font-black text-[#3f7528]">0,45kg</p>
+                      <p className="text-xs md:text-sm text-gray-600 font-medium">Per Cápita</p>
                     </div>
                     <div className="text-center">
-                      <p className="text-2xl md:text-3xl font-black text-[#3f7528]">4</p>
-                      <p className="text-xs md:text-sm text-gray-600 font-medium">Países</p>
+                      <p className="text-2xl md:text-3xl font-black text-[#3f7528]">#1</p>
+                      <p className="text-xs md:text-sm text-gray-600 font-medium">en LATAM</p>
                     </div>
                   </div>
                 </div>
@@ -569,11 +693,11 @@ export default function NosotrosPage() {
               animation="words"
               className="font-[family-name:var(--font-playfair)] text-3xl md:text-4xl lg:text-6xl font-black text-gray-900 mb-6"
             >
-              19 Años de Historia
+              Una Historia Real
             </AnimatedTitle>
             <ScrollReveal animation="fadeUp" delay={0.2}>
               <p className="text-gray-600 text-lg md:text-xl max-w-xl mx-auto leading-relaxed">
-                Un camino de crecimiento, innovación y compromiso con la excelencia
+                Basada en noticias y documentos verificados de la industria del kiwi argentino
               </p>
             </ScrollReveal>
           </div>
@@ -607,11 +731,31 @@ export default function NosotrosPage() {
                         </div>
                         
                         <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3 group-hover:text-[#3f7528] transition-colors">{item.title}</h3>
-                        <p className="text-gray-600 leading-relaxed">{item.description}</p>
+                        <p className="text-gray-600 leading-relaxed mb-4">{item.description}</p>
                         
-                        {/* Decorative Kiwi */}
-                        <div className={`mt-5 flex items-center gap-2 text-[#3f7528]/40 group-hover:text-[#3f7528]/60 transition-colors ${index % 2 === 0 ? "md:justify-end" : ""}`}>
-                          <span className="text-2xl group-hover:scale-110 transition-transform">🥝</span>
+                        {/* Source Badge & Link */}
+                        <div className={`flex flex-wrap items-center gap-3 ${index % 2 === 0 ? "md:justify-end" : ""}`}>
+                          {item.source && (
+                            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#3f7528]/5 text-[#3f7528]/70 text-xs font-medium rounded-full border border-[#3f7528]/10">
+                              <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                              </svg>
+                              {item.source}
+                            </span>
+                          )}
+                          {item.link && (
+                            <a
+                              href={item.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-[#3f7528] text-white text-xs font-semibold rounded-full hover:bg-[#4a8a30] transition-colors group/link"
+                            >
+                              Ver noticia
+                              <svg className="w-3 h-3 group-hover/link:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                              </svg>
+                            </a>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -653,24 +797,19 @@ export default function NosotrosPage() {
           {/* Values Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {values.map((value, index) => (
-              <ScrollReveal key={value.title} animation="fadeUp" delay={index * 0.1}>
-                <div className="group bg-white rounded-3xl p-8 text-center shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 border border-gray-100">
-                  <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-[#3f7528]/10 to-lime-100 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-inner">
+              <ScrollReveal key={value.title} animation="fadeUp" delay={index * 0.1} className="h-full">
+                <div className="group bg-white rounded-3xl p-8 text-center shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 border border-gray-100 h-full flex flex-col">
+                  <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-[#3f7528]/10 to-lime-100 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-inner flex-shrink-0">
                     <span className="text-4xl">{value.icon}</span>
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#3f7528] transition-colors">{value.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{value.description}</p>
+                  <p className="text-gray-600 text-sm leading-relaxed flex-1">{value.description}</p>
                 </div>
               </ScrollReveal>
             ))}
           </div>
         </div>
       </ColoredSection>
-
-      {/* ═══════════════════════════════════════════════════════════════════════
-          EMPAQUETADORA SECTION
-      ═══════════════════════════════════════════════════════════════════════ */}
-      <Empaquetadora />
 
       {/* ═══════════════════════════════════════════════════════════════════════
           SUSTENTABILIDAD SECTION - Compromiso Verde
