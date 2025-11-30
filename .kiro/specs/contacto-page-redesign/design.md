@@ -360,3 +360,408 @@ const formFields: FormField[] = [
   @apply block text-sm font-medium text-gray-700 mb-2;
 }
 ```
+
+
+### 7. Map Section
+
+```typescript
+interface MapSectionProps {
+  embedUrl: string;
+  locationName: string;
+  address: string;
+  googleMapsUrl: string;
+}
+```
+
+**Layout:**
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│ MAP SECTION (bg: cream #faf8f5)                                     │
+│ py-16 md:py-24                                                      │
+│                                                                     │
+│ ┌─────────────────────────────────────────────────────────────────┐ │
+│ │ Header (text-center mb-10)                                      │ │
+│ │ [Title] Nuestra Ubicación (AnimatedTitle)                       │ │
+│ └─────────────────────────────────────────────────────────────────┘ │
+│                                                                     │
+│ ┌─────────────────────────────────────────────────────────────────┐ │
+│ │ MAP CARD (bg-white rounded-3xl overflow-hidden shadow-lg)       │ │
+│ │ max-w-4xl mx-auto                                               │ │
+│ │                                                                 │ │
+│ │ ┌─────────────────────────────────────────────────────────────┐ │ │
+│ │ │ GOOGLE MAPS IFRAME                                          │ │ │
+│ │ │ aspect-video                                                │ │ │
+│ │ │ width="100%" height="100%"                                  │ │ │
+│ │ │ loading="lazy"                                              │ │ │
+│ │ │ title="Ubicación de iKiwi"                                  │ │ │
+│ │ └─────────────────────────────────────────────────────────────┘ │ │
+│ │                                                                 │ │
+│ │ ┌─────────────────────────────────────────────────────────────┐ │ │
+│ │ │ INFO (p-6 text-center)                                      │ │ │
+│ │ │ [h3] Sierra de los Padres (text-xl font-bold)               │ │ │
+│ │ │ [p] Mar del Plata, Buenos Aires, Argentina (gray-600)       │ │ │
+│ │ │ [a] Ver en Google Maps → (text-[#3f7528])                   │ │ │
+│ │ └─────────────────────────────────────────────────────────────┘ │ │
+│ └─────────────────────────────────────────────────────────────────┘ │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+### 8. Final CTA Section
+
+Utilizamos el componente existente `PageCTA` con la siguiente configuración:
+
+```typescript
+<PageCTA
+  icon="📸"
+  title="Seguinos en Instagram"
+  description="@kiwi_argentino - Novedades, recetas y más"
+  primaryButton={{ 
+    text: "SEGUIR EN INSTAGRAM", 
+    href: "https://instagram.com/kiwi_argentino" 
+  }}
+  variant="green"
+/>
+```
+
+## Data Models
+
+### Contact Form Data
+
+```typescript
+interface ContactFormData {
+  nombre: string;
+  email: string;
+  empresa?: string;
+  motivo: 'compra' | 'distribucion' | 'exportacion' | 'prensa' | 'otro';
+  mensaje: string;
+}
+
+interface ContactFormState {
+  isSubmitting: boolean;
+  isSuccess: boolean;
+  error: string | null;
+}
+```
+
+### Contact Options Data
+
+```typescript
+const contactOptionsData = {
+  options: [
+    {
+      id: 'donde-comprar',
+      icon: 'shopping-bag',
+      title: 'Dónde Comprar',
+      description: 'Encontrá kiwis frescos en supermercados y verdulerías cerca tuyo',
+      href: '#donde-comprar',
+      linkText: 'Ver puntos de venta',
+      variant: 'light' as const
+    },
+    {
+      id: 'b2b',
+      icon: 'briefcase',
+      title: 'Empresas B2B',
+      description: 'Restaurantes, supermercados, exportadores e industria alimentaria',
+      href: '#b2b',
+      linkText: 'Contacto comercial',
+      variant: 'dark' as const
+    },
+    {
+      id: 'contacto',
+      icon: 'chat-bubble',
+      title: 'Contactanos',
+      description: 'Consultas, sugerencias o cualquier cosa que necesites',
+      href: '#form',
+      linkText: 'Enviar mensaje',
+      variant: 'light' as const
+    }
+  ],
+  directContact: {
+    whatsapp: {
+      number: '5492235000000',
+      displayText: 'WhatsApp',
+      subtitle: 'Respuesta en menos de 24hs'
+    },
+    email: {
+      address: 'ventas@ikiwi.com.ar',
+      displayText: 'ventas@ikiwi.com.ar',
+      subtitle: 'Consultas comerciales y exportación'
+    }
+  },
+  certifications: [
+    { name: 'IG Mar y Sierras', logo: '/logo-ig.png' },
+    { name: 'GlobalGAP', logo: '/logo-globalgap.png' },
+    { name: 'USDA Organic', logo: 'https://upload.wikimedia.org/wikipedia/commons/e/ea/USDA_organic_seal.svg' },
+    { name: 'Export UE', logo: '/logo-ue-organica.png' }
+  ],
+  location: {
+    name: 'Sierra de los Padres',
+    address: 'Mar del Plata, Buenos Aires, Argentina',
+    embedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12548.847891036647!2d-57.79832!3d-37.94286...',
+    mapsUrl: 'https://maps.google.com/?q=Sierra+de+los+Padres,+Mar+del+Plata,+Argentina'
+  }
+};
+```
+
+## Error Handling
+
+### Form Validation
+
+```typescript
+const validateForm = (data: ContactFormData): Record<string, string> => {
+  const errors: Record<string, string> = {};
+  
+  if (!data.nombre.trim()) {
+    errors.nombre = 'El nombre es requerido';
+  }
+  
+  if (!data.email.trim()) {
+    errors.email = 'El email es requerido';
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
+    errors.email = 'El email no es válido';
+  }
+  
+  if (!data.motivo) {
+    errors.motivo = 'Selecciona un motivo de contacto';
+  }
+  
+  if (!data.mensaje.trim()) {
+    errors.mensaje = 'El mensaje es requerido';
+  } else if (data.mensaje.trim().length < 10) {
+    errors.mensaje = 'El mensaje debe tener al menos 10 caracteres';
+  }
+  
+  return errors;
+};
+```
+
+### Form Submission States
+
+```typescript
+// Estados visuales del formulario
+const formStates = {
+  idle: {
+    buttonText: 'Enviar Mensaje',
+    buttonClass: 'bg-[#3f7528] hover:bg-[#4a8a30]'
+  },
+  submitting: {
+    buttonText: 'Enviando...',
+    buttonClass: 'bg-[#3f7528]/70 cursor-not-allowed'
+  },
+  success: {
+    buttonText: '¡Mensaje Enviado!',
+    buttonClass: 'bg-green-600'
+  },
+  error: {
+    buttonText: 'Error - Reintentar',
+    buttonClass: 'bg-red-600 hover:bg-red-700'
+  }
+};
+```
+
+
+## Testing Strategy
+
+### Visual Testing
+
+1. **Hero Section**
+   - Verificar que el parallax funciona correctamente en scroll
+   - Verificar que AnimatedTitle anima palabra por palabra
+   - Verificar que los blurs decorativos se posicionan correctamente
+   - Verificar transición wave al final del hero
+
+2. **Contact Cards**
+   - Verificar hover states (elevación, sombra, escala de icono)
+   - Verificar que el stagger de animación funciona
+   - Verificar contraste de colores en card oscura
+
+3. **Form**
+   - Verificar focus states en todos los inputs
+   - Verificar validación visual de campos requeridos
+   - Verificar estados del botón de envío
+
+### Responsive Testing
+
+```typescript
+const breakpoints = {
+  mobile: '375px',
+  tablet: '768px',
+  desktop: '1024px',
+  wide: '1280px'
+};
+
+// Verificar en cada breakpoint:
+// - Grid de cards (3 cols → 1 col)
+// - Grid de contacto directo (2 cols → 1 col)
+// - Tamaños de tipografía
+// - Espaciados y paddings
+// - Mapa aspect ratio
+```
+
+### Accessibility Testing
+
+1. **Keyboard Navigation**
+   - Tab order lógico a través de todos los elementos interactivos
+   - Focus visible en todos los elementos
+   - Enter/Space activan botones y links
+
+2. **Screen Reader**
+   - Labels correctos en formulario
+   - Alt text en imágenes
+   - Aria-labels en iconos
+   - Title en iframe del mapa
+
+3. **Color Contrast**
+   - Texto blanco sobre verde: ≥4.5:1
+   - Texto gris sobre blanco: ≥4.5:1
+   - Links y CTAs claramente distinguibles
+
+## Animation Specifications
+
+### Hero Parallax
+
+```typescript
+// GSAP ScrollTrigger config
+{
+  trigger: heroRef.current,
+  start: "top top",
+  end: "bottom top",
+  scrub: true,
+  // Mueve contenido 100px hacia arriba con fade out
+}
+```
+
+### ScrollReveal Delays
+
+```typescript
+const animationDelays = {
+  hero: {
+    badge: 0,
+    title: 0.1,
+    subtitle: 0.3
+  },
+  contactOptions: {
+    card1: 0.1,
+    card2: 0.2,
+    card3: 0.3
+  },
+  directContact: {
+    whatsapp: 0.4,
+    email: 0.5
+  },
+  certifications: 0.6,
+  form: 0.2,
+  map: 0.2
+};
+```
+
+### Hover Transitions
+
+```css
+/* Card hover */
+.card-hover {
+  @apply transition-all duration-300;
+  @apply hover:-translate-y-2 hover:shadow-2xl;
+}
+
+/* Icon hover */
+.icon-hover {
+  @apply transition-transform duration-300;
+  @apply group-hover:scale-110;
+}
+
+/* Link arrow hover */
+.link-arrow {
+  @apply transition-all duration-300;
+  @apply group-hover:gap-3;
+}
+
+/* Button hover */
+.button-hover {
+  @apply transition-all duration-300;
+  @apply hover:scale-105 hover:shadow-xl;
+}
+```
+
+## Page Structure Diagram
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                         CONTACTO PAGE                               │
+├─────────────────────────────────────────────────────────────────────┤
+│                                                                     │
+│  ┌───────────────────────────────────────────────────────────────┐  │
+│  │ 1. HERO SECTION                                               │  │
+│  │    - Background image + gradient overlay                      │  │
+│  │    - Decorative blurs                                         │  │
+│  │    - Badge + AnimatedTitle + Subtitle                         │  │
+│  │    - GSAP parallax on scroll                                  │  │
+│  │    - SectionTransition (wave → cream)                         │  │
+│  └───────────────────────────────────────────────────────────────┘  │
+│                              ↓                                      │
+│  ┌───────────────────────────────────────────────────────────────┐  │
+│  │ 2. CONTACT OPTIONS (bg: cream)                                │  │
+│  │    - 3 cards grid (Comprar, B2B, Contacto)                    │  │
+│  │    - ScrollReveal staggered                                   │  │
+│  └───────────────────────────────────────────────────────────────┘  │
+│                              ↓                                      │
+│  ┌───────────────────────────────────────────────────────────────┐  │
+│  │ 3. DIRECT CONTACT                                             │  │
+│  │    - WhatsApp button (green)                                  │  │
+│  │    - Email button (glass)                                     │  │
+│  └───────────────────────────────────────────────────────────────┘  │
+│                              ↓                                      │
+│  ┌───────────────────────────────────────────────────────────────┐  │
+│  │ 4. CERTIFICATIONS                                             │  │
+│  │    - 4 badges in row                                          │  │
+│  └───────────────────────────────────────────────────────────────┘  │
+│                              ↓                                      │
+│  ┌───────────────────────────────────────────────────────────────┐  │
+│  │ SectionTransition (wave → beige)                              │  │
+│  └───────────────────────────────────────────────────────────────┘  │
+│                              ↓                                      │
+│  ┌───────────────────────────────────────────────────────────────┐  │
+│  │ 5. CONTACT FORM (bg: beige)                                   │  │
+│  │    - Header (badge + title)                                   │  │
+│  │    - Form card with inputs                                    │  │
+│  │    - Submit button                                            │  │
+│  └───────────────────────────────────────────────────────────────┘  │
+│                              ↓                                      │
+│  ┌───────────────────────────────────────────────────────────────┐  │
+│  │ 6. MAP SECTION (bg: cream)                                    │  │
+│  │    - Title                                                    │  │
+│  │    - Map card with iframe                                     │  │
+│  │    - Location info                                            │  │
+│  └───────────────────────────────────────────────────────────────┘  │
+│                              ↓                                      │
+│  ┌───────────────────────────────────────────────────────────────┐  │
+│  │ SectionTransition (wave → green)                              │  │
+│  └───────────────────────────────────────────────────────────────┘  │
+│                              ↓                                      │
+│  ┌───────────────────────────────────────────────────────────────┐  │
+│  │ 7. FINAL CTA (bg: green)                                      │  │
+│  │    - PageCTA component (Instagram)                            │  │
+│  └───────────────────────────────────────────────────────────────┘  │
+│                                                                     │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+## Dependencies
+
+### Existing Components (Reutilizar)
+- `AnimatedTitle` - Para títulos animados
+- `ScrollReveal` - Para animaciones de entrada
+- `SectionTransition` - Para transiciones entre secciones
+- `PageCTA` - Para CTA final
+
+### External Dependencies
+- `gsap` + `gsap/ScrollTrigger` - Para parallax del hero
+- `next/image` - Para optimización de imágenes
+- `next/link` - Para navegación interna
+
+### Assets Required
+- `/bg-cta-sunset-fields.png` - Background del hero (existente)
+- `/logo-ig.png` - Logo IG Mar y Sierras (existente)
+- `/logo-globalgap.png` - Logo GlobalGAP (existente)
+- `/logo-ue-organica.png` - Logo UE Orgánica (existente)
+- USDA Organic logo (URL externa, existente)

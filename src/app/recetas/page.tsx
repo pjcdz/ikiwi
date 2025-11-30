@@ -24,21 +24,187 @@ const categories = [
 ];
 
 const recipes = [
-  { id: 1, title: "Pavlova de Kiwi", category: "postres", time: "90 min", image: "/recipe-tarta-kiwi.png", difficulty: "Media" },
-  { id: 2, title: "Smoothie Verde", category: "bebidas", time: "5 min", image: "/recipe-smoothie-bowl.png", difficulty: "Fácil" },
-  { id: 3, title: "Ensalada Tropical", category: "ensaladas", time: "15 min", image: "/recipe-salmon-kiwi.png", difficulty: "Fácil" },
-  { id: 4, title: "Bowl de Açaí", category: "desayunos", time: "10 min", image: "/recipe-smoothie-bowl.png", difficulty: "Fácil" },
-  { id: 5, title: "Limonada de Kiwi", category: "bebidas", time: "10 min", image: "/recipe-limonada-kiwi.png", difficulty: "Fácil" },
-  { id: 6, title: "Tarta de Crema", category: "postres", time: "120 min", image: "/recipe-tarta-kiwi.png", difficulty: "Avanzada" },
-  { id: 7, title: "Ensalada de Frutas", category: "ensaladas", time: "15 min", image: "/recipe-smoothie-bowl.png", difficulty: "Fácil" },
-  { id: 8, title: "Yogur con Kiwi", category: "desayunos", time: "5 min", image: "/recipe-smoothie-bowl.png", difficulty: "Fácil" },
+  // Postres
+  { 
+    id: 1, 
+    title: "Mini Pavlova con Kiwi", 
+    category: "postres", 
+    time: "90 min", 
+    image: "/recipe-pavlova.png", 
+    difficulty: "Media",
+    source: "@Rohlik.cz @undercakepressure",
+    instagram: "https://www.instagram.com/p/CeT5vPfOtMr/"
+  },
+  { 
+    id: 2, 
+    title: "Torta Fit de Kiwi", 
+    category: "postres", 
+    time: "60 min", 
+    image: "/recipe-torta-kiwi.png", 
+    difficulty: "Media",
+    source: "@fit_candypandas",
+    instagram: "https://www.instagram.com/p/CWBbLn6P_wp/"
+  },
+  { 
+    id: 3, 
+    title: "Kiwi Galette", 
+    category: "postres", 
+    time: "75 min", 
+    image: "/recipe-galette.png", 
+    difficulty: "Avanzada",
+    source: "@nira_by_saha",
+    instagram: "https://www.instagram.com/p/CQYz8zFr9fU/"
+  },
+  { 
+    id: 4, 
+    title: "Tartaletas de Limón y Kiwi", 
+    category: "postres", 
+    time: "90 min", 
+    image: "/recipe-tartaletas.png", 
+    difficulty: "Avanzada",
+    source: "@lesparisdelaura",
+    instagram: "https://www.instagram.com/p/CL6-p5ujiL8/"
+  },
+  { 
+    id: 5, 
+    title: "Daifuku de Kiwi Amarillo", 
+    category: "postres", 
+    time: "45 min", 
+    image: "/recipe-daifuku.png", 
+    difficulty: "Avanzada",
+    source: "@mitsuki_akasaka_wagashi",
+    instagram: "https://www.instagram.com/p/CTC3Dk0Lj0B/"
+  },
+  { 
+    id: 6, 
+    title: "Crepe con Kiwi y Chocolate", 
+    category: "postres", 
+    time: "25 min", 
+    image: "/recipe-crepe.png", 
+    difficulty: "Fácil",
+    source: "@beathebaker",
+    instagram: "https://www.instagram.com/p/CHaWIa5j6o5/"
+  },
+  // Bebidas
+  { 
+    id: 7, 
+    title: "Bubble Tea de Kiwi", 
+    category: "bebidas", 
+    time: "45 min", 
+    image: "/recipe-bubbletea.png", 
+    difficulty: "Media",
+    source: "@littlekalegirl",
+    instagram: "https://www.instagram.com/p/CQyoP_uAgBt/"
+  },
+  { 
+    id: 8, 
+    title: "Gin Tonic con Kiwi", 
+    category: "bebidas", 
+    time: "5 min", 
+    image: "/recipe-gin-kiwi.png", 
+    difficulty: "Fácil",
+    source: "@drinks_de_mestre",
+    instagram: "https://www.instagram.com/p/CHqpuOojkJc/"
+  },
+  // Ensaladas
+  { 
+    id: 9, 
+    title: "Pesto Croq' Chivo-Kiwi", 
+    category: "ensaladas", 
+    time: "20 min", 
+    image: "/recipe-pesto-croq.png", 
+    difficulty: "Media",
+    source: "@nutricookinfos",
+    instagram: "https://www.instagram.com/p/CdYjg7wuxzd/"
+  },
+  { 
+    id: 10, 
+    title: "Vieiras Crudas con Kiwi", 
+    category: "ensaladas", 
+    time: "15 min", 
+    image: "/recipe-vieiras.png", 
+    difficulty: "Avanzada",
+    source: "@chef.schiavinidavide",
+    instagram: "https://www.instagram.com/p/CWYeKuXrizo/"
+  },
+  { 
+    id: 11, 
+    title: "Pinchos de Frutas", 
+    category: "ensaladas", 
+    time: "10 min", 
+    image: "/recipe-pinchos.png", 
+    difficulty: "Fácil",
+    source: "@dietmulaibesok",
+    instagram: "https://www.instagram.com/p/CMu6SgLjjom/"
+  },
+  // Desayunos
+  { 
+    id: 12, 
+    title: "Bowl de Avena con Kiwi", 
+    category: "desayunos", 
+    time: "10 min", 
+    image: "/recipe-avena.png", 
+    difficulty: "Fácil",
+    source: "@foodonlypage",
+    instagram: "https://www.instagram.com/p/CVNpbxmrtCq/"
+  },
+  { 
+    id: 13, 
+    title: "Panqueques con Yogur y Kiwi", 
+    category: "desayunos", 
+    time: "25 min", 
+    image: "/recipe-panqueques.png", 
+    difficulty: "Fácil",
+    source: "@foodtempel",
+    instagram: "https://www.instagram.com/p/CMffto0jicG/"
+  },
+  { 
+    id: 14, 
+    title: "Parfait de Kiwi y Banana", 
+    category: "desayunos", 
+    time: "10 min", 
+    image: "/recipe-parfait.png", 
+    difficulty: "Fácil",
+    source: "@elyspaccavento.nutricion",
+    instagram: "https://www.instagram.com/p/CMXNwJsDFmz/"
+  },
+  { 
+    id: 15, 
+    title: "Pancakes de Matcha con Kiwi", 
+    category: "desayunos", 
+    time: "20 min", 
+    image: "/recipe-pancakes-matcha.png", 
+    difficulty: "Media",
+    source: "@the_vegan_harmony",
+    instagram: "https://www.instagram.com/p/CHXyEJpjM-m/"
+  },
+  { 
+    id: 16, 
+    title: "Tostadas con Kiwi y Arándanos", 
+    category: "desayunos", 
+    time: "10 min", 
+    image: "/recipe-tostadas.png", 
+    difficulty: "Fácil",
+    source: "@neverwithoutacoffee",
+    instagram: "https://www.instagram.com/p/CHsxugNjBmy/"
+  },
+  { 
+    id: 17, 
+    title: "Christmas Tree Oatmeal", 
+    category: "desayunos", 
+    time: "15 min", 
+    image: "/recipe-christmas-oatmeal.png", 
+    difficulty: "Fácil",
+    source: "@the_oat_goat",
+    instagram: "https://www.instagram.com/p/CJJpMOGjpGA/"
+  },
 ];
 
 const tips = [
-  { icon: "🌡️", title: "Maduración Perfecta", desc: "Guarda los kiwis junto a manzanas o bananas para acelerar la maduración." },
+  { icon: "🍎", title: "Maduración Rápida", desc: "Guardá los kiwis en una bolsa con una manzana para acelerar la maduración gracias al etileno." },
   { icon: "🧊", title: "Conservación", desc: "Los kiwis maduros se conservan hasta 2 semanas en la heladera." },
-  { icon: "🥛", title: "Lácteos", desc: "La actinidina puede cuajar la leche. Consume inmediatamente." },
-  { icon: "🍖", title: "Marinadas", desc: "Usa pulpa de kiwi como ablandador natural de carnes." },
+  { icon: "🍖", title: "Ablandador Natural", desc: "Usá pulpa de kiwi como marinada natural para ablandar carnes gracias a la actinidina." },
+  { icon: "🥛", title: "Con Lácteos", desc: "La actinidina puede cuajar la leche. Consumí inmediatamente o usá yogur griego." },
 ];
 
 function RecetasHero() {
@@ -108,7 +274,10 @@ function RecetasHero() {
 
 export default function RecetasPage() {
   const [activeCategory, setActiveCategory] = useState("todas");
+  const [showAll, setShowAll] = useState(false);
   const filteredRecipes = activeCategory === "todas" ? recipes : recipes.filter(r => r.category === activeCategory);
+  const displayedRecipes = showAll ? filteredRecipes : filteredRecipes.slice(0, 8);
+  const hasMoreRecipes = filteredRecipes.length > 8;
 
   return (
     <main className="bg-[#faf8f5]">
@@ -169,7 +338,7 @@ export default function RecetasPage() {
             <ScrollReveal animation="fadeUp" delay={0.2}>
               <div className="flex flex-wrap justify-center gap-2 md:gap-3">
                 {categories.map((cat) => (
-                  <button key={cat.id} onClick={() => setActiveCategory(cat.id)} className={`px-5 md:px-7 py-2.5 md:py-3 rounded-full text-sm md:text-base font-semibold transition-all duration-300 border-2 ${activeCategory === cat.id ? "bg-[#3f7528] text-white border-[#3f7528] shadow-lg shadow-[#3f7528]/30 scale-105" : "bg-white text-gray-700 border-gray-200 hover:border-[#3f7528]/50 hover:shadow-md"}`}>
+                  <button key={cat.id} onClick={() => { setActiveCategory(cat.id); setShowAll(false); }} className={`px-5 md:px-7 py-2.5 md:py-3 rounded-full text-sm md:text-base font-semibold transition-all duration-300 border-2 ${activeCategory === cat.id ? "bg-[#3f7528] text-white border-[#3f7528] shadow-lg shadow-[#3f7528]/30 scale-105" : "bg-white text-gray-700 border-gray-200 hover:border-[#3f7528]/50 hover:shadow-md"}`}>
                     <span className="mr-2">{cat.icon}</span>{cat.name}
                   </button>
                 ))}
@@ -178,7 +347,7 @@ export default function RecetasPage() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 max-w-7xl mx-auto">
-            {filteredRecipes.map((recipe, index) => (
+            {displayedRecipes.map((recipe, index) => (
               <ScrollReveal key={recipe.id} animation="fadeUp" delay={index * 0.08}>
                 <div className="group bg-white rounded-2xl md:rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-gray-100 hover:border-[#3f7528]/30">
                   <div className="relative aspect-square overflow-hidden">
@@ -199,6 +368,33 @@ export default function RecetasPage() {
               </ScrollReveal>
             ))}
           </div>
+          
+          {/* Ver más / Ver menos button */}
+          {hasMoreRecipes && (
+            <div className="text-center mt-12">
+              <button
+                onClick={() => setShowAll(!showAll)}
+                className="inline-flex items-center gap-2 px-8 py-4 bg-[#3f7528] text-white font-bold rounded-full shadow-lg hover:shadow-xl hover:bg-[#4a8a30] transition-all duration-300 hover:scale-105 hover:-translate-y-1"
+              >
+                {showAll ? (
+                  <>
+                    <span>Ver menos</span>
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+                    </svg>
+                  </>
+                ) : (
+                  <>
+                    <span>Ver más recetas ({filteredRecipes.length - 8})</span>
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </>
+                )}
+              </button>
+            </div>
+          )}
+          
           {filteredRecipes.length === 0 && <div className="text-center py-16"><span className="text-6xl mb-4 block">🥝</span><p className="text-gray-500 text-lg">No hay recetas en esta categoría</p></div>}
         </div>
         <SectionTransition variant="wave" toColor="#e8f5e0" height={100} className="absolute -bottom-1 left-0 right-0" />
@@ -261,7 +457,7 @@ export default function RecetasPage() {
                 <Button asChild size="lg" className="bg-white hover:bg-gray-100 text-[#3f7528] text-base md:text-lg px-8 md:px-12 py-6 md:py-7 rounded-full font-bold shadow-xl hover:shadow-2xl transition-all hover:scale-105 hover:-translate-y-1">
                   <Link href="https://instagram.com/kiwi_argentino" target="_blank" rel="noopener noreferrer">SEGUINOS EN INSTAGRAM</Link>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-[#3f7528] text-base md:text-lg px-8 md:px-12 py-6 md:py-7 rounded-full font-bold transition-all hover:scale-105 hover:-translate-y-1 backdrop-blur-sm">
+                <Button asChild size="lg" className="bg-white/20 border-2 border-white text-white hover:bg-white hover:text-[#3f7528] text-base md:text-lg px-8 md:px-12 py-6 md:py-7 rounded-full font-bold transition-all hover:scale-105 hover:-translate-y-1 backdrop-blur-sm">
                   <Link href="/productos">VER PRODUCTOS</Link>
                 </Button>
               </div>

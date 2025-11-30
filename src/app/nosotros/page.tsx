@@ -101,31 +101,38 @@ const timeline = [
   },
   { 
     year: "2019", 
-    title: "Récord de Consumo Nacional", 
-    description: "Argentina alcanza el mayor consumo per cápita de kiwi en Latinoamérica: 0,45 kg/persona/año. iKiwi supera las 270 hectáreas y realiza la primera exportación de kiwi amarillo orgánico a Europa.",
-    source: "FreshPlaza, Enero 2019",
-    link: "https://www.freshplaza.com/north-america/article/9067212/argentinians-consume-0-45-kg-of-kiwis-per-capita-per-year/"
+    title: "El Kiwi se Abre Camino", 
+    description: "Bichos de Campo cuenta la historia del desarrollo del kiwi en la región del sudeste bonaerense y el trabajo de iKiwi con la Universidad de Bologna. Argentina alcanza el mayor consumo per cápita de kiwi en Latinoamérica: 0,45 kg/persona/año.",
+    source: "Bichos de Campo / FreshPlaza, 2019",
+    link: "https://bichosdecampo.com/el-kiwi-se-abre-camino-entre-el-mar-y-las-sierras/"
   },
   { 
     year: "2021", 
-    title: "Nace Cooperativa Ecco", 
-    description: "Productores de kiwi se unen en Miramar para construir su propia planta de frío y empaque. Laureano Goycoa lidera la iniciativa que transformará la postcosecha regional.",
+    title: "Nace Cooperativa Ecco Argentina", 
+    description: "Productores de kiwi se suman al Sector Industrial de Miramar. Laureano Goycoa firma el boleto de compraventa de un lote para construir empacadora y cámara de frío. El Ministerio de Desarrollo Agrario destaca el rol del cooperativismo en la producción.",
     source: "Región Mar del Plata, Dic 2021",
     link: "https://regionmardelplata.com/ver-noticia.asp?noticia=miramar-ahora-productores-de-kiwi-se-suman-al-sector-industrial-de-miramar&codigo=14249"
   },
   { 
     year: "2022", 
-    title: "Indicación Geográfica", 
-    description: "Resolución 33/2022: El 'Kiwi Mar y Sierras del Sudeste de Buenos Aires' obtiene la IG, primera y única para kiwi en Argentina. Se establecen estándares de 16.5% materia seca y 6.5° Brix.",
-    source: "Boletín Oficial, Junio 2022",
+    title: "Indicación Geográfica Registrada", 
+    description: "Resolución 33/2022 publicada en el Boletín Oficial: El 'Kiwi Mar y Sierras del Sudeste de Buenos Aires' obtiene la IG, primera y única para kiwi en Argentina. Se establecen estándares de 16.5% materia seca y 6.5° Brix.",
+    source: "Boletín Oficial, 8 de Junio 2022",
     link: "https://www.argentina.gob.ar/normativa/nacional/resoluci%C3%B3n-33-2022-366126"
   },
   { 
     year: "2023", 
-    title: "Primera Exportación con IG", 
-    description: "Hito histórico: 22,400 kg de kiwi orgánico con sello de Indicación Geográfica parten hacia España desde la planta de Cooperativa Ecco, con apoyo del Estado ($50M de inversión).",
-    source: "Argentina.gob.ar, Junio 2023",
+    title: "Primera Exportación con IG a España", 
+    description: "Hito histórico: Agricultura acompañó la primera exportación de kiwi orgánico con sello de Indicación Geográfica a España. Inversión estatal de $50 millones y capacidad de 900 toneladas. El kiwi Mar y Sierras es reconocido como uno de los mejores del mundo.",
+    source: "Argentina.gob.ar, 16 de Junio 2023",
     link: "https://www.argentina.gob.ar/noticias/agricultura-acompano-la-primera-exportacion-de-kiwi-con-indicacion-geografica-espana"
+  },
+  { 
+    year: "2024", 
+    title: "Expansión Internacional de CoopeKiwi", 
+    description: "La cooperativa expande sus operaciones y abre canales comerciales con Uruguay, Brasil e Italia, diversificando el riesgo comercial y consolidando su posición exportadora de kiwis orgánicos.",
+    source: "Mundo Agro, 2024",
+    link: "https://mundoagro.io/cl/coopekiwi-expande-el-cultivo-de-kiwis-organicos-en-argentina/"
   },
 ];
 

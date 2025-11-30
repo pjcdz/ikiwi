@@ -26,8 +26,8 @@ const benefits = [
     title: "Salud Cardiovascular",
     description: "Potasio y fibra que ayudan a regular la presión arterial.",
     detail: "2-3 kiwis al día pueden reducir triglicéridos.",
-    color: "from-red-500 to-rose-500",
-    borderColor: "border-red-500/30 hover:border-red-500",
+    color: "from-pink-100 to-rose-200",
+    borderColor: "border-rose-400/30 hover:border-rose-400",
   },
   {
     icon: "😴",
