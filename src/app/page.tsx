@@ -1,25 +1,25 @@
-import { HeroVideo } from "@/components/sections/hero-video";
-import { Certifications } from "@/components/sections/certifications";
-import { ProductsWow } from "@/components/sections/products-wow";
-import { BenefitsSection } from "@/components/sections/benefits";
-import { AboutPreview } from "@/components/sections/about-preview";
-import { RecipesWow } from "@/components/sections/recipes-wow";
-import { B2BCTA } from "@/components/sections/b2b-cta";
-import { InstagramGallery } from "@/components/sections/instagram-gallery";
-import { CTAWow } from "@/components/sections/cta-wow";
+import { HeroStorytelling } from "@/components/sections/hero-storytelling";
+import { ProductsHook } from "@/components/sections/products-hook";
+import { AboutHook } from "@/components/sections/about-hook";
+import { NutritionHook } from "@/components/sections/nutrition-hook";
+import { RecipesHook } from "@/components/sections/recipes-hook";
+import { NewsHook } from "@/components/sections/news-hook";
+import { ContactHook } from "@/components/sections/contact-hook";
+import { CareersHook } from "@/components/sections/careers-hook";
+import { FinalCTA } from "@/components/sections/final-cta";
 
 export default function Home() {
   return (
     <>
-      <HeroVideo />
-      <Certifications variant="preview" />
-      <ProductsWow />
-      <BenefitsSection />
-      <AboutPreview />
-      <RecipesWow />
-      <B2BCTA />
-      <InstagramGallery />
-      <CTAWow />
+      <HeroStorytelling />
+      <ProductsHook />
+      <AboutHook />
+      <NutritionHook />
+      <RecipesHook />
+      <NewsHook />
+      <ContactHook />
+      <CareersHook />
+      <FinalCTA />
     </>
   );
 }

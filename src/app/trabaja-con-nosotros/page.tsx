@@ -1,332 +1,285 @@
-import Image from "next/image";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
+"use client";
 
-export const metadata = {
-  title: "Trabajá con Nosotros | Kiwi Argentino - iKiwi",
-  description: "Sumate al equipo de iKiwi. Oportunidades laborales en campo, empaquetadora y administración. Trabajá en la mayor productora de kiwi de Argentina.",
-};
+import Image from "next/image";
+import { PageHero } from "@/components/sections/page-hero";
+import { ColoredSection } from "@/components/sections/colored-section";
+import { StatsSection } from "@/components/sections/stats-section";
+import { PageCTA } from "@/components/sections/page-cta";
+import { ScrollReveal } from "@/components/animations/scroll-reveal";
+import { AnimatedTitle } from "@/components/animations/animated-title";
+import { SectionTransition } from "@/components/animations/section-transition";
+import { Badge } from "@/components/ui/badge";
+
+const heroStats = [
+  { value: "90+", label: "Empleados" },
+  { value: "270", label: "Hectáreas" },
+  { value: "19", label: "Años" },
+];
 
 const workAreas = [
   {
     icon: "🌱",
     title: "Campo",
-    description: "Trabajo al aire libre en nuestras plantaciones de kiwi.",
-    tasks: [
-      "Poda y mantenimiento de plantas",
-      "Cosecha de kiwis",
-      "Riego y fertilización",
-      "Control de plagas orgánico",
-    ],
-    season: "Todo el año (picos en cosecha: Marzo-Mayo)",
+    description: "Trabajo al aire libre en nuestras plantaciones",
+    tasks: ["Poda y mantenimiento", "Cosecha de kiwis", "Riego y fertilización", "Control de plagas"],
+    season: "Todo el año",
   },
   {
     icon: "📦",
     title: "Empaquetadora",
-    description: "Procesamiento y empaque de kiwis en nuestra planta.",
-    tasks: [
-      "Selección y clasificación",
-      "Empaque y etiquetado",
-      "Control de calidad",
-      "Logística de cámaras de frío",
-    ],
-    season: "Marzo a Octubre (temporada de empaque)",
+    description: "Procesamiento y empaque de kiwis",
+    tasks: ["Selección y clasificación", "Empaque y etiquetado", "Control de calidad", "Logística"],
+    season: "Marzo a Octubre",
   },
   {
     icon: "💼",
     title: "Administrativo",
-    description: "Gestión y soporte de nuestras operaciones.",
-    tasks: [
-      "Administración y contabilidad",
-      "Comercialización y ventas",
-      "Recursos humanos",
-      "Sistemas y tecnología",
-    ],
+    description: "Gestión y soporte de operaciones",
+    tasks: ["Administración", "Comercialización", "Recursos humanos", "Sistemas"],
     season: "Todo el año",
   },
 ];
 
 const benefits = [
-  {
-    icon: "🌿",
-    title: "Ambiente Natural",
-    description: "Trabajá rodeado de naturaleza en Sierra de los Padres.",
-  },
-  {
-    icon: "📈",
-    title: "Crecimiento",
-    description: "Oportunidades de desarrollo y capacitación continua.",
-  },
-  {
-    icon: "👥",
-    title: "Equipo",
-    description: "Formá parte de un equipo apasionado por la agricultura.",
-  },
-  {
-    icon: "🏠",
-    title: "Estabilidad",
-    description: "Empresa sólida con más de 15 años en el mercado.",
-  },
-  {
-    icon: "🥝",
-    title: "Producto Premium",
-    description: "Trabajá con el mejor kiwi de Argentina.",
-  },
-  {
-    icon: "🌍",
-    title: "Impacto",
-    description: "Contribuí a la exportación argentina al mundo.",
-  },
+  { icon: "🌿", title: "Ambiente Natural", description: "Trabajá rodeado de naturaleza" },
+  { icon: "📈", title: "Crecimiento", description: "Oportunidades de desarrollo" },
+  { icon: "👥", title: "Equipo", description: "Equipo apasionado" },
+  { icon: "🏠", title: "Estabilidad", description: "Empresa sólida" },
+  { icon: "🥝", title: "Producto Premium", description: "El mejor kiwi de Argentina" },
+  { icon: "🌍", title: "Impacto", description: "Exportación al mundo" },
 ];
 
 export default function TrabajaConNosotrosPage() {
   return (
-    <div className="py-12">
-      <div className="container mx-auto px-4">
-        {/* Hero Section */}
-        <div className="text-center max-w-4xl mx-auto mb-20">
-          <Badge variant="outline" className="mb-4">
-            Sumate al Equipo
-          </Badge>
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Trabajá con Nosotros
-          </h1>
-          <p className="text-xl text-muted-foreground mb-8">
-            Formá parte de la mayor productora de kiwi de Argentina. 
-            Buscamos personas apasionadas que quieran crecer con nosotros.
-          </p>
-          
-          {/* Imagen de cosecha */}
-          <div className="relative w-full max-w-2xl mx-auto aspect-video rounded-2xl overflow-hidden mb-8">
-            <Image
-              src="/image11.png"
-              alt="Trabajadores cosechando kiwis en Sierra de los Padres"
-              fill
-              className="object-cover"
-            />
-          </div>
-          
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-6 mt-12 max-w-lg mx-auto">
-            <div className="text-center">
-              <p className="text-4xl font-bold text-[#3f7528]">90+</p>
-              <p className="text-muted-foreground text-sm">Empleados</p>
-            </div>
-            <div className="text-center">
-              <p className="text-4xl font-bold text-[#3f7528]">15+</p>
-              <p className="text-muted-foreground text-sm">Años</p>
-            </div>
-            <div className="text-center">
-              <p className="text-4xl font-bold text-[#3f7528]">270</p>
-              <p className="text-muted-foreground text-sm">Hectáreas</p>
-            </div>
+    <main className="bg-[#faf8f5]">
+      {/* Hero Section */}
+      <section className="relative overflow-hidden bg-[#3f7528] py-16 md:py-24 lg:py-32">
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-40"
+          style={{ backgroundImage: "url('/about-trabajadores.png')" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#3f7528]/95 via-[#3f7528]/90 to-[#2d5a1c]/95" />
+        
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-20 -right-20 w-96 h-96 bg-lime-400/20 rounded-full blur-3xl" />
+          <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-white/10 rounded-full blur-3xl" />
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center max-w-4xl mx-auto">
+            <ScrollReveal animation="fadeUp">
+              <span className="text-lime-300 text-sm font-semibold tracking-[0.3em] uppercase mb-4 block">
+                OPORTUNIDADES LABORALES
+              </span>
+            </ScrollReveal>
+            <AnimatedTitle
+              as="h1"
+              animation="words"
+              className="font-[family-name:var(--font-playfair)] text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-4"
+            >
+              SUMATE AL EQUIPO
+            </AnimatedTitle>
+            <ScrollReveal animation="fadeUp" delay={0.3}>
+              <p className="text-xl text-white/80 mb-8">
+                Más de 90 personas trabajando con pasión por el mejor kiwi de Argentina
+              </p>
+            </ScrollReveal>
+
+            {/* Stats */}
+            <ScrollReveal animation="fadeUp" delay={0.4}>
+              <div className="grid grid-cols-3 gap-6 max-w-md mx-auto">
+                {heroStats.map((stat, index) => (
+                  <div key={index} className="text-center">
+                    <p className="text-3xl md:text-4xl font-bold text-white">{stat.value}</p>
+                    <p className="text-sm text-white/70">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
+            </ScrollReveal>
           </div>
         </div>
 
-        <Separator className="my-16" />
+        <SectionTransition variant="wave" toColor="#faf8f5" height={100} className="absolute -bottom-1 left-0 right-0" />
+      </section>
 
-        {/* Áreas de Trabajo */}
-        <section className="mb-20">
-          <h2 className="text-3xl font-bold text-center mb-4">Áreas de Trabajo</h2>
-          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-            Tenemos oportunidades en diferentes áreas según tus habilidades e intereses.
-          </p>
-          <div className="grid md:grid-cols-3 gap-8">
-            {workAreas.map((area, index) => (
-              <Card key={index} className="h-full">
-                <CardContent className="p-6">
-                  <div className="text-5xl mb-4">{area.icon}</div>
-                  <h3 className="text-xl font-bold mb-2">{area.title}</h3>
-                  <p className="text-muted-foreground mb-4">{area.description}</p>
-                  
-                  <div className="mb-4">
-                    <h4 className="font-semibold text-sm mb-2">Tareas típicas:</h4>
-                    <ul className="text-sm text-muted-foreground space-y-1">
-                      {area.tasks.map((task, i) => (
-                        <li key={i} className="flex items-center gap-2">
-                          <span className="w-1.5 h-1.5 bg-[#3f7528] rounded-full" />
-                          {task}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  
-                  <div className="pt-4 border-t">
-                    <p className="text-xs text-muted-foreground">
-                      <span className="font-semibold">Temporada:</span> {area.season}
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+      {/* Imagen Parallax */}
+      <section className="py-16 md:py-24 bg-[#faf8f5]">
+        <div className="container mx-auto px-4">
+          <ScrollReveal animation="fadeUp">
+            <div className="relative max-w-4xl mx-auto aspect-[16/9] rounded-3xl overflow-hidden shadow-2xl">
+              <Image
+                src="/about-trabajadores.png"
+                alt="Equipo de iKiwi cosechando"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+              <div className="absolute bottom-6 left-6 bg-[#3f7528] text-white px-4 py-2 rounded-full">
+                <span className="font-bold">Desde 2006</span>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Áreas de Trabajo */}
+      <ColoredSection backgroundColor="beige" transition="wave" transitionTo="#faf8f5">
+        <div className="text-center mb-12">
+          <ScrollReveal animation="fadeUp">
+            <span className="text-[#3f7528] text-sm font-semibold tracking-[0.3em] uppercase mb-4 block">
+              ÁREAS DE TRABAJO
+            </span>
+          </ScrollReveal>
+          <AnimatedTitle
+            as="h2"
+            animation="words"
+            className="font-[family-name:var(--font-playfair)] text-2xl md:text-3xl lg:text-4xl font-black text-gray-900"
+          >
+            Encontrá Tu Lugar
+          </AnimatedTitle>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {workAreas.map((area, index) => (
+            <ScrollReveal key={area.title} animation="fadeUp" delay={index * 0.15}>
+              <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 h-full">
+                <span className="text-5xl mb-4 block">{area.icon}</span>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{area.title}</h3>
+                <p className="text-gray-600 text-sm mb-4">{area.description}</p>
+                
+                <div className="mb-4">
+                  <h4 className="font-semibold text-sm text-gray-900 mb-2">Tareas:</h4>
+                  <ul className="space-y-1">
+                    {area.tasks.map((task, i) => (
+                      <li key={i} className="flex items-center gap-2 text-sm text-gray-600">
+                        <span className="w-1.5 h-1.5 bg-[#3f7528] rounded-full flex-shrink-0" />
+                        {task}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                
+                <div className="pt-4 border-t border-gray-100">
+                  <Badge className="bg-[#3f7528]/10 text-[#3f7528]">{area.season}</Badge>
+                </div>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+      </ColoredSection>
+
+      {/* Beneficios */}
+      <section className="py-16 md:py-24 bg-[#faf8f5]">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <ScrollReveal animation="fadeUp">
+              <span className="text-[#3f7528] text-sm font-semibold tracking-[0.3em] uppercase mb-4 block">
+                BENEFICIOS
+              </span>
+            </ScrollReveal>
+            <AnimatedTitle
+              as="h2"
+              animation="words"
+              className="font-[family-name:var(--font-playfair)] text-2xl md:text-3xl font-black text-gray-900"
+            >
+              ¿Por Qué Trabajar en iKiwi?
+            </AnimatedTitle>
           </div>
-        </section>
 
-        <Separator className="my-16" />
-
-        {/* Beneficios */}
-        <section className="mb-20">
-          <h2 className="text-3xl font-bold text-center mb-4">¿Por Qué Trabajar en iKiwi?</h2>
-          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-            Ofrecemos un ambiente de trabajo único donde podés crecer profesionalmente 
-            mientras contribuís a la agricultura sustentable.
-          </p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
             {benefits.map((benefit, index) => (
-              <Card key={index}>
-                <CardContent className="p-6 flex items-start gap-4">
-                  <div className="text-3xl">{benefit.icon}</div>
+              <ScrollReveal key={benefit.title} animation="fadeUp" delay={index * 0.08}>
+                <div className="bg-white rounded-2xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex items-start gap-4">
+                  <span className="text-3xl">{benefit.icon}</span>
                   <div>
-                    <h3 className="font-semibold mb-1">{benefit.title}</h3>
-                    <p className="text-sm text-muted-foreground">{benefit.description}</p>
+                    <h3 className="font-bold text-gray-900">{benefit.title}</h3>
+                    <p className="text-sm text-gray-600">{benefit.description}</p>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </ScrollReveal>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        <Separator className="my-16" />
+      <SectionTransition variant="wave" toColor="#f5f0e8" height={80} />
 
-        {/* Formulario de Contacto */}
-        <section className="mb-16">
+      {/* Formulario */}
+      <section className="py-16 md:py-24 bg-[#f5f0e8]">
+        <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-4">Postulate</h2>
-            <p className="text-center text-muted-foreground mb-8">
-              Completá el formulario y nos pondremos en contacto con vos.
-            </p>
-            <Card>
-              <CardContent className="p-8">
-                <form className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="nombre" className="block text-sm font-medium mb-2">
-                        Nombre Completo *
-                      </label>
-                      <input
-                        type="text"
-                        id="nombre"
-                        name="nombre"
-                        required
-                        className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-[#3f7528]"
-                        placeholder="Tu nombre"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium mb-2">
-                        Email *
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        required
-                        className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-[#3f7528]"
-                        placeholder="tu@email.com"
-                      />
-                    </div>
-                  </div>
-                  
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="telefono" className="block text-sm font-medium mb-2">
-                        Teléfono *
-                      </label>
-                      <input
-                        type="tel"
-                        id="telefono"
-                        name="telefono"
-                        required
-                        className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-[#3f7528]"
-                        placeholder="+54 223 XXX-XXXX"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="area" className="block text-sm font-medium mb-2">
-                        Área de Interés *
-                      </label>
-                      <select
-                        id="area"
-                        name="area"
-                        required
-                        className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-[#3f7528]"
-                      >
-                        <option value="">Selecciona un área</option>
-                        <option value="campo">Campo</option>
-                        <option value="empaquetadora">Empaquetadora</option>
-                        <option value="administrativo">Administrativo</option>
-                        <option value="otro">Otro</option>
-                      </select>
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="mensaje" className="block text-sm font-medium mb-2">
-                      Contanos sobre vos
-                    </label>
-                    <textarea
-                      id="mensaje"
-                      name="mensaje"
-                      rows={4}
-                      className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-[#3f7528] resize-none"
-                      placeholder="Tu experiencia laboral, habilidades, disponibilidad..."
-                    />
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="cv" className="block text-sm font-medium mb-2">
-                      Adjuntar CV (PDF)
-                    </label>
-                    <input
-                      type="file"
-                      id="cv"
-                      name="cv"
-                      accept=".pdf,.doc,.docx"
-                      className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-[#3f7528] file:mr-4 file:py-1 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#3f7528]/20 file:text-[#3f7528] hover:file:bg-[#3f7528]/30"
-                    />
-                    <p className="text-xs text-muted-foreground mt-1">
-                      Formatos aceptados: PDF, DOC, DOCX (máx. 5MB)
-                    </p>
-                  </div>
-                  
-                  <div className="text-center pt-4">
-                    <Button type="submit" size="lg" className="px-12">
-                      Enviar Postulación
-                    </Button>
-                    <p className="text-xs text-muted-foreground mt-4">
-                      * Campos obligatorios. Nos contactaremos dentro de los 7 días hábiles.
-                    </p>
-                  </div>
-                </form>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
+            <div className="text-center mb-10">
+              <ScrollReveal animation="fadeUp">
+                <span className="text-[#3f7528] text-sm font-semibold tracking-[0.3em] uppercase mb-4 block">
+                  POSTULATE
+                </span>
+              </ScrollReveal>
+              <AnimatedTitle
+                as="h2"
+                animation="words"
+                className="font-[family-name:var(--font-playfair)] text-2xl md:text-3xl font-black text-gray-900"
+              >
+                Enviá Tu CV
+              </AnimatedTitle>
+            </div>
 
-        {/* CTA Final */}
-        <section className="bg-[#3f7528]/10 rounded-2xl p-8 md:p-12 text-center">
-          <span className="text-4xl">🥝</span>
-          <h2 className="text-2xl font-bold mt-4 mb-4">¿Tenés Dudas?</h2>
-          <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
-            Si tenés preguntas sobre las oportunidades laborales o querés más información, 
-            no dudes en contactarnos.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Button variant="outline" asChild>
-              <a href="mailto:rrhh@ikiwi.com.ar">
-                📧 rrhh@ikiwi.com.ar
-              </a>
-            </Button>
-            <Button variant="outline" asChild>
-              <a href="https://instagram.com/kiwi_argentino" target="_blank" rel="noopener noreferrer">
-                📱 Instagram
-              </a>
-            </Button>
+            <ScrollReveal animation="fadeUp" delay={0.2}>
+              <form className="bg-white rounded-3xl p-6 md:p-8 shadow-lg space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="nombre" className="block text-sm font-medium text-gray-700 mb-2">Nombre *</label>
+                    <input type="text" id="nombre" required className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#3f7528]" placeholder="Tu nombre" />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+                    <input type="email" id="email" required className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#3f7528]" placeholder="tu@email.com" />
+                  </div>
+                </div>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="telefono" className="block text-sm font-medium text-gray-700 mb-2">Teléfono *</label>
+                    <input type="tel" id="telefono" required className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#3f7528]" placeholder="+54 223 XXX-XXXX" />
+                  </div>
+                  <div>
+                    <label htmlFor="area" className="block text-sm font-medium text-gray-700 mb-2">Área de Interés *</label>
+                    <select id="area" required className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#3f7528]">
+                      <option value="">Selecciona un área</option>
+                      <option value="campo">Campo</option>
+                      <option value="empaquetadora">Empaquetadora</option>
+                      <option value="administrativo">Administrativo</option>
+                    </select>
+                  </div>
+                </div>
+                <div>
+                  <label htmlFor="mensaje" className="block text-sm font-medium text-gray-700 mb-2">Contanos sobre vos</label>
+                  <textarea id="mensaje" rows={3} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#3f7528] resize-none" placeholder="Tu experiencia, habilidades..." />
+                </div>
+                <div>
+                  <label htmlFor="cv" className="block text-sm font-medium text-gray-700 mb-2">Adjuntar CV (PDF)</label>
+                  <input type="file" id="cv" accept=".pdf,.doc,.docx" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#3f7528] file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:bg-[#3f7528]/10 file:text-[#3f7528] file:font-semibold" />
+                </div>
+                <div className="text-center">
+                  <button type="submit" className="px-8 py-4 bg-[#3f7528] text-white rounded-full font-semibold hover:bg-[#4a8a30] transition-all duration-300 hover:scale-105 shadow-lg">
+                    Enviar Postulación
+                  </button>
+                </div>
+              </form>
+            </ScrollReveal>
           </div>
-        </section>
-      </div>
-    </div>
+        </div>
+      </section>
+
+      <SectionTransition variant="wave" toColor="#3f7528" height={80} />
+
+      {/* CTA Final */}
+      <PageCTA
+        icon="🥝"
+        title="¿Tenés Dudas?"
+        description="Contactanos para más información sobre oportunidades laborales"
+        primaryButton={{ text: "📧 RRHH@IKIWI.COM.AR", href: "mailto:rrhh@ikiwi.com.ar" }}
+        secondaryButton={{ text: "📱 INSTAGRAM", href: "https://instagram.com/kiwi_argentino" }}
+        variant="green"
+      />
+    </main>
   );
 }
