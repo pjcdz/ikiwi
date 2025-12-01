@@ -1,0 +1,23 @@
+{
+  "enabled": true,
+  "name": "Registro de Trabajo Diario",
+  "description": "Monitorea todos los cambios en archivos del proyecto y actualiza automáticamente un archivo de registro con un resumen del trabajo realizado en la branch actual",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "src/**/*",
+      "public/**/*",
+      "docs/**/*",
+      "*.ts",
+      "*.tsx",
+      "*.json",
+      "*.md",
+      "*.css"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "Se detectó un cambio en el proyecto. Por favor actualiza el archivo docs/TRABAJO_DEL_DIA.md con un resumen de lo que se acaba de modificar. El archivo debe incluir: fecha y hora, lista de archivos modificados, descripción breve de los cambios realizados, y un resumen ejecutivo del progreso del día. Si el archivo no existe, créalo con un encabezado apropiado. Mantén el formato organizado y profesional para que pueda ser presentado como reporte de trabajo."
+  }
+}

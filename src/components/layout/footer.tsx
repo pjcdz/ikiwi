@@ -18,14 +18,11 @@ const footerLinks = {
     { name: "Trabajá con Nosotros", href: "/trabaja-con-nosotros" },
   ],
   recursos: [
-    { name: "Recetas", href: "/recetas" },
-    { name: "Beneficios Nutricionales", href: "/nutricion" },
     { name: "Noticias", href: "/noticias" },
     { name: "Preguntas Frecuentes", href: "/faq" },
   ],
   contacto: [
     { name: "Contacto", href: "/contacto" },
-    { name: "Dónde Comprar", href: "/contacto#comprar" },
     { name: "Contacto Comercial B2B", href: "/contacto#exportadores" },
     { name: "Exportadores", href: "/contacto#exportadores" },
   ],
@@ -42,13 +39,19 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-full bg-[#3f7528] flex items-center justify-center">
-                <span className="text-2xl">🥝</span>
+            <Link href="/" className="flex items-center gap-3 mb-4">
+              <div className="w-12 h-12 shrink-0">
+                <Image 
+                  src="/logo-ikiwi-recortado.png"
+                  alt="iKiwi Logo"
+                  width={48}
+                  height={48}
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div className="flex flex-col">
-                <span className="font-bold text-lg text-[#3f7528] leading-tight">iKiwi</span>
-                <span className="text-xs text-muted-foreground leading-tight">Kiwi Argentino</span>
+                <span className="font-bold text-xl text-[#3f7528] leading-tight tracking-wide">IKIWI</span>
+                <span className="text-[10px] text-muted-foreground leading-tight">Producción, Empaque y<br/>Comercialización de Kiwi</span>
               </div>
             </Link>
             <p className="text-sm text-muted-foreground mb-4">

@@ -1,8 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { LenisProvider } from "@/components/providers/lenis-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -12,6 +13,12 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
 });
 
 export const viewport: Viewport = {
@@ -26,6 +33,11 @@ export const metadata: Metadata = {
   description: "iKiwi - La mayor productora de kiwi de Argentina. Kiwis premium cultivados en Mar del Plata con certificación orgánica e Indicación Geográfica. Descubre el sabor auténtico del kiwi argentino.",
   keywords: ["kiwi argentino", "kiwi Mar del Plata", "kiwi orgánico", "iKiwi", "kiwi premium", "frutas Argentina"],
   authors: [{ name: "iKiwi" }],
+  icons: {
+    icon: "/logo-ikiwi-recortado.png",
+    shortcut: "/logo-ikiwi-recortado.png",
+    apple: "/logo-ikiwi-recortado.png",
+  },
   openGraph: {
     title: "Kiwi Argentino | El Sabor del Atlántico Sur",
     description: "Descubre el kiwi premium argentino cultivado en Mar del Plata. Calidad certificada con Indicación Geográfica.",
@@ -42,13 +54,15 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} antialiased`}
       >
-        <Header />
-        <main className="min-h-screen pt-16">
-          {children}
-        </main>
-        <Footer />
+        <LenisProvider>
+          <Header />
+          <main className="min-h-screen pt-16">
+            {children}
+          </main>
+          <Footer />
+        </LenisProvider>
       </body>
     </html>
   );

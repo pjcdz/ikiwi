@@ -1,0 +1,196 @@
+# Implementation Plan
+
+- [x] 1. Implementar Hero Section con animaciones GSAP
+  - [x] 1.1 Crear estructura base del hero con imagen de fondo fullscreen
+    - Usar imagen `bg-certifications-aerial.png` o similar como fondo
+    - Aplicar overlay con gradiente `from-[#3f7528]/40 via-black/30 to-black/50`
+    - Configurar altura `min-h-screen` con overflow hidden
+    - _Requirements: 1.1, 1.4_
+  - [x] 1.2 Implementar animación de caracteres para título "NOTICIAS"
+    - Crear función `splitChars` para dividir texto en spans individuales
+    - Configurar refs para heroRef, contentRef, titleRef, subtitleRef, scrollIndicatorRef
+    - Implementar GSAP timeline con `fromTo` para caracteres (y: 100, opacity: 0, rotateX: -90)
+    - Usar stagger de 0.08s entre caracteres
+    - _Requirements: 1.2_
+  - [x] 1.3 Agregar badge "ACTUALIDAD" y subtítulo animados
+    - Badge con dot animado (pulse), tracking-[0.3em], uppercase
+    - Subtítulo "La historia del kiwi argentino contada por quienes la hacen"
+    - Animar subtítulo con GSAP después del título
+    - _Requirements: 1.3, 1.4_
+  - [x] 1.4 Implementar scroll indicator y efecto parallax
+    - Scroll indicator con animación bounce infinita
+    - Ocultar indicator al primer scroll con GSAP fade
+    - Implementar parallax con ScrollTrigger (y: 150, opacity: 0, scrub: true)
+    - _Requirements: 1.5, 1.6_
+  - [x] 1.5 Agregar SectionTransition wave hacia siguiente sección
+    - Usar componente SectionTransition existente
+    - Configurar variant="wave" toColor="#f5f0e8"
+    - Posicionar absolute bottom-0
+    - _Requirements: 1.6_
+
+- [x] 2. Implementar sección de Noticia Destacada
+
+  - [x] 2.1 Crear layout de dos columnas para noticia principal
+    - Grid `lg:grid-cols-2 gap-8 items-center`
+    - Fondo `#f5f0e8` (warm cream)
+    - Padding `py-24 md:py-32`
+    - _Requirements: 2.1_
+  - [x] 2.2 Implementar columna de contenido con animaciones
+    - Badge de categoría "ENTREVISTA" con bg-[#3f7528]
+    - Fecha "17 de Febrero, 2017"
+    - Título con tipografía Playfair, text-2xl md:text-3xl
+    - Descripción y link externo con hover animation en flecha
+    - Usar ScrollReveal fadeUp con stagger
+    - _Requirements: 2.2, 2.3, 2.6_
+  - [x] 2.3 Implementar columna de imagen con overlay
+    - Imagen de Luis Franch con aspect-[4/3] rounded-2xl
+    - Overlay gradiente en bottom para texto
+    - Información del autor (nombre, rol) posicionada en bottom
+    - Efecto hover con scale sutil
+    - _Requirements: 2.4, 2.5_
+
+- [x] 3. Implementar Timeline de Hitos Históricos
+  - [x] 3.1 Crear estructura de datos para hitos
+    - Array de milestones con year, title, description, icon
+    - Hitos: 2017 (Visión), 2021 (Ecco), 2022 (IG), 2023 (España)
+    - _Requirements: 3.1_
+  - [x] 3.2 Implementar layout responsive del timeline
+    - Horizontal en desktop (flex con línea conectora)
+    - Vertical en mobile (flex-col con línea lateral)
+    - Cards con año destacado, icono emoji, título y descripción
+    - _Requirements: 3.3, 3.4_
+  - [x] 3.3 Agregar animaciones y título de sección
+    - AnimatedTitle "NUESTRA HISTORIA" con badge "📰 HITOS"
+    - ScrollReveal fadeUp con stagger 0.15s entre hitos
+    - Colores progresivos (verde más intenso hacia presente)
+    - _Requirements: 3.2, 3.5, 3.6_
+  - [x] 3.4 Agregar SectionTransition hacia grid de noticias
+    - Usar variant="wave" o "gradient"
+    - toColor="#faf8f5"
+    - _Requirements: 8.1_
+
+- [x] 4. Implementar Grid de Noticias Recientes
+  - [x] 4.1 Crear estructura de datos para noticias
+    - Array de NewsItem con id, title, date, category, categoryColor, image, link, excerpt
+    - 6 noticias con datos reales de docs/noticias.md
+    - Links verificados a fuentes originales
+    - _Requirements: 10.1, 10.2, 10.4_
+  - [x] 4.2 Implementar grid responsive de NewsCards
+    - Grid `md:grid-cols-2 lg:grid-cols-3 gap-6`
+    - Fondo `#faf8f5`
+    - Título con AnimatedTitle "ÚLTIMAS NOVEDADES"
+    - Badge "📰 MÁS NOTICIAS"
+    - _Requirements: 4.1, 4.5_
+  - [x] 4.3 Crear componente NewsCard con efectos hover
+    - Imagen con aspect-[16/9], overflow hidden
+    - Badge de categoría posicionado top-3 left-3
+    - Colores diferenciados por categoría
+    - Hover: translate-y-2, shadow-2xl, scale imagen 1.05, título verde
+    - ScrollReveal fadeUp con stagger 0.1s
+    - _Requirements: 4.2, 4.3, 4.4, 4.6_
+
+- [x] 5. Implementar sección de Estadísticas
+  - [x] 5.1 Crear estructura de datos para stats
+    - Array con 4 estadísticas: consumo (0,45kg), partidos (9), materia seca (16,5%), capacidad (900t)
+    - Cada stat con value, label, description
+    - _Requirements: 5.1_
+  - [x] 5.2 Implementar grid de stat cards
+    - Grid `md:grid-cols-2 lg:grid-cols-4 gap-6`
+    - Fondo `#f5f0e8`
+    - Cards con valor grande (text-4xl/5xl font-bold), label y descripción
+    - _Requirements: 5.3, 5.4_
+  - [x] 5.3 Agregar animaciones y título de sección
+    - AnimatedTitle "EL KIWI ARGENTINO" con badge "📊 EN NÚMEROS"
+    - ScrollReveal fadeUp con stagger en cards
+    - Hover effect con elevación sutil
+    - _Requirements: 5.2, 5.5, 5.6_
+  - [x] 5.4 Agregar SectionTransition hacia prensa
+    - Usar variant="wave"
+    - toColor="#faf8f5"
+    - _Requirements: 8.1_
+
+- [x] 6. Implementar sección de Prensa y Medios
+  - [x] 6.1 Crear estructura de datos para prensa
+    - Array de logos: La Nación, Clarín
+    - Quote object con text, source, year
+    - _Requirements: 6.1, 6.2_
+  - [x] 6.2 Implementar logos de medios con efectos
+    - Flex container centrado con gap-12
+    - Imágenes con grayscale, opacity-60
+    - Hover: grayscale-0, opacity-100
+    - Transición suave (duration-300)
+    - _Requirements: 6.1, 6.6_
+  - [x] 6.3 Implementar blockquote destacado
+    - Card bg-white rounded-2xl p-8 shadow-lg
+    - Comillas grandes (text-4xl text-[#3f7528])
+    - Texto en itálica, text-lg
+    - Atribución con source y year
+    - _Requirements: 6.3, 6.4_
+  - [x] 6.4 Agregar animaciones y título de sección
+    - AnimatedTitle "PRENSA" con badge "📰 EN LOS MEDIOS"
+    - ScrollReveal fadeUp para logos y quote
+    - _Requirements: 6.5_
+  - [x] 6.5 Agregar SectionTransition hacia CTA
+    - Usar variant="organic"
+    - toColor="#3f7528"
+    - _Requirements: 8.1_
+
+- [x] 7. Implementar CTA Final
+  - [x] 7.1 Crear sección CTA con fondo verde
+    - Fondo `bg-[#3f7528]`
+    - Padding `py-24 md:py-32`
+    - Texto blanco
+    - _Requirements: 7.1_
+  - [x] 7.2 Implementar contenido y botones
+    - Emoji 📱 grande (text-5xl)
+    - AnimatedTitle "SEGUINOS EN INSTAGRAM"
+    - Descripción invitando a seguir para novedades
+    - Botón primario: bg-white text-[#3f7528] → Instagram
+    - Botón secundario: outline white → Ver Productos
+    - _Requirements: 7.2, 7.3, 7.5, 7.6_
+  - [x] 7.3 Agregar animaciones
+    - ScrollReveal fadeUp para todo el contenido
+    - Hover effects en botones (scale, translate)
+    - _Requirements: 7.4_
+
+- [x] 8. Implementar responsive design y accesibilidad
+  - [x] 8.1 Verificar y ajustar breakpoints responsive
+    - Mobile (< 768px): 1 columna en grids, timeline vertical
+    - Tablet (768-1024px): 2 columnas en grids
+    - Desktop (> 1024px): 3-4 columnas según sección
+    - Ajustar tamaños de tipografía por breakpoint
+    - _Requirements: 9.1_
+  - [x] 8.2 Implementar accesibilidad
+    - Alt text descriptivo en todas las imágenes
+    - Estados de focus visibles en cards y links
+    - Atributos rel="noopener noreferrer" target="_blank" en links externos
+    - Contraste WCAG AA en todos los textos
+    - _Requirements: 9.2, 9.3, 9.4, 9.6_
+  - [x] 8.3 Implementar soporte para reduced-motion
+    - Detectar preferencia `prefers-reduced-motion`
+    - Desactivar animaciones GSAP cuando corresponda
+    - Mantener contenido visible sin JavaScript
+    - _Requirements: 8.3, 9.5_
+
+- [x] 9. Optimización y pulido final
+  - [x] 9.1 Optimizar carga de imágenes
+    - Usar `priority` en imagen del hero
+    - Lazy loading en imágenes del grid
+    - Configurar sizes apropiados para responsive
+    - _Requirements: 8.5_
+  - [x] 9.2 Verificar transiciones entre secciones
+    - Confirmar que todas las SectionTransition funcionan correctamente
+    - Ajustar heights y colores según diseño
+    - Verificar fluidez sin saltos bruscos
+    - _Requirements: 8.1, 8.2, 8.4_
+  - [x] 9.3 Cleanup y optimización de GSAP
+    - Registrar ScrollTrigger una sola vez
+    - Implementar cleanup en useEffect return
+    - Verificar que no hay memory leaks
+    - _Requirements: 8.2_
+  - [ ]* 9.4 Testing visual y funcional
+    - Verificar animaciones en diferentes navegadores
+    - Test en dispositivos móviles reales
+    - Verificar links externos funcionan correctamente
+    - Lighthouse score > 90
+    - _Requirements: 8.2, 10.1_

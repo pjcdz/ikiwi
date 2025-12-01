@@ -20,8 +20,8 @@ export function AnimatedSection({
   className = "",
   animation = "fadeUp",
   delay = 0,
-  duration = 0.8,
-  staggerDelay = 0.1,
+  duration = 0.6,
+  staggerDelay = 0.08,
 }: AnimatedSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -53,7 +53,7 @@ export function AnimatedSection({
           ease: "power3.out",
           scrollTrigger: {
             trigger: element,
-            start: "top 85%",
+            start: "top 95%",
             end: "bottom 20%",
             toggleActions: "play none none reverse",
           },
@@ -71,7 +71,7 @@ export function AnimatedSection({
           ease: "power3.out",
           scrollTrigger: {
             trigger: element,
-            start: "top 85%",
+            start: "top 95%",
             end: "bottom 20%",
             toggleActions: "play none none reverse",
           },

@@ -1,14 +1,22 @@
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+"use client";
 
-export const metadata = {
-  title: "Recetas con Kiwi | Kiwi Argentino - iKiwi",
-  description: "Descubre deliciosas recetas con kiwi argentino. Desde postres hasta ensaladas, el kiwi aporta sabor y nutrición a tus comidas.",
-};
+import Image from "next/image";
+import Link from "next/link";
+import { useState, useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollReveal } from "@/components/animations/scroll-reveal";
+import { AnimatedTitle } from "@/components/animations/animated-title";
+import { SectionTransition } from "@/components/animations/section-transition";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const categories = [
+  { id: "todas", name: "Todas", icon: "🍽️" },
   { id: "postres", name: "Postres", icon: "🍰" },
   { id: "bebidas", name: "Bebidas", icon: "🥤" },
   { id: "ensaladas", name: "Ensaladas", icon: "🥗" },
@@ -16,381 +24,447 @@ const categories = [
 ];
 
 const recipes = [
-  {
-    id: 1,
-    title: "Pavlova de Kiwi",
-    category: "postres",
+  // Postres
+  { 
+    id: 1, 
+    title: "Mini Pavlova con Kiwi", 
+    category: "postres", 
+    time: "90 min", 
+    image: "/recipe-pavlova.png", 
     difficulty: "Media",
-    time: "90 min",
-    servings: "8 porciones",
-    description: "Un clásico postre australiano con base de merengue crujiente, crema chantilly y kiwis frescos.",
-    ingredients: [
-      "4 claras de huevo",
-      "250g de azúcar",
-      "1 cdta de vinagre blanco",
-      "1 cdta de esencia de vainilla",
-      "2 cdas de maicena",
-      "300ml de crema de leche",
-      "4 kiwis verdes",
-      "2 kiwis amarillos"
-    ],
-    steps: [
-      "Precalentar el horno a 120°C.",
-      "Batir las claras a punto nieve, agregar el azúcar de a poco.",
-      "Incorporar el vinagre, vainilla y maicena.",
-      "Formar un disco sobre bandeja y hornear 90 minutos.",
-      "Dejar enfriar completamente en el horno.",
-      "Batir la crema y cubrir el merengue.",
-      "Decorar con rodajas de kiwi."
-    ],
-    tips: "Usa kiwis bien maduros para mayor dulzor. Combina verdes y amarillos para un contraste visual.",
+    source: "@Rohlik.cz @undercakepressure",
+    instagram: "https://www.instagram.com/p/CeT5vPfOtMr/"
   },
-  {
-    id: 2,
-    title: "Smoothie Verde Energizante",
-    category: "bebidas",
-    difficulty: "Fácil",
-    time: "5 min",
-    servings: "2 vasos",
-    description: "Un smoothie refrescante y nutritivo, ideal para comenzar el día con energía natural.",
-    ingredients: [
-      "2 kiwis verdes",
-      "1 banana madura",
-      "1 taza de espinaca",
-      "200ml de leche de almendras",
-      "1 cda de miel o stevia",
-      "Cubos de hielo"
-    ],
-    steps: [
-      "Pelar los kiwis y la banana.",
-      "Agregar todos los ingredientes a la licuadora.",
-      "Licuar hasta obtener una mezcla homogénea.",
-      "Servir inmediatamente con hielo."
-    ],
-    tips: "Congela la banana en rodajas la noche anterior para un smoothie más cremoso.",
+  { 
+    id: 2, 
+    title: "Torta Fit de Kiwi", 
+    category: "postres", 
+    time: "60 min", 
+    image: "/recipe-torta-kiwi.png", 
+    difficulty: "Media",
+    source: "@fit_candypandas",
+    instagram: "https://www.instagram.com/p/CWBbLn6P_wp/"
   },
-  {
-    id: 3,
-    title: "Ensalada Tropical con Kiwi",
-    category: "ensaladas",
-    difficulty: "Fácil",
-    time: "15 min",
-    servings: "4 porciones",
-    description: "Una ensalada fresca y colorida que combina kiwi con pollo y vegetales.",
-    ingredients: [
-      "3 kiwis verdes en cubos",
-      "2 pechugas de pollo cocidas",
-      "1 palta/aguacate",
-      "100g de rúcula",
-      "50g de nueces",
-      "Queso de cabra",
-      "Aceite de oliva",
-      "Jugo de limón",
-      "Sal y pimienta"
-    ],
-    steps: [
-      "Cortar el pollo en tiras y el kiwi en cubos.",
-      "Disponer la rúcula en una fuente.",
-      "Agregar el pollo, kiwi, palta y nueces.",
-      "Desmenuzar el queso de cabra por encima.",
-      "Aderezar con aceite, limón, sal y pimienta."
-    ],
-    tips: "El kiwi amarillo queda espectacular en esta ensalada por su dulzor más intenso.",
-  },
-  {
-    id: 4,
-    title: "Bowl de Açaí con Kiwi",
-    category: "desayunos",
-    difficulty: "Fácil",
-    time: "10 min",
-    servings: "1 porción",
-    description: "Un desayuno nutritivo y fotogénico, perfecto para empezar el día con energía.",
-    ingredients: [
-      "100g de pulpa de açaí congelada",
-      "1 banana congelada",
-      "2 kiwis en rodajas",
-      "Granola",
-      "Semillas de chía",
-      "Coco rallado",
-      "Miel"
-    ],
-    steps: [
-      "Licuar el açaí con la banana hasta obtener una crema espesa.",
-      "Verter en un bowl.",
-      "Decorar con kiwi, granola, chía y coco.",
-      "Rociar con miel al gusto."
-    ],
-    tips: "No agregues mucho líquido al licuar para mantener la consistencia espesa.",
-  },
-  {
-    id: 5,
-    title: "Agua Fresca de Kiwi y Menta",
-    category: "bebidas",
-    difficulty: "Fácil",
-    time: "10 min",
-    servings: "1 litro",
-    description: "Una bebida refrescante y saludable, ideal para los días de calor.",
-    ingredients: [
-      "4 kiwis maduros",
-      "1 litro de agua fría",
-      "Hojas de menta fresca",
-      "2 cdas de miel o azúcar",
-      "Jugo de 1 limón",
-      "Hielo"
-    ],
-    steps: [
-      "Pelar y licuar los kiwis con un poco de agua.",
-      "Colar para quitar las semillas si lo prefieres.",
-      "Mezclar con el resto del agua, miel y limón.",
-      "Agregar hojas de menta y servir con hielo."
-    ],
-    tips: "Congela cubos de kiwi para usar como hielos decorativos.",
-  },
-  {
-    id: 6,
-    title: "Tarta de Crema y Kiwi",
-    category: "postres",
+  { 
+    id: 3, 
+    title: "Kiwi Galette", 
+    category: "postres", 
+    time: "75 min", 
+    image: "/recipe-galette.png", 
     difficulty: "Avanzada",
-    time: "120 min",
-    servings: "10 porciones",
-    description: "Una elegante tarta con base de masa sablée, crema pastelera y kiwis glaseados.",
-    ingredients: [
-      "Masa sablée (o comprada)",
-      "500ml de leche",
-      "4 yemas",
-      "100g de azúcar",
-      "40g de maicena",
-      "Esencia de vainilla",
-      "6 kiwis",
-      "Mermelada de damasco para glasear"
-    ],
-    steps: [
-      "Forrar un molde con la masa y hornear en blanco.",
-      "Preparar la crema pastelera y dejar enfriar.",
-      "Rellenar la base con la crema.",
-      "Decorar con rodajas de kiwi en espiral.",
-      "Pincelar con mermelada tibia para dar brillo."
-    ],
-    tips: "Usa kiwis firmes para que mantengan su forma al cortar.",
+    source: "@nira_by_saha",
+    instagram: "https://www.instagram.com/p/CQYz8zFr9fU/"
   },
-  {
-    id: 7,
-    title: "Ensalada de Frutas Energética",
-    category: "ensaladas",
-    difficulty: "Fácil",
-    time: "15 min",
-    servings: "4 porciones",
-    description: "Una ensalada de frutas perfecta para cualquier momento del día.",
-    ingredients: [
-      "3 kiwis (mezcla de verdes y amarillos)",
-      "1 mango",
-      "1 taza de frutillas",
-      "1 naranja",
-      "Semillas de chía",
-      "Miel",
-      "Menta fresca"
-    ],
-    steps: [
-      "Cortar todas las frutas en cubos uniformes.",
-      "Mezclar en un bowl grande.",
-      "Agregar el jugo de la naranja y miel.",
-      "Espolvorear con chía y decorar con menta."
-    ],
-    tips: "Prepárala justo antes de servir para que las frutas mantengan su textura.",
+  { 
+    id: 4, 
+    title: "Tartaletas de Limón y Kiwi", 
+    category: "postres", 
+    time: "90 min", 
+    image: "/recipe-tartaletas.png", 
+    difficulty: "Avanzada",
+    source: "@lesparisdelaura",
+    instagram: "https://www.instagram.com/p/CL6-p5ujiL8/"
   },
-  {
-    id: 8,
-    title: "Yogur con Kiwi y Granola",
-    category: "desayunos",
+  { 
+    id: 5, 
+    title: "Daifuku de Kiwi Amarillo", 
+    category: "postres", 
+    time: "45 min", 
+    image: "/recipe-daifuku.png", 
+    difficulty: "Avanzada",
+    source: "@mitsuki_akasaka_wagashi",
+    instagram: "https://www.instagram.com/p/CTC3Dk0Lj0B/"
+  },
+  { 
+    id: 6, 
+    title: "Crepe con Kiwi y Chocolate", 
+    category: "postres", 
+    time: "25 min", 
+    image: "/recipe-crepe.png", 
     difficulty: "Fácil",
-    time: "5 min",
-    servings: "1 porción",
-    description: "Un desayuno rápido, nutritivo y delicioso.",
-    ingredients: [
-      "1 taza de yogur natural o griego",
-      "2 kiwis en cubos",
-      "4 cdas de granola",
-      "1 cda de miel",
-      "Semillas de lino"
-    ],
-    steps: [
-      "Colocar el yogur en un bowl o vaso.",
-      "Agregar los cubos de kiwi.",
-      "Cubrir con granola y semillas.",
-      "Rociar con miel al gusto."
-    ],
-    tips: "El kiwi verde ayuda a la digestión gracias a la actinidina, ideal para comenzar el día.",
+    source: "@beathebaker",
+    instagram: "https://www.instagram.com/p/CHaWIa5j6o5/"
+  },
+  // Bebidas
+  { 
+    id: 7, 
+    title: "Bubble Tea de Kiwi", 
+    category: "bebidas", 
+    time: "45 min", 
+    image: "/recipe-bubbletea.png", 
+    difficulty: "Media",
+    source: "@littlekalegirl",
+    instagram: "https://www.instagram.com/p/CQyoP_uAgBt/"
+  },
+  { 
+    id: 8, 
+    title: "Gin Tonic con Kiwi", 
+    category: "bebidas", 
+    time: "5 min", 
+    image: "/recipe-gin-kiwi.png", 
+    difficulty: "Fácil",
+    source: "@drinks_de_mestre",
+    instagram: "https://www.instagram.com/p/CHqpuOojkJc/"
+  },
+  // Ensaladas
+  { 
+    id: 9, 
+    title: "Pesto Croq' Chivo-Kiwi", 
+    category: "ensaladas", 
+    time: "20 min", 
+    image: "/recipe-pesto-croq.png", 
+    difficulty: "Media",
+    source: "@nutricookinfos",
+    instagram: "https://www.instagram.com/p/CdYjg7wuxzd/"
+  },
+  { 
+    id: 10, 
+    title: "Vieiras Crudas con Kiwi", 
+    category: "ensaladas", 
+    time: "15 min", 
+    image: "/recipe-vieiras.png", 
+    difficulty: "Avanzada",
+    source: "@chef.schiavinidavide",
+    instagram: "https://www.instagram.com/p/CWYeKuXrizo/"
+  },
+  { 
+    id: 11, 
+    title: "Pinchos de Frutas", 
+    category: "ensaladas", 
+    time: "10 min", 
+    image: "/recipe-pinchos.png", 
+    difficulty: "Fácil",
+    source: "@dietmulaibesok",
+    instagram: "https://www.instagram.com/p/CMu6SgLjjom/"
+  },
+  // Desayunos
+  { 
+    id: 12, 
+    title: "Bowl de Avena con Kiwi", 
+    category: "desayunos", 
+    time: "10 min", 
+    image: "/recipe-avena.png", 
+    difficulty: "Fácil",
+    source: "@foodonlypage",
+    instagram: "https://www.instagram.com/p/CVNpbxmrtCq/"
+  },
+  { 
+    id: 13, 
+    title: "Panqueques con Yogur y Kiwi", 
+    category: "desayunos", 
+    time: "25 min", 
+    image: "/recipe-panqueques.png", 
+    difficulty: "Fácil",
+    source: "@foodtempel",
+    instagram: "https://www.instagram.com/p/CMffto0jicG/"
+  },
+  { 
+    id: 14, 
+    title: "Parfait de Kiwi y Banana", 
+    category: "desayunos", 
+    time: "10 min", 
+    image: "/recipe-parfait.png", 
+    difficulty: "Fácil",
+    source: "@elyspaccavento.nutricion",
+    instagram: "https://www.instagram.com/p/CMXNwJsDFmz/"
+  },
+  { 
+    id: 15, 
+    title: "Pancakes de Matcha con Kiwi", 
+    category: "desayunos", 
+    time: "20 min", 
+    image: "/recipe-pancakes-matcha.png", 
+    difficulty: "Media",
+    source: "@the_vegan_harmony",
+    instagram: "https://www.instagram.com/p/CHXyEJpjM-m/"
+  },
+  { 
+    id: 16, 
+    title: "Tostadas con Kiwi y Arándanos", 
+    category: "desayunos", 
+    time: "10 min", 
+    image: "/recipe-tostadas.png", 
+    difficulty: "Fácil",
+    source: "@neverwithoutacoffee",
+    instagram: "https://www.instagram.com/p/CHsxugNjBmy/"
+  },
+  { 
+    id: 17, 
+    title: "Christmas Tree Oatmeal", 
+    category: "desayunos", 
+    time: "15 min", 
+    image: "/recipe-christmas-oatmeal.png", 
+    difficulty: "Fácil",
+    source: "@the_oat_goat",
+    instagram: "https://www.instagram.com/p/CJJpMOGjpGA/"
   },
 ];
 
-function RecipeCard({ recipe }: { recipe: typeof recipes[0] }) {
+const tips = [
+  { icon: "🍎", title: "Maduración Rápida", desc: "Guardá los kiwis en una bolsa con una manzana para acelerar la maduración gracias al etileno." },
+  { icon: "🧊", title: "Conservación", desc: "Los kiwis maduros se conservan hasta 2 semanas en la heladera." },
+  { icon: "🍖", title: "Ablandador Natural", desc: "Usá pulpa de kiwi como marinada natural para ablandar carnes gracias a la actinidina." },
+  { icon: "🥛", title: "Con Lácteos", desc: "La actinidina puede cuajar la leche. Consumí inmediatamente o usá yogur griego." },
+];
+
+function RecetasHero() {
+  const heroRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const titleLine1Ref = useRef<HTMLSpanElement>(null);
+  const titleLine2Ref = useRef<HTMLSpanElement>(null);
+  const subtitleRef = useRef<HTMLParagraphElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+      const chars1 = titleLine1Ref.current?.querySelectorAll(".char") || [];
+      const chars2 = titleLine2Ref.current?.querySelectorAll(".char") || [];
+
+      tl.fromTo(chars1, { y: 100, opacity: 0, rotateX: -90 }, { y: 0, opacity: 1, rotateX: 0, duration: 1, stagger: 0.06 })
+        .fromTo(chars2, { y: 100, opacity: 0, rotateX: -90 }, { y: 0, opacity: 1, rotateX: 0, duration: 1, stagger: 0.04 }, "-=0.6")
+        .fromTo(subtitleRef.current, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 }, "-=0.4");
+
+      gsap.to(contentRef.current, {
+        y: 150, opacity: 0, ease: "none",
+        scrollTrigger: { trigger: heroRef.current, start: "top top", end: "bottom top", scrub: true },
+      });
+    }, heroRef);
+
+    return () => { ctx.revert(); };
+  }, []);
+
+  const splitChars = (text: string) => text.split("").map((char, i) => (
+    <span key={i} className="char inline-block" style={{ whiteSpace: char === " " ? "pre" : undefined }}>
+      {char === " " ? "\u00A0" : char}
+    </span>
+  ));
+
   return (
-    <Card className="h-full flex flex-col">
-      <CardContent className="p-6 flex-1">
-        <div className="flex items-center gap-2 mb-4">
-          <Badge variant="secondary">{recipe.difficulty}</Badge>
-          <Badge variant="outline">{recipe.time}</Badge>
+    <section ref={heroRef} className="relative min-h-screen overflow-hidden">
+      <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/bg-recipes-kitchen.png')" }} />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#3f7528]/80 via-black/60 to-black/80" />
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-20 -right-20 w-96 h-96 bg-lime-400/20 rounded-full blur-3xl" />
+        <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-white/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/3 left-1/4 w-64 h-64 bg-amber-400/10 rounded-full blur-3xl" />
+      </div>
+
+      <div ref={contentRef} className="relative z-10 container mx-auto px-4 min-h-screen flex items-center justify-center">
+        <div className="text-center max-w-5xl">
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md text-white px-5 py-2.5 rounded-full text-sm font-medium mb-8 border border-white/20">
+            <span className="w-2 h-2 bg-lime-400 rounded-full animate-pulse" />
+            INSPIRACIÓN CULINARIA
+          </div>
+          <h1 className="font-[family-name:var(--font-playfair)] text-5xl md:text-7xl lg:text-9xl font-black leading-[0.9] mb-6 tracking-tight" style={{ perspective: "1000px" }}>
+            <span ref={titleLine1Ref} className="block text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)]">{splitChars("RECETAS")}</span>
+            <span ref={titleLine2Ref} className="block text-lime-300 drop-shadow-[0_4px_20px_rgba(0,0,0,0.4)] mt-2">{splitChars("DELICIOSAS")}</span>
+          </h1>
+          <p ref={subtitleRef} className="text-xl md:text-2xl text-white/90 mb-4 font-medium max-w-3xl mx-auto leading-relaxed">
+            Descubrí nuevas formas de disfrutar el <span className="text-lime-200 font-semibold">kiwi argentino</span> en tu cocina
+          </p>
+          <p className="text-lg text-white/70 max-w-2xl mx-auto">Ideas frescas para cada momento del día</p>
         </div>
-        <h3 className="text-xl font-semibold mb-2">{recipe.title}</h3>
-        <p className="text-muted-foreground text-sm mb-4">{recipe.description}</p>
-        <p className="text-sm text-[#3f7528] font-medium">{recipe.servings}</p>
-      </CardContent>
-      <CardFooter className="p-6 pt-0">
-        <Button variant="outline" className="w-full" asChild>
-          <a href={`#receta-${recipe.id}`}>Ver Receta Completa</a>
-        </Button>
-      </CardFooter>
-    </Card>
+      </div>
+
+      <SectionTransition variant="wave" toColor="#faf8f5" height={100} className="absolute bottom-0 left-0 right-0" />
+    </section>
   );
 }
 
-function RecipeDetail({ recipe }: { recipe: typeof recipes[0] }) {
-  return (
-    <div id={`receta-${recipe.id}`} className="scroll-mt-24 py-12 border-b last:border-b-0">
-      <div className="flex flex-wrap items-center gap-3 mb-4">
-        <Badge>{recipe.category}</Badge>
-        <Badge variant="secondary">{recipe.difficulty}</Badge>
-        <Badge variant="outline">{recipe.time}</Badge>
-        <Badge variant="outline">{recipe.servings}</Badge>
-      </div>
-      
-      <h3 className="text-2xl font-bold mb-3">{recipe.title}</h3>
-      <p className="text-muted-foreground mb-8">{recipe.description}</p>
-      
-      <div className="grid md:grid-cols-2 gap-8">
-        <div>
-          <h4 className="font-semibold text-lg mb-4">🥝 Ingredientes</h4>
-          <ul className="space-y-2">
-            {recipe.ingredients.map((ingredient, i) => (
-              <li key={i} className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-[#3f7528] flex-shrink-0" />
-                <span className="text-muted-foreground">{ingredient}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-        
-        <div>
-          <h4 className="font-semibold text-lg mb-4">👨‍🍳 Preparación</h4>
-          <ol className="space-y-3">
-            {recipe.steps.map((step, i) => (
-              <li key={i} className="flex gap-3">
-                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#3f7528] text-white text-sm flex items-center justify-center font-medium">
-                  {i + 1}
-                </span>
-                <span className="text-muted-foreground">{step}</span>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </div>
-      
-      <div className="mt-6 p-4 bg-[#3f7528]/10 rounded-lg">
-        <p className="text-sm">
-          <span className="font-semibold">💡 Tip: </span>
-          <span className="text-muted-foreground">{recipe.tips}</span>
-        </p>
-      </div>
-    </div>
-  );
-}
 
 export default function RecetasPage() {
+  const [activeCategory, setActiveCategory] = useState("todas");
+  const [showAll, setShowAll] = useState(false);
+  const filteredRecipes = activeCategory === "todas" ? recipes : recipes.filter(r => r.category === activeCategory);
+  const displayedRecipes = showAll ? filteredRecipes : filteredRecipes.slice(0, 8);
+  const hasMoreRecipes = filteredRecipes.length > 8;
+
   return (
-    <div className="py-12">
-      <div className="container mx-auto px-4">
-        {/* Hero */}
-        <div className="text-center max-w-4xl mx-auto mb-16">
-          <Badge variant="outline" className="mb-4">Recetario</Badge>
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Recetas con Kiwi Argentino
-          </h1>
-          <p className="text-xl text-muted-foreground">
-            Descubre nuevas formas de disfrutar el kiwi. Desde postres irresistibles 
-            hasta ensaladas frescas, estas recetas destacan el sabor único de nuestro kiwi.
-          </p>
+    <main className="bg-[#faf8f5]">
+      <RecetasHero />
+
+      {/* DESTACADAS */}
+      <section className="py-20 md:py-28 lg:py-32 bg-[#faf8f5] relative">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16 md:mb-20">
+            <ScrollReveal animation="fadeUp" className="mb-4">
+              <span className="inline-block text-[#3f7528] text-sm font-semibold tracking-[0.3em] uppercase">✨ DESTACADAS</span>
+            </ScrollReveal>
+            <AnimatedTitle as="h2" animation="words" className="font-[family-name:var(--font-playfair)] text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-tight" stagger={0.1}>
+              LAS MÁS POPULARES
+            </AnimatedTitle>
+            <ScrollReveal animation="fadeUp" delay={0.1} className="mt-6">
+              <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">Las recetas favoritas de nuestra comunidad</p>
+            </ScrollReveal>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 lg:gap-8 max-w-6xl mx-auto">
+            {recipes.slice(0, 4).map((recipe, index) => (
+              <ScrollReveal key={recipe.id} animation="fadeUp" delay={index * 0.1}>
+                <div className="group relative aspect-[3/4] rounded-2xl md:rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 cursor-pointer border-2 border-transparent hover:border-lime-400/50">
+                  <Image src={recipe.image} alt={recipe.title} fill className="object-cover transition-transform duration-700 group-hover:scale-110" sizes="(max-width: 768px) 50vw, 25vw" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
+                  <div className="absolute top-3 md:top-4 left-3 md:left-4">
+                    <span className="inline-flex items-center gap-1.5 bg-white/95 backdrop-blur-sm text-gray-800 text-xs md:text-sm font-semibold px-3 py-1.5 rounded-full shadow-lg">
+                      <span className="w-1.5 h-1.5 bg-[#3f7528] rounded-full" />{recipe.time}
+                    </span>
+                  </div>
+                  <div className="absolute top-3 md:top-4 right-3 md:right-4">
+                    <span className={`text-xs font-bold px-2.5 py-1 rounded-full ${recipe.difficulty === "Fácil" ? "bg-green-500 text-white" : recipe.difficulty === "Media" ? "bg-amber-500 text-white" : "bg-red-500 text-white"}`}>{recipe.difficulty}</span>
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
+                    <span className="text-lime-300/90 text-xs md:text-sm uppercase tracking-wider mb-2 block font-medium">{recipe.category}</span>
+                    <h3 className="text-white font-bold text-lg md:text-xl lg:text-2xl mb-1 group-hover:text-lime-300 transition-colors duration-300 drop-shadow-lg">{recipe.title}</h3>
+                  </div>
+                  <div className="absolute inset-0 bg-[#3f7528]/0 group-hover:bg-[#3f7528]/10 transition-colors duration-300" />
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+        <SectionTransition variant="gradient" fromColor="#faf8f5" toColor="#f5f0e8" height={80} className="absolute -bottom-1 left-0 right-0" />
+      </section>
+
+      {/* CATÁLOGO */}
+      <section className="py-20 md:py-28 lg:py-32 bg-[#f5f0e8] relative">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12 md:mb-16">
+            <ScrollReveal animation="fadeUp" className="mb-4">
+              <span className="inline-block text-[#3f7528] text-sm font-semibold tracking-[0.3em] uppercase">EXPLORÁ</span>
+            </ScrollReveal>
+            <AnimatedTitle as="h2" animation="words" className="font-[family-name:var(--font-playfair)] text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-10" stagger={0.1}>
+              TODAS LAS RECETAS
+            </AnimatedTitle>
+            <ScrollReveal animation="fadeUp" delay={0.2}>
+              <div className="flex flex-wrap justify-center gap-2 md:gap-3">
+                {categories.map((cat) => (
+                  <button key={cat.id} onClick={() => { setActiveCategory(cat.id); setShowAll(false); }} className={`px-5 md:px-7 py-2.5 md:py-3 rounded-full text-sm md:text-base font-semibold transition-all duration-300 border-2 ${activeCategory === cat.id ? "bg-[#3f7528] text-white border-[#3f7528] shadow-lg shadow-[#3f7528]/30 scale-105" : "bg-white text-gray-700 border-gray-200 hover:border-[#3f7528]/50 hover:shadow-md"}`}>
+                    <span className="mr-2">{cat.icon}</span>{cat.name}
+                  </button>
+                ))}
+              </div>
+            </ScrollReveal>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 max-w-7xl mx-auto">
+            {displayedRecipes.map((recipe, index) => (
+              <ScrollReveal key={recipe.id} animation="fadeUp" delay={index * 0.08}>
+                <div className="group bg-white rounded-2xl md:rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-gray-100 hover:border-[#3f7528]/30">
+                  <div className="relative aspect-square overflow-hidden">
+                    <Image src={recipe.image} alt={recipe.title} fill className="object-cover transition-transform duration-700 group-hover:scale-110" sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw" />
+                    <div className="absolute inset-0 bg-[#3f7528]/0 group-hover:bg-[#3f7528]/10 transition-colors duration-300" />
+                    <div className="absolute top-3 right-3">
+                      <span className="inline-flex items-center gap-1 bg-white/95 backdrop-blur-sm text-gray-800 text-xs font-bold px-3 py-1.5 rounded-full shadow-md">⏱️ {recipe.time}</span>
+                    </div>
+                  </div>
+                  <div className="p-4 md:p-5">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Badge variant="outline" className="text-xs capitalize border-[#3f7528]/40 text-[#3f7528] font-semibold">{recipe.category}</Badge>
+                      <span className={`text-xs font-bold px-2 py-0.5 rounded ${recipe.difficulty === "Fácil" ? "bg-green-100 text-green-700" : recipe.difficulty === "Media" ? "bg-amber-100 text-amber-700" : "bg-red-100 text-red-700"}`}>{recipe.difficulty}</span>
+                    </div>
+                    <h3 className="font-bold text-gray-900 text-base md:text-lg group-hover:text-[#3f7528] transition-colors duration-300">{recipe.title}</h3>
+                  </div>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+          
+          {/* Ver más / Ver menos button */}
+          {hasMoreRecipes && (
+            <div className="text-center mt-12">
+              <button
+                onClick={() => setShowAll(!showAll)}
+                className="inline-flex items-center gap-2 px-8 py-4 bg-[#3f7528] text-white font-bold rounded-full shadow-lg hover:shadow-xl hover:bg-[#4a8a30] transition-all duration-300 hover:scale-105 hover:-translate-y-1"
+              >
+                {showAll ? (
+                  <>
+                    <span>Ver menos</span>
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+                    </svg>
+                  </>
+                ) : (
+                  <>
+                    <span>Ver más recetas ({filteredRecipes.length - 8})</span>
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </>
+                )}
+              </button>
+            </div>
+          )}
+          
+          {filteredRecipes.length === 0 && <div className="text-center py-16"><span className="text-6xl mb-4 block">🥝</span><p className="text-gray-500 text-lg">No hay recetas en esta categoría</p></div>}
+        </div>
+        <SectionTransition variant="wave" toColor="#e8f5e0" height={100} className="absolute -bottom-1 left-0 right-0" />
+      </section>
+
+
+      {/* TIPS */}
+      <section className="py-20 md:py-28 lg:py-32 bg-[#e8f5e0] relative">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16 md:mb-20">
+            <ScrollReveal animation="fadeUp" className="mb-4">
+              <span className="inline-block text-[#3f7528] text-sm font-semibold tracking-[0.3em] uppercase">🥝 TIPS DE COCINA</span>
+            </ScrollReveal>
+            <AnimatedTitle as="h2" animation="words" className="font-[family-name:var(--font-playfair)] text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 leading-tight" stagger={0.1}>
+              CONSEJOS PARA COCINAR CON KIWI
+            </AnimatedTitle>
+            <ScrollReveal animation="fadeUp" delay={0.1} className="mt-6">
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">Secretos y trucos para sacar el máximo provecho de esta fruta increíble</p>
+            </ScrollReveal>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-6xl mx-auto">
+            {tips.map((tip, index) => (
+              <ScrollReveal key={tip.title} animation="fadeUp" delay={index * 0.1}>
+                <div className="bg-white rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 h-full border border-gray-100 hover:border-[#3f7528]/30">
+                  <span className="text-4xl md:text-5xl mb-4 block">{tip.icon}</span>
+                  <h4 className="font-bold text-gray-900 text-lg md:text-xl mb-3">{tip.title}</h4>
+                  <p className="text-sm md:text-base text-gray-600 leading-relaxed">{tip.desc}</p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+        <SectionTransition variant="organic" toColor="#3f7528" height={120} className="absolute -bottom-1 left-0 right-0" />
+      </section>
+
+      {/* CTA FINAL */}
+      <section className="py-24 md:py-32 bg-[#3f7528] relative overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-20 -right-20 w-96 h-96 bg-lime-400/20 rounded-full blur-3xl" />
+          <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-white/10 rounded-full blur-3xl" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-white/5 rounded-full blur-3xl" />
         </div>
 
-        {/* Categories Tabs */}
-        <Tabs defaultValue="todas" className="mb-16">
-          <div className="flex justify-center mb-8">
-            <TabsList className="grid grid-cols-5 w-auto">
-              <TabsTrigger value="todas">Todas</TabsTrigger>
-              {categories.map((cat) => (
-                <TabsTrigger key={cat.id} value={cat.id}>
-                  <span className="mr-1">{cat.icon}</span>
-                  <span className="hidden sm:inline">{cat.name}</span>
-                </TabsTrigger>
-              ))}
-            </TabsList>
-          </div>
-
-          <TabsContent value="todas">
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {recipes.map((recipe) => (
-                <RecipeCard key={recipe.id} recipe={recipe} />
-              ))}
-            </div>
-          </TabsContent>
-
-          {categories.map((cat) => (
-            <TabsContent key={cat.id} value={cat.id}>
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {recipes
-                  .filter((r) => r.category === cat.id)
-                  .map((recipe) => (
-                    <RecipeCard key={recipe.id} recipe={recipe} />
-                  ))}
-              </div>
-            </TabsContent>
-          ))}
-        </Tabs>
-
-        {/* Recipe Details */}
-        <section className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">Recetas Detalladas</h2>
-          {recipes.map((recipe) => (
-            <RecipeDetail key={recipe.id} recipe={recipe} />
-          ))}
-        </section>
-
-        {/* Tips Section */}
-        <section className="mt-20 bg-[#3f7528]/10 rounded-2xl p-8 md:p-12">
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-2xl font-bold mb-6">Consejos para Cocinar con Kiwi</h2>
-            <div className="grid md:grid-cols-2 gap-6 text-left">
-              <div className="p-4 bg-background rounded-lg">
-                <h4 className="font-semibold mb-2">🌡️ Maduración Perfecta</h4>
-                <p className="text-sm text-muted-foreground">
-                  Para acelerar la maduración, guarda los kiwis junto a manzanas o bananas. 
-                  Un kiwi está listo cuando cede ligeramente a la presión.
-                </p>
+            <ScrollReveal animation="scale" className="mb-8">
+              <span className="text-6xl md:text-7xl lg:text-8xl block">🥝</span>
+            </ScrollReveal>
+            <AnimatedTitle as="h2" animation="words" className="font-[family-name:var(--font-playfair)] text-3xl md:text-4xl lg:text-5xl font-black text-white leading-tight mb-6" stagger={0.1}>
+              ¿TENÉS UNA RECETA CON KIWI?
+            </AnimatedTitle>
+            <ScrollReveal animation="fadeUp" delay={0.1} className="mb-10">
+              <p className="text-lg md:text-xl text-white/90 max-w-xl mx-auto">
+                Compartila con nosotros en Instagram y etiquetanos <span className="font-bold text-lime-300">@kiwi_argentino</span>
+              </p>
+            </ScrollReveal>
+            <ScrollReveal animation="fadeUp" delay={0.15}>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button asChild size="lg" className="bg-white hover:bg-gray-100 text-[#3f7528] text-base md:text-lg px-8 md:px-12 py-6 md:py-7 rounded-full font-bold shadow-xl hover:shadow-2xl transition-all hover:scale-105 hover:-translate-y-1">
+                  <Link href="https://instagram.com/kiwi_argentino" target="_blank" rel="noopener noreferrer">SEGUINOS EN INSTAGRAM</Link>
+                </Button>
+                <Button asChild size="lg" className="bg-white/20 border-2 border-white text-white hover:bg-white hover:text-[#3f7528] text-base md:text-lg px-8 md:px-12 py-6 md:py-7 rounded-full font-bold transition-all hover:scale-105 hover:-translate-y-1 backdrop-blur-sm">
+                  <Link href="/productos">VER PRODUCTOS</Link>
+                </Button>
               </div>
-              <div className="p-4 bg-background rounded-lg">
-                <h4 className="font-semibold mb-2">🧊 Conservación</h4>
-                <p className="text-sm text-muted-foreground">
-                  Los kiwis maduros se conservan hasta 2 semanas en la heladera. 
-                  También puedes congelarlos en cubos para smoothies.
-                </p>
-              </div>
-              <div className="p-4 bg-background rounded-lg">
-                <h4 className="font-semibold mb-2">🥛 Lácteos</h4>
-                <p className="text-sm text-muted-foreground">
-                  La actinidina puede cuajar la leche con el tiempo. 
-                  Si combinas kiwi con lácteos, consume inmediatamente.
-                </p>
-              </div>
-              <div className="p-4 bg-background rounded-lg">
-                <h4 className="font-semibold mb-2">🍖 Marinadas</h4>
-                <p className="text-sm text-muted-foreground">
-                  La actinidina ablanda las carnes. Usa pulpa de kiwi como 
-                  marinada natural para cortes más tiernos.
-                </p>
-              </div>
-            </div>
+            </ScrollReveal>
           </div>
-        </section>
-      </div>
-    </div>
+        </div>
+      </section>
+    </main>
   );
 }

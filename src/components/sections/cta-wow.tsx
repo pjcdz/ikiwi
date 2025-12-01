@@ -52,7 +52,7 @@ export function CTAWow() {
               size="lg" 
               className="w-full sm:w-auto bg-[#3f7528] hover:bg-[#3f7528]/90 text-white text-xl px-12 py-7 rounded-full font-bold shadow-2xl hover:shadow-3xl transition-all transform hover:scale-105"
             >
-              <Link href="/contacto">DÓNDE COMPRAR</Link>
+              <Link href="/contacto#exportadores">CONTACTO COMERCIAL</Link>
             </Button>
             <Button 
               asChild 
