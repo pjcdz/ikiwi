@@ -104,7 +104,7 @@ export function CareersGallery() {
             ))}
 
             {/* Small image */}
-            <ScrollReveal animation="fadeUp" delay={0.4} className="col-span-2 md:col-span-1">
+            <ScrollReveal animation="fadeUp" delay={0.15} className="col-span-2 md:col-span-1">
               <div className="relative rounded-2xl overflow-hidden shadow-lg group aspect-video md:aspect-square">
                 <Image
                   src={galleryImages[3].src}
@@ -120,7 +120,7 @@ export function CareersGallery() {
             </ScrollReveal>
 
             {/* Stats card */}
-            <ScrollReveal animation="fadeUp" delay={0.5} className="col-span-2 md:col-span-1">
+            <ScrollReveal animation="fadeUp" delay={0.2} className="col-span-2 md:col-span-1">
               <div className="bg-[#3f7528] rounded-2xl p-6 h-full flex flex-col justify-center items-center text-center shadow-lg aspect-video md:aspect-square">
                 <span className="text-5xl mb-4">🥝</span>
                 <p className="text-white/80 text-sm mb-2">Producimos</p>

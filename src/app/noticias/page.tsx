@@ -366,7 +366,7 @@ export default function NoticiasPage() {
               </p>
             </ScrollReveal>
 
-            <ScrollReveal animation="fadeUp" delay={0.3}>
+            <ScrollReveal animation="fadeUp" delay={0.1}>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
                   asChild
@@ -383,9 +383,8 @@ export default function NoticiasPage() {
                 </Button>
                 <Button
                   asChild
-                  variant="outline"
                   size="lg"
-                  className="border-2 border-white text-white hover:bg-white hover:text-[#3f7528] text-lg px-10 py-7 font-bold rounded-full transition-all duration-300 hover:scale-105"
+                  className="bg-white/20 border-2 border-white text-white hover:bg-white hover:text-[#3f7528] text-lg px-10 py-7 font-bold rounded-full transition-all duration-300 hover:scale-105 backdrop-blur-sm"
                 >
                   <Link href="/productos">VER PRODUCTOS</Link>
                 </Button>

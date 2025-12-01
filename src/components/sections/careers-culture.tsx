@@ -92,7 +92,7 @@ export function CareersCulture() {
                 <ScrollReveal 
                   key={value.title} 
                   animation="fadeUp" 
-                  delay={0.3 + index * 0.15}
+                  delay={0.05 + index * 0.05}
                 >
                   <div className="bg-white rounded-2xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
                     <span className="text-3xl mb-3 block group-hover:scale-110 transition-transform duration-300">

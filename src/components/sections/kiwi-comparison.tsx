@@ -175,7 +175,7 @@ export function KiwiComparison() {
         </div>
 
         {/* Bottom note */}
-        <ScrollReveal animation="fadeUp" delay={0.4}>
+        <ScrollReveal animation="fadeUp" delay={0.1}>
           <div className="text-center mt-12">
             <div className="inline-flex items-center gap-3 bg-white rounded-full px-6 py-3 shadow-lg border border-gray-100">
               <span className="text-2xl">💡</span>

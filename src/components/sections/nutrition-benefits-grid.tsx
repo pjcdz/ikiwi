@@ -127,7 +127,7 @@ export function NutritionBenefitsGrid() {
         </div>
 
         {/* Additional benefits tags */}
-        <ScrollReveal animation="fadeUp" delay={0.6}>
+        <ScrollReveal animation="fadeUp" delay={0.15}>
           <div className="flex flex-wrap justify-center gap-3 mt-12">
             {[
               { icon: "🧬", label: "Antioxidantes" },

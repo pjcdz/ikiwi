@@ -53,7 +53,7 @@ export function CareersHook() {
             </ScrollReveal>
 
             {/* Beneficios */}
-            <ScrollReveal animation="fadeUp" delay={0.3}>
+            <ScrollReveal animation="fadeUp" delay={0.1}>
               <div className="grid grid-cols-2 gap-4 mb-8">
                 {benefits.map((benefit) => (
                   <div key={benefit.text} className="flex items-center gap-3 bg-white rounded-xl p-4 shadow-md">
@@ -64,7 +64,7 @@ export function CareersHook() {
               </div>
             </ScrollReveal>
 
-            <ScrollReveal animation="fadeUp" delay={0.4}>
+            <ScrollReveal animation="fadeUp" delay={0.15}>
               <Button
                 asChild
                 size="lg"

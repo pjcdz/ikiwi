@@ -29,9 +29,9 @@ export function AnimatedTitle({
   className = "",
   delay = 0,
   stagger = 0.05,
-  duration = 0.8,
+  duration = 0.6,
   once = true,
-  start = "top 85%",
+  start = "top 95%",
 }: AnimatedTitleProps) {
   const containerRef = useRef<HTMLElement>(null);
   const [isReady, setIsReady] = useState(false);

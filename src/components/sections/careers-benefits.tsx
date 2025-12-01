@@ -101,7 +101,7 @@ export function CareersBenefits() {
           </div>
 
           {/* Bottom highlight */}
-          <ScrollReveal animation="fadeUp" delay={0.6}>
+          <ScrollReveal animation="fadeUp" delay={0.15}>
             <div className="mt-16 text-center">
               <div className="inline-flex items-center gap-4 bg-white/10 backdrop-blur-sm rounded-full px-8 py-4 border border-white/20">
                 <span className="text-3xl">🌟</span>

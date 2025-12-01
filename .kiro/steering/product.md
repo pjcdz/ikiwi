@@ -1,31 +1,42 @@
-# Product Overview
+---
+inclusion: always
+---
+
+# Product Context
 
 Ikiwi is the institutional website for **Kiwi Argentino** (iKiwi), Argentina's largest kiwi producer based in Mar del Plata/Sierra de los Padres.
 
-## Purpose
-- Showcase premium Argentine kiwi products with organic and geographic indication certifications
-- Communicate brand story, values, and agricultural heritage
-- Provide recipes, nutritional information, and press coverage
-- Support B2B inquiries and career opportunities
+## Brand Guidelines
 
-## Target Audience
-- Spanish-speaking consumers (Argentina primary market)
+| Aspect | Specification |
+|--------|---------------|
+| Primary Color | Kiwi green `#3f7528` |
+| Accent Colors | Lime, earth/campestre tones |
+| Language | Spanish (es_AR) — all UI text must be in Spanish |
+| Tone | Premium, organic, authentic Argentine agricultural heritage |
+| Visual Style | Rich imagery of orchards, products, rural landscapes |
+
+## Content Rules
+- All user-facing text must be written in Spanish (Argentina)
+- Use formal "usted" form for calls-to-action
+- Emphasize certifications: organic, GlobalGAP, geographic indication
+- Highlight local origin (Mar del Plata, Sierra de los Padres)
+
+## Site Structure
+
+| Route | Purpose |
+|-------|---------|
+| `/` | Homepage with hero, products, certifications, Instagram gallery |
+| `/productos` | Kiwi varieties: verde, amarillo, orgánico, baby kiwi |
+| `/nosotros` | Company history, team, values |
+| `/recetas` | Kiwi-based recipes |
+| `/nutricion` | Health and nutritional benefits |
+| `/noticias` | Press coverage and news |
+| `/contacto` | Contact form for inquiries |
+| `/trabaja-con-nosotros` | Career opportunities |
+
+## Target Audiences
+- Spanish-speaking consumers (Argentina primary)
 - B2B buyers and distributors
 - Press and media
 - Job seekers
-
-## Brand Identity
-- Colors: Kiwi green (#3f7528), lime accents, earth/campestre tones
-- Tone: Premium, organic, authentic Argentine agricultural heritage
-- Visual style: Rich imagery of orchards, products, and rural landscapes
-- Language: Spanish (es_AR locale)
-
-## Key Pages
-- Home: Hero with product showcase, certifications, Instagram gallery
-- Productos: Kiwi varieties (verde, amarillo, orgánico, baby kiwi)
-- Nosotros: Company history and team
-- Recetas: Kiwi-based recipes
-- Nutrición: Health benefits
-- Noticias: Press coverage
-- Contacto: Contact form
-- Trabaja con Nosotros: Careers

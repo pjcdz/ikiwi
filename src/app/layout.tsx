@@ -33,6 +33,11 @@ export const metadata: Metadata = {
   description: "iKiwi - La mayor productora de kiwi de Argentina. Kiwis premium cultivados en Mar del Plata con certificación orgánica e Indicación Geográfica. Descubre el sabor auténtico del kiwi argentino.",
   keywords: ["kiwi argentino", "kiwi Mar del Plata", "kiwi orgánico", "iKiwi", "kiwi premium", "frutas Argentina"],
   authors: [{ name: "iKiwi" }],
+  icons: {
+    icon: "/logo-ikiwi-recortado.png",
+    shortcut: "/logo-ikiwi-recortado.png",
+    apple: "/logo-ikiwi-recortado.png",
+  },
   openGraph: {
     title: "Kiwi Argentino | El Sabor del Atlántico Sur",
     description: "Descubre el kiwi premium argentino cultivado en Mar del Plata. Calidad certificada con Indicación Geográfica.",

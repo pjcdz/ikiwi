@@ -76,7 +76,7 @@ export function CareersForm() {
             </div>
 
             {/* Form */}
-            <ScrollReveal animation="fadeUp" delay={0.3}>
+            <ScrollReveal animation="fadeUp" delay={0.1}>
               <form onSubmit={handleSubmit} className="bg-white rounded-3xl p-8 md:p-12 shadow-xl space-y-6">
                 {/* Name & Email Row */}
                 <div className="grid md:grid-cols-2 gap-6">

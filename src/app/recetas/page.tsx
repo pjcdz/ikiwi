@@ -293,7 +293,7 @@ export default function RecetasPage() {
             <AnimatedTitle as="h2" animation="words" className="font-[family-name:var(--font-playfair)] text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-tight" stagger={0.1}>
               LAS MÁS POPULARES
             </AnimatedTitle>
-            <ScrollReveal animation="fadeUp" delay={0.3} className="mt-6">
+            <ScrollReveal animation="fadeUp" delay={0.1} className="mt-6">
               <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">Las recetas favoritas de nuestra comunidad</p>
             </ScrollReveal>
           </div>
@@ -411,7 +411,7 @@ export default function RecetasPage() {
             <AnimatedTitle as="h2" animation="words" className="font-[family-name:var(--font-playfair)] text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 leading-tight" stagger={0.1}>
               CONSEJOS PARA COCINAR CON KIWI
             </AnimatedTitle>
-            <ScrollReveal animation="fadeUp" delay={0.3} className="mt-6">
+            <ScrollReveal animation="fadeUp" delay={0.1} className="mt-6">
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">Secretos y trucos para sacar el máximo provecho de esta fruta increíble</p>
             </ScrollReveal>
           </div>
@@ -447,12 +447,12 @@ export default function RecetasPage() {
             <AnimatedTitle as="h2" animation="words" className="font-[family-name:var(--font-playfair)] text-3xl md:text-4xl lg:text-5xl font-black text-white leading-tight mb-6" stagger={0.1}>
               ¿TENÉS UNA RECETA CON KIWI?
             </AnimatedTitle>
-            <ScrollReveal animation="fadeUp" delay={0.3} className="mb-10">
+            <ScrollReveal animation="fadeUp" delay={0.1} className="mb-10">
               <p className="text-lg md:text-xl text-white/90 max-w-xl mx-auto">
                 Compartila con nosotros en Instagram y etiquetanos <span className="font-bold text-lime-300">@kiwi_argentino</span>
               </p>
             </ScrollReveal>
-            <ScrollReveal animation="fadeUp" delay={0.5}>
+            <ScrollReveal animation="fadeUp" delay={0.15}>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="lg" className="bg-white hover:bg-gray-100 text-[#3f7528] text-base md:text-lg px-8 md:px-12 py-6 md:py-7 rounded-full font-bold shadow-xl hover:shadow-2xl transition-all hover:scale-105 hover:-translate-y-1">
                   <Link href="https://instagram.com/kiwi_argentino" target="_blank" rel="noopener noreferrer">SEGUINOS EN INSTAGRAM</Link>

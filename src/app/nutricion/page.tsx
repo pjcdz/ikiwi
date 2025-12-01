@@ -38,8 +38,8 @@ export default function NutricionPage() {
         icon="🥝"
         title="Incorpora el Kiwi a Tu Dieta"
         description="Con todos estos beneficios comprobados, el kiwi argentino de iKiwi es la opción más fresca y nutritiva para vos y tu familia."
-        primaryButton={{ text: "VER RECETAS", href: "/recetas" }}
-        secondaryButton={{ text: "DÓNDE COMPRAR", href: "/contacto" }}
+        primaryButton={{ text: "VER PRODUCTOS", href: "/productos" }}
+        secondaryButton={{ text: "CONTACTO COMERCIAL", href: "/contacto#exportadores" }}
         variant="green"
       />
     </main>

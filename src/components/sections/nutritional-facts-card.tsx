@@ -106,7 +106,7 @@ export function NutritionalFactsCard() {
             { value: "Bajo", label: "Índice Glucémico", description: "GI de 50" },
             { value: "0g", label: "Grasas Saturadas", description: "Corazón sano" },
           ].map((stat, index) => (
-            <ScrollReveal key={stat.label} animation="fadeUp" delay={0.3 + index * 0.1}>
+            <ScrollReveal key={stat.label} animation="fadeUp" delay={0.05 + index * 0.05}>
               <div className="bg-white rounded-2xl p-6 text-center shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
                 <p className="text-3xl font-black text-[#3f7528] mb-1">{stat.value}</p>
                 <p className="font-semibold text-gray-900">{stat.label}</p>

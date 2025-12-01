@@ -79,7 +79,7 @@ export function Empaquetadora({ className = "" }: EmpaquetadoraProps) {
               snap: { textContent: 1 },
               scrollTrigger: {
                 trigger: stat,
-                start: "top 85%",
+                start: "top 95%",
                 toggleActions: "play none none none",
               },
             }
@@ -101,7 +101,7 @@ export function Empaquetadora({ className = "" }: EmpaquetadoraProps) {
             ease: "power2.out",
             scrollTrigger: {
               trigger: img,
-              start: "top 85%",
+              start: "top 95%",
               toggleActions: "play none none none",
             },
           }

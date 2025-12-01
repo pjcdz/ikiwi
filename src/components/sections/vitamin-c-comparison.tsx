@@ -48,7 +48,7 @@ export function VitaminCComparison() {
           stagger: 0.15,
           scrollTrigger: {
             trigger: barsRef.current,
-            start: "top 80%",
+            start: "top 95%",
             once: true,
             onEnter: () => setHasAnimated(true),
           },
@@ -87,7 +87,7 @@ export function VitaminCComparison() {
           </div>
 
           {/* Comparison Card */}
-          <ScrollReveal animation="fadeUp" delay={0.3}>
+          <ScrollReveal animation="fadeUp" delay={0.1}>
             <div
               ref={barsRef}
               className="bg-white rounded-3xl p-6 md:p-10 shadow-xl border border-[#3f7528]/10"

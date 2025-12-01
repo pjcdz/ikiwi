@@ -6,6 +6,7 @@ import Image from "next/image";
 import { gsap } from "gsap";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { ScrollReveal } from "@/components/animations/scroll-reveal";
 import {
   certifications,
   getPreviewCertifications,
@@ -72,19 +73,25 @@ export function Certifications({
       <div className="container mx-auto px-4 relative z-10">
         {showTitle && (
           <div className="text-center mb-16 md:mb-20">
-            <span className="inline-block text-[#3f7528] text-sm font-bold tracking-[0.3em] uppercase mb-4 px-4 py-2 bg-[#3f7528]/10 rounded-full border border-[#3f7528]/20">
-              Calidad Certificada
-            </span>
-            <h2 className="font-[family-name:var(--font-playfair)] text-3xl md:text-4xl lg:text-6xl font-black text-gray-900 mb-6">
-              {variant === "preview"
-                ? "Respaldados por las Mejores Certificaciones"
-                : "Nuestras Certificaciones"}
-            </h2>
-            <p className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-              {variant === "preview"
-                ? "Cada kiwi que producimos cumple con los más altos estándares nacionales e internacionales de calidad y sustentabilidad."
-                : "Nuestro compromiso con la excelencia está avalado por las certificaciones más exigentes del mercado nacional e internacional."}
-            </p>
+            <ScrollReveal animation="fadeUp">
+              <span className="inline-block text-[#3f7528] text-sm font-bold tracking-[0.3em] uppercase mb-4 px-4 py-2 bg-[#3f7528]/10 rounded-full border border-[#3f7528]/20">
+                Calidad Certificada
+              </span>
+            </ScrollReveal>
+            <ScrollReveal animation="fadeUp" delay={0.1}>
+              <h2 className="font-[family-name:var(--font-playfair)] text-3xl md:text-4xl lg:text-6xl font-black text-gray-900 mb-6">
+                {variant === "preview"
+                  ? "Respaldados por las Mejores Certificaciones"
+                  : "Nuestras Certificaciones"}
+              </h2>
+            </ScrollReveal>
+            <ScrollReveal animation="fadeUp" delay={0.2}>
+              <p className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+                {variant === "preview"
+                  ? "Cada kiwi que producimos cumple con los más altos estándares nacionales e internacionales de calidad y sustentabilidad."
+                  : "Nuestro compromiso con la excelencia está avalado por las certificaciones más exigentes del mercado nacional e internacional."}
+              </p>
+            </ScrollReveal>
           </div>
         )}
 
@@ -101,14 +108,13 @@ export function Certifications({
             const isExpanded = expandedCert === cert.id;
             
             return (
-              <div
-                key={cert.id}
-                onClick={() => variant === "full" ? setExpandedCert(isExpanded ? null : cert.id) : null}
-                className={`group relative bg-white/95 backdrop-blur-md rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border ${
-                  isExpanded ? `${colors.border} ring-4 ${colors.ring}` : "border-gray-100/50 hover:border-gray-200"
-                } ${variant === "full" ? "cursor-pointer" : ""}`}
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
+              <ScrollReveal key={cert.id} animation="fadeUp" delay={index * 0.1}>
+                <div
+                  onClick={() => variant === "full" ? setExpandedCert(isExpanded ? null : cert.id) : null}
+                  className={`group relative bg-white/95 backdrop-blur-md rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border h-full ${
+                    isExpanded ? `${colors.border} ring-4 ${colors.ring}` : "border-gray-100/50 hover:border-gray-200"
+                  } ${variant === "full" ? "cursor-pointer" : ""}`}
+                >
                 {/* Top Gradient Accent */}
                 <div className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${
                   cert.category === "origin" ? "from-[#3f7528] to-lime-500" :
@@ -153,25 +159,10 @@ export function Certifications({
                       : cert.fullDescription}
                   </p>
 
-                  {/* Year Badge - Full variant */}
-                  {variant === "full" && cert.year && (
-                    <div className="flex items-center justify-between mt-4 pt-4 border-t border-gray-100">
-                      <span className="text-xs text-gray-500 flex items-center gap-1.5">
-                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>
-                        Otorgada en {cert.year}
-                      </span>
-                      <span className={`text-xs font-semibold ${colors.text} flex items-center gap-1`}>
-                        {isExpanded ? "Cerrar" : "Ver más"}
-                        <svg className={`w-4 h-4 transition-transform duration-300 ${isExpanded ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                        </svg>
-                      </span>
-                    </div>
-                  )}
+
                 </div>
               </div>
+              </ScrollReveal>
             );
           })}
         </div>
@@ -254,103 +245,22 @@ export function Certifications({
 
         {/* CTA Button - Preview variant */}
         {variant === "preview" && (
-          <div className="text-center mt-12">
-            <Button
-              asChild
-              size="lg"
-              className="bg-[#3f7528] hover:bg-[#2d5a1c] text-white px-10 py-6 text-lg font-bold rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
-            >
-              <Link href="/nosotros#certificaciones">
-                Ver Todas las Certificaciones
-              </Link>
-            </Button>
-          </div>
-        )}
-
-        {/* Bottom Stats Banner - Full variant */}
-        {variant === "full" && (
-          <div className="mt-16 relative">
-            {/* Background with gradient and pattern */}
-            <div className="bg-gradient-to-r from-[#3f7528] via-[#4a8a30] to-[#3f7528] rounded-3xl p-10 md:p-14 shadow-2xl overflow-hidden relative">
-              {/* Decorative pattern overlay */}
-              <div className="absolute inset-0 opacity-10">
-                <div className="absolute inset-0" style={{
-                  backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
-                  backgroundSize: '40px 40px'
-                }} />
-              </div>
-              
-              {/* Decorative blur elements */}
-              <div className="absolute top-0 left-0 w-64 h-64 bg-lime-400/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-              <div className="absolute bottom-0 right-0 w-48 h-48 bg-white/10 rounded-full blur-3xl translate-x-1/4 translate-y-1/4" />
-
-              {/* Content */}
-              <div className="relative z-10">
-                {/* Header */}
-                <div className="text-center mb-10">
-                  <span className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-lime-200 px-5 py-2 rounded-full text-sm font-semibold border border-white/20 mb-4">
-                    <span className="w-2 h-2 bg-lime-400 rounded-full animate-pulse" />
-                    Nuestro Compromiso
-                  </span>
-                  <h3 className="font-[family-name:var(--font-playfair)] text-2xl md:text-3xl font-black text-white">
-                    Calidad que Trasciende Fronteras
-                  </h3>
-                </div>
-
-                {/* Stats Grid */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-                  <div className="text-center group">
-                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/20 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
-                      <div className="w-14 h-14 mx-auto mb-4 bg-lime-400/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <span className="text-3xl">🏅</span>
-                      </div>
-                      <div className="text-4xl md:text-5xl font-black text-white mb-2">6</div>
-                      <div className="text-white/70 text-sm font-medium">Certificaciones Activas</div>
-                    </div>
-                  </div>
-                  
-                  <div className="text-center group">
-                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/20 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
-                      <div className="w-14 h-14 mx-auto mb-4 bg-lime-400/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <span className="text-3xl">🌍</span>
-                      </div>
-                      <div className="text-4xl md:text-5xl font-black text-white mb-2">4</div>
-                      <div className="text-white/70 text-sm font-medium">Países de Exportación</div>
-                    </div>
-                  </div>
-                  
-                  <div className="text-center group">
-                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/20 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
-                      <div className="w-14 h-14 mx-auto mb-4 bg-lime-400/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <span className="text-3xl">🏆</span>
-                      </div>
-                      <div className="text-4xl md:text-5xl font-black text-white mb-2">2022</div>
-                      <div className="text-white/70 text-sm font-medium">Primera IG Argentina</div>
-                    </div>
-                  </div>
-                  
-                  <div className="text-center group">
-                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/20 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
-                      <div className="w-14 h-14 mx-auto mb-4 bg-lime-400/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <span className="text-3xl">✓</span>
-                      </div>
-                      <div className="text-4xl md:text-5xl font-black text-white mb-2">100%</div>
-                      <div className="text-white/70 text-sm font-medium">Trazabilidad Garantizada</div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Bottom tagline */}
-                <div className="text-center mt-10 pt-8 border-t border-white/10">
-                  <p className="text-white/60 text-sm flex items-center justify-center gap-2">
-                    <span className="text-lime-400">🥝</span>
-                    Cada kiwi cuenta una historia de calidad y compromiso
-                  </p>
-                </div>
-              </div>
+          <ScrollReveal animation="fadeUp" delay={0.3}>
+            <div className="text-center mt-12">
+              <Button
+                asChild
+                size="lg"
+                className="bg-[#3f7528] hover:bg-[#2d5a1c] text-white px-10 py-6 text-lg font-bold rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+              >
+                <Link href="/nosotros#certificaciones">
+                  Ver Todas las Certificaciones
+                </Link>
+              </Button>
             </div>
-          </div>
+          </ScrollReveal>
         )}
+
+
       </div>
     </section>
   );

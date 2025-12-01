@@ -100,7 +100,7 @@ export function PageCTA({
 
           {/* Buttons */}
           {(primaryButton || secondaryButton) && (
-            <ScrollReveal animation="fadeUp" delay={0.3}>
+            <ScrollReveal animation="fadeUp" delay={0.1}>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 {primaryButton && (
                   <Link
@@ -124,7 +124,7 @@ export function PageCTA({
 
           {/* Certifications */}
           {showCertifications && certifications.length > 0 && (
-            <ScrollReveal animation="fadeUp" delay={0.4}>
+            <ScrollReveal animation="fadeUp" delay={0.15}>
               <div className="mt-12 pt-8 border-t border-current/10">
                 <p className={`text-sm ${styles.description} mb-4`}>Certificaciones</p>
                 <div className="flex flex-wrap justify-center items-center gap-6">

@@ -21,42 +21,42 @@ if (typeof window !== "undefined") {
 
 const contactOptions = [
   {
-    id: "donde-comprar",
+    id: "gastronomia",
     icon: (
       <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 8.25v-1.5m0 1.5c-1.355 0-2.697.056-4.024.166C6.845 8.51 6 9.473 6 10.608v2.513m6-4.87c1.355 0 2.697.055 4.024.165C17.155 8.51 18 9.473 18 10.608v2.513m-3-4.87v-1.5m-6 1.5v-1.5m12 9.75l-1.5.75a3.354 3.354 0 01-3 0 3.354 3.354 0 00-3 0 3.354 3.354 0 01-3 0 3.354 3.354 0 00-3 0 3.354 3.354 0 01-3 0L3 16.5m18-4.5a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     ),
-    title: "Dónde Comprar",
-    description: "Encontrá kiwis frescos en supermercados y verdulerías cerca tuyo",
-    href: "#donde-comprar",
-    linkText: "Ver puntos de venta",
+    title: "Gastronomía",
+    description: "Restaurantes, cafeterías,\npanaderías y heladerías",
+    href: "#form",
+    linkText: "Solicitar información",
     variant: "light" as const,
   },
   {
-    id: "b2b",
+    id: "distribucion",
     icon: (
       <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.008v.008H12v-.008z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
       </svg>
     ),
-    title: "Empresas B2B",
-    description: "Restaurantes, supermercados, exportadores e industria alimentaria",
-    href: "#b2b",
+    title: "Distribución",
+    description: "Supermercados, mayoristas\ny verdulerías",
+    href: "#form",
     linkText: "Contacto comercial",
     variant: "dark" as const,
   },
   {
-    id: "contacto",
+    id: "exportacion",
     icon: (
       <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
       </svg>
     ),
-    title: "Contactanos",
-    description: "Consultas, sugerencias o cualquier cosa que necesites",
+    title: "Exportación",
+    description: "Importadores internacionales\ny comercio exterior",
     href: "#form",
-    linkText: "Enviar mensaje",
+    linkText: "Consulta internacional",
     variant: "light" as const,
   },
 ];
@@ -112,15 +112,15 @@ function ContactoHero() {
           "-=0.3"
         );
 
-      // Parallax effect on scroll
+      // Parallax effect on scroll - más rápido para evitar solapamiento
       gsap.to(contentRef.current, {
-        y: 150,
+        y: 100,
         opacity: 0,
         ease: "none",
         scrollTrigger: {
           trigger: heroRef.current,
           start: "top top",
-          end: "bottom top",
+          end: "40% top",
           scrub: true,
         },
       });
@@ -258,7 +258,7 @@ function ContactOptionsSection() {
           </AnimatedTitle>
           <ScrollReveal animation="fadeUp" delay={0.2}>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              Ya sea que busques comprar kiwis frescos, hacer negocios B2B o simplemente tengas una consulta
+              Ya sea para negocios B2B, distribución, exportación o simplemente tengas una consulta
             </p>
           </ScrollReveal>
         </div>
@@ -281,7 +281,7 @@ function ContactOptionsSection() {
                     <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/5 rounded-full blur-2xl" />
                   </>
                 )}
-                <div className="relative">
+                <div className="relative h-full flex flex-col">
                   <div className={`w-24 h-24 rounded-3xl flex items-center justify-center mx-auto mb-8 group-hover:scale-110 transition-transform duration-500 ${
                     option.variant === "dark" 
                       ? "bg-white/15 backdrop-blur-sm border border-white/20 text-white" 
@@ -294,12 +294,12 @@ function ContactOptionsSection() {
                   }`}>
                     {option.title}
                   </h3>
-                  <p className={`text-base mb-8 leading-relaxed ${
+                  <p className={`text-base mb-8 leading-relaxed flex-grow whitespace-pre-line ${
                     option.variant === "dark" ? "text-white/70" : "text-gray-500"
                   }`}>
                     {option.description}
                   </p>
-                  <span className={`inline-flex items-center gap-2 font-bold text-lg group-hover:gap-4 transition-all duration-300 ${
+                  <span className={`inline-flex items-center justify-center gap-2 font-bold text-lg group-hover:gap-4 transition-all duration-300 ${
                     option.variant === "dark" ? "text-lime-300" : "text-[#3f7528]"
                   }`}>
                     {option.linkText}
@@ -364,7 +364,7 @@ function DirectContactSection() {
         {/* Contact Buttons */}
         <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {/* WhatsApp */}
-          <ScrollReveal animation="fadeUp" delay={0.3}>
+          <ScrollReveal animation="fadeUp" delay={0.1}>
             <a
               href="https://wa.me/5492235000000"
               target="_blank"
@@ -390,7 +390,7 @@ function DirectContactSection() {
           </ScrollReveal>
 
           {/* Email */}
-          <ScrollReveal animation="fadeUp" delay={0.4}>
+          <ScrollReveal animation="fadeUp" delay={0.15}>
             <a
               href="mailto:ventas@ikiwi.com.ar"
               aria-label="Enviar email a ventas@ikiwi.com.ar"
@@ -415,7 +415,7 @@ function DirectContactSection() {
         </div>
 
         {/* Certificaciones */}
-        <ScrollReveal animation="fadeUp" delay={0.5}>
+        <ScrollReveal animation="fadeUp" delay={0.1}>
           <div className="mt-16 text-center">
             <p className="text-white/50 text-sm uppercase tracking-wider mb-6">Certificaciones que nos avalan</p>
             <div className="flex justify-center items-center gap-4 md:gap-6 flex-wrap">
@@ -447,180 +447,231 @@ function DirectContactSection() {
 // CONTACT FORM SECTION: Formulario premium con diseño mejorado
 // ============================================================================
 
+// Google Form configuration - Pre-filled URL approach
+const GOOGLE_FORM_BASE_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfyNJCMaRn4qy_CF3fNcjjZgqYNRl2BOCNt-kGCc3-mRqNqtg/viewform";
+const GOOGLE_FORM_FIELDS = {
+  nombre: "entry.820822246",
+  email: "entry.367785466",
+  telefono: "entry.1686690973",
+  empresa: "entry.2049059386",
+  motivo: "entry.1743828944",
+  mensaje: "entry.247879394",
+};
+
 function ContactFormSection() {
-  const [formState, setFormState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [formData, setFormData] = useState({
+    nombre: "",
+    email: "",
+    telefono: "",
+    empresa: "",
+    motivo: "",
+    mensaje: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setFormState('submitting');
-    // Simular envío
-    setTimeout(() => {
-      setFormState('success');
-      setTimeout(() => setFormState('idle'), 3000);
-    }, 1500);
+    
+    // Build pre-filled Google Form URL
+    const params = new URLSearchParams({
+      usp: "pp_url",
+      [GOOGLE_FORM_FIELDS.nombre]: formData.nombre,
+      [GOOGLE_FORM_FIELDS.email]: formData.email,
+      [GOOGLE_FORM_FIELDS.telefono]: formData.telefono,
+      [GOOGLE_FORM_FIELDS.empresa]: formData.empresa,
+      [GOOGLE_FORM_FIELDS.motivo]: formData.motivo,
+      [GOOGLE_FORM_FIELDS.mensaje]: formData.mensaje,
+    });
+
+    // Open Google Form in new tab with pre-filled data
+    window.open(`${GOOGLE_FORM_BASE_URL}?${params.toString()}`, "_blank");
   };
 
   return (
     <section id="form" className="py-20 md:py-28 lg:py-32 bg-[#f5f0e8]">
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-2xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
             <ScrollReveal animation="fadeUp">
-              <span className="text-[#3f7528] text-sm font-semibold tracking-[0.3em] uppercase mb-4 block">
+              <span className="inline-block text-[#3f7528] text-sm font-semibold tracking-[0.3em] uppercase mb-4">
                 ESCRIBINOS
               </span>
             </ScrollReveal>
             <AnimatedTitle
               as="h2"
               animation="words"
-              className="font-[family-name:var(--font-playfair)] text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-4"
+              className="font-[family-name:var(--font-playfair)] text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 leading-tight mb-4"
+              stagger={0.08}
             >
-              Envianos un Mensaje
+              ENVIANOS UN MENSAJE
             </AnimatedTitle>
             <ScrollReveal animation="fadeUp" delay={0.2}>
-              <p className="text-gray-600 text-lg max-w-xl mx-auto">
-                Completá el formulario y te responderemos a la brevedad
+              <p className="text-lg text-gray-600">
+                Completá el formulario y nos pondremos en contacto
               </p>
             </ScrollReveal>
           </div>
 
-          {/* Form Card */}
-          <ScrollReveal animation="fadeUp" delay={0.3}>
-            <form onSubmit={handleSubmit} className="bg-white rounded-[2rem] p-8 md:p-12 shadow-2xl">
-              <div className="grid md:grid-cols-2 gap-8">
-                {/* Nombre */}
-                <div className="space-y-2">
-                  <label htmlFor="nombre" className="block text-sm font-bold text-gray-700 uppercase tracking-wider">
-                    Nombre <span className="text-red-500">*</span>
+          {/* Form */}
+          <ScrollReveal animation="fadeUp" delay={0.1}>
+            <form onSubmit={handleSubmit} className="bg-white rounded-3xl p-8 md:p-12 shadow-xl space-y-6">
+              {/* Name & Email Row */}
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label 
+                    htmlFor="nombre" 
+                    className="block text-sm font-semibold text-gray-700 mb-2"
+                  >
+                    Nombre completo <span className="text-red-500">*</span>
                   </label>
                   <input 
                     type="text" 
                     id="nombre" 
                     name="nombre"
-                    required 
+                    value={formData.nombre}
+                    onChange={handleChange}
+                    required
                     aria-required="true"
-                    className="w-full px-5 py-4 rounded-2xl border-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-[#3f7528] transition-all text-lg" 
+                    className="w-full px-5 py-4 rounded-xl border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-[#3f7528] focus:border-transparent transition-all duration-200 placeholder:text-gray-400" 
                     placeholder="Tu nombre completo" 
                   />
                 </div>
-
-                {/* Email */}
-                <div className="space-y-2">
-                  <label htmlFor="email" className="block text-sm font-bold text-gray-700 uppercase tracking-wider">
+                <div>
+                  <label 
+                    htmlFor="email" 
+                    className="block text-sm font-semibold text-gray-700 mb-2"
+                  >
                     Email <span className="text-red-500">*</span>
                   </label>
                   <input 
                     type="email" 
                     id="email" 
                     name="email"
-                    required 
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
                     aria-required="true"
-                    className="w-full px-5 py-4 rounded-2xl border-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-[#3f7528] transition-all text-lg" 
+                    className="w-full px-5 py-4 rounded-xl border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-[#3f7528] focus:border-transparent transition-all duration-200 placeholder:text-gray-400" 
                     placeholder="tu@email.com" 
                   />
                 </div>
+              </div>
 
-                {/* Teléfono */}
-                <div className="space-y-2">
-                  <label htmlFor="telefono" className="block text-sm font-bold text-gray-700 uppercase tracking-wider">
+              {/* Phone & Company Row */}
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label 
+                    htmlFor="telefono" 
+                    className="block text-sm font-semibold text-gray-700 mb-2"
+                  >
                     Teléfono
                   </label>
                   <input 
                     type="tel" 
                     id="telefono" 
                     name="telefono"
-                    className="w-full px-5 py-4 rounded-2xl border-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-[#3f7528] transition-all text-lg" 
-                    placeholder="+54 223 456 7890" 
+                    value={formData.telefono}
+                    onChange={handleChange}
+                    className="w-full px-5 py-4 rounded-xl border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-[#3f7528] focus:border-transparent transition-all duration-200 placeholder:text-gray-400" 
+                    placeholder="+54 223 XXX-XXXX" 
                   />
                 </div>
-
-                {/* Empresa */}
-                <div className="space-y-2">
-                  <label htmlFor="empresa" className="block text-sm font-bold text-gray-700 uppercase tracking-wider">
+                <div>
+                  <label 
+                    htmlFor="empresa" 
+                    className="block text-sm font-semibold text-gray-700 mb-2"
+                  >
                     Empresa / Organización
                   </label>
                   <input 
                     type="text" 
                     id="empresa" 
                     name="empresa"
-                    className="w-full px-5 py-4 rounded-2xl border-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-[#3f7528] transition-all text-lg" 
-                    placeholder="Opcional" 
+                    value={formData.empresa}
+                    onChange={handleChange}
+                    className="w-full px-5 py-4 rounded-xl border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-[#3f7528] focus:border-transparent transition-all duration-200 placeholder:text-gray-400" 
+                    placeholder="Nombre de tu empresa" 
                   />
                 </div>
               </div>
 
               {/* Motivo */}
-              <div className="space-y-2 mt-8">
-                <label htmlFor="motivo" className="block text-sm font-bold text-gray-700 uppercase tracking-wider">
+              <div>
+                <label 
+                  htmlFor="motivo" 
+                  className="block text-sm font-semibold text-gray-700 mb-2"
+                >
                   Motivo de Contacto <span className="text-red-500">*</span>
                 </label>
                 <select 
                   id="motivo" 
                   name="motivo"
-                  required 
+                  value={formData.motivo}
+                  onChange={handleChange}
+                  required
                   aria-required="true"
-                  className="w-full px-5 py-4 rounded-2xl border-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-[#3f7528] transition-all text-lg bg-white appearance-none cursor-pointer"
-                  style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 1rem center', backgroundSize: '1.5rem' }}
+                  className="w-full px-5 py-4 rounded-xl border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-[#3f7528] focus:border-transparent transition-all duration-200 appearance-none cursor-pointer"
+                  style={{
+                    backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`,
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'right 1rem center',
+                    backgroundSize: '1.5rem',
+                  }}
                 >
-                  <option value="">Selecciona una opción</option>
-                  <option value="compra">🛒 Compra directa</option>
-                  <option value="distribucion">📦 Distribución / Mayorista</option>
-                  <option value="exportacion">🌍 Exportación</option>
-                  <option value="prensa">📰 Prensa / Medios</option>
-                  <option value="otro">💬 Otro</option>
+                  <option value="">Seleccioná una opción</option>
+                  <option value="🍽️ Gastronomía (Restaurantes, Cafeterías, Panaderías)">🍽️ Gastronomía (Restaurantes, Cafeterías, Panaderías)</option>
+                  <option value="📦 Distribución / Mayorista">📦 Distribución / Mayorista</option>
+                  <option value="🏪 Supermercados / Retail">🏪 Supermercados / Retail</option>
+                  <option value="🌍 Exportación Internacional">🌍 Exportación Internacional</option>
+                  <option value="🏭 Industria Alimentaria">🏭 Industria Alimentaria</option>
+                  <option value="📰 Prensa / Medios">📰 Prensa / Medios</option>
+                  <option value="💬 Otra consulta comercial">💬 Otra consulta comercial</option>
                 </select>
               </div>
 
               {/* Mensaje */}
-              <div className="space-y-2 mt-8">
-                <label htmlFor="mensaje" className="block text-sm font-bold text-gray-700 uppercase tracking-wider">
+              <div>
+                <label 
+                  htmlFor="mensaje" 
+                  className="block text-sm font-semibold text-gray-700 mb-2"
+                >
                   Mensaje <span className="text-red-500">*</span>
                 </label>
                 <textarea 
                   id="mensaje" 
                   name="mensaje"
-                  required 
+                  value={formData.mensaje}
+                  onChange={handleChange}
+                  required
                   aria-required="true"
-                  rows={5} 
-                  className="w-full px-5 py-4 rounded-2xl border-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-[#3f7528] transition-all text-lg resize-none" 
-                  placeholder="Contanos en qué podemos ayudarte..." 
+                  rows={4} 
+                  className="w-full px-5 py-4 rounded-xl border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-[#3f7528] focus:border-transparent transition-all duration-200 resize-none placeholder:text-gray-400" 
+                  placeholder="Contanos sobre tu negocio y cómo podemos ayudarte..." 
                 />
               </div>
 
               {/* Submit Button */}
-              <div className="mt-10 text-center">
+              <div className="pt-4">
                 <button 
-                  type="submit" 
-                  disabled={formState === 'submitting'}
-                  className={`px-12 py-5 rounded-full font-bold text-lg transition-all duration-300 shadow-xl hover:shadow-2xl ${
-                    formState === 'success' 
-                      ? 'bg-green-500 text-white' 
-                      : formState === 'submitting'
-                      ? 'bg-gray-400 text-white cursor-not-allowed'
-                      : 'bg-[#3f7528] text-white hover:bg-[#4a8a30] hover:scale-105 hover:-translate-y-1'
-                  }`}
+                  type="submit"
+                  className="w-full md:w-auto px-10 py-4 bg-[#3f7528] text-white rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-[#4a8a30] hover:scale-105 flex items-center justify-center gap-2 mx-auto"
                 >
-                  {formState === 'submitting' ? (
-                    <span className="flex items-center gap-3">
-                      <svg className="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                      </svg>
-                      Enviando...
-                    </span>
-                  ) : formState === 'success' ? (
-                    <span className="flex items-center gap-3">
-                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                      ¡Mensaje Enviado!
-                    </span>
-                  ) : (
-                    'Enviar Mensaje'
-                  )}
+                  <span>Enviar Mensaje</span>
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
                 </button>
               </div>
+
+              {/* Privacy note */}
+              <p className="text-xs text-gray-500 text-center pt-2">
+                Se abrirá Google Forms en una nueva pestaña con tus datos pre-cargados.
+              </p>
             </form>
           </ScrollReveal>
         </div>
@@ -661,7 +712,7 @@ function MapSection() {
           </div>
 
           {/* Map Card */}
-          <ScrollReveal animation="fadeUp" delay={0.3}>
+          <ScrollReveal animation="fadeUp" delay={0.1}>
             <div className="bg-white rounded-[2rem] overflow-hidden shadow-2xl">
               <div className="aspect-[16/9] md:aspect-[21/9]">
                 <iframe
@@ -700,7 +751,7 @@ function MapSection() {
 
           {/* Info Cards */}
           <div className="grid md:grid-cols-3 gap-6 mt-10">
-            <ScrollReveal animation="fadeUp" delay={0.4}>
+            <ScrollReveal animation="fadeUp" delay={0.05}>
               <div className="bg-white rounded-2xl p-6 shadow-lg text-center">
                 <div className="w-14 h-14 bg-lime-100 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <svg className="w-7 h-7 text-[#3f7528]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -712,7 +763,7 @@ function MapSection() {
                 <p className="text-gray-500 text-sm">Sierra de los Padres, Mar del Plata</p>
               </div>
             </ScrollReveal>
-            <ScrollReveal animation="fadeUp" delay={0.5}>
+            <ScrollReveal animation="fadeUp" delay={0.1}>
               <div className="bg-white rounded-2xl p-6 shadow-lg text-center">
                 <div className="w-14 h-14 bg-lime-100 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <svg className="w-7 h-7 text-[#3f7528]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -723,7 +774,7 @@ function MapSection() {
                 <p className="text-gray-500 text-sm">Lun - Vie: 8:00 - 17:00</p>
               </div>
             </ScrollReveal>
-            <ScrollReveal animation="fadeUp" delay={0.6}>
+            <ScrollReveal animation="fadeUp" delay={0.15}>
               <div className="bg-white rounded-2xl p-6 shadow-lg text-center">
                 <div className="w-14 h-14 bg-lime-100 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <svg className="w-7 h-7 text-[#3f7528]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>

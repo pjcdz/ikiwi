@@ -332,7 +332,7 @@ function TerroirSection({ terroirFeatures }: { terroirFeatures: TerroirFeature[]
           )}
 
           {/* Indicación Geográfica - Full Width Card */}
-          <ScrollReveal animation="fadeUp" delay={0.5}>
+          <ScrollReveal animation="fadeUp" delay={0.1}>
             <div className="mt-16 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-white/10">
               {/* Header */}
               <div className="text-center mb-10">
@@ -436,7 +436,7 @@ export default function NosotrosPage() {
               snap: { textContent: 1 },
               scrollTrigger: {
                 trigger: stat,
-                start: "top 80%",
+                start: "top 95%",
                 toggleActions: "play none none none",
               },
             }
@@ -519,7 +519,7 @@ export default function NosotrosPage() {
             </ScrollReveal>
 
             {/* Stats Row - Compact */}
-            <ScrollReveal animation="fadeUp" delay={0.3}>
+            <ScrollReveal animation="fadeUp" delay={0.1}>
               <div ref={statsRef} className="grid grid-cols-4 gap-4 md:gap-8 max-w-3xl mx-auto mb-16">
                 {heroStats.map((stat) => (
                   <div key={stat.label} className="text-center">
@@ -912,7 +912,7 @@ export default function NosotrosPage() {
             </ScrollReveal>
 
             {/* CTA Buttons */}
-            <ScrollReveal animation="fadeUp" delay={0.3}>
+            <ScrollReveal animation="fadeUp" delay={0.1}>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
                   asChild
@@ -933,7 +933,7 @@ export default function NosotrosPage() {
             </ScrollReveal>
 
             {/* Certification Badges with Logos */}
-            <ScrollReveal animation="fadeUp" delay={0.4}>
+            <ScrollReveal animation="fadeUp" delay={0.15}>
               <div className="mt-14 flex flex-wrap justify-center items-center gap-4">
                 {[
                   { name: "IG Mar y Sierras", logo: "/logo-ig.png" },

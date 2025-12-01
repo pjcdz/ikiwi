@@ -67,7 +67,7 @@ export function RecipesHook() {
             RECETAS DELICIOSAS
           </AnimatedTitle>
 
-          <ScrollReveal animation="fadeUp" delay={0.3} className="mt-6">
+          <ScrollReveal animation="fadeUp" delay={0.1} className="mt-6">
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Ideas frescas para disfrutar el kiwi en cada momento del día
             </p>

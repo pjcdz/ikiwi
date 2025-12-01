@@ -117,7 +117,7 @@ export function PageHero({
               animation="words"
               className="font-[family-name:var(--font-playfair)] text-3xl md:text-4xl lg:text-5xl font-black text-lime-300 mb-6"
               stagger={0.08}
-              delay={0.3}
+              delay={0.1}
             >
               {titleHighlight}
             </AnimatedTitle>
@@ -132,14 +132,14 @@ export function PageHero({
 
           {/* Description */}
           {description && (
-            <ScrollReveal animation="fadeUp" delay={0.3}>
+            <ScrollReveal animation="fadeUp" delay={0.1}>
               <p className={`text-lg ${colors.subtitle} max-w-2xl mx-auto`}>{description}</p>
             </ScrollReveal>
           )}
 
           {/* Stats */}
           {showStats && stats.length > 0 && (
-            <ScrollReveal animation="fadeUp" delay={0.4}>
+            <ScrollReveal animation="fadeUp" delay={0.15}>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 max-w-3xl mx-auto">
                 {stats.map((stat, index) => (
                   <div key={index} className="text-center">

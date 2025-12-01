@@ -640,7 +640,7 @@ function ComparacionSection() {
         </div>
 
         {/* Nota especial */}
-        <ScrollReveal animation="fadeUp" delay={0.5}>
+        <ScrollReveal animation="fadeUp" delay={0.1}>
           <div className="text-center mt-10">
             <p className="inline-flex items-center gap-2 bg-red-50 text-red-700 px-6 py-3 rounded-full font-medium">
               <span className="text-xl">⭐</span>
@@ -913,14 +913,14 @@ export default function ProductosPage() {
               </p>
             </ScrollReveal>
 
-            <ScrollReveal animation="fadeUp" delay={0.3}>
+            <ScrollReveal animation="fadeUp" delay={0.1}>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
                   asChild
                   size="lg"
                   className="bg-white text-[#3f7528] hover:bg-lime-100 text-lg px-10 py-7 font-bold rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
                 >
-                  <Link href="/contacto">DÓNDE COMPRAR</Link>
+                  <Link href="/contacto#exportadores">CONTACTO COMERCIAL</Link>
                 </Button>
                 <Button
                   asChild
@@ -934,7 +934,7 @@ export default function ProductosPage() {
             </ScrollReveal>
 
             {/* Certificaciones mini */}
-            <ScrollReveal animation="fadeUp" delay={0.4}>
+            <ScrollReveal animation="fadeUp" delay={0.15}>
               <div className="mt-12 pt-8 border-t border-white/10">
                 <p className="text-sm text-white/60 mb-4">Certificaciones</p>
                 <div className="flex flex-wrap justify-center items-center gap-4">

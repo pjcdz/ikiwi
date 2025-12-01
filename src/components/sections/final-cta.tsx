@@ -50,13 +50,13 @@ export function FinalCTA() {
             animation="chars"
             className="font-[family-name:var(--font-playfair)] text-4xl md:text-6xl lg:text-8xl font-black leading-[0.9] mb-10 text-lime-300 drop-shadow-lg"
             stagger={0.03}
-            delay={0.3}
+            delay={0.1}
           >
             ATLÁNTICO SUR
           </AnimatedTitle>
 
           {/* Subtítulo */}
-          <ScrollReveal animation="fadeUp" delay={0.5}>
+          <ScrollReveal animation="fadeUp" delay={0.15}>
             <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-2xl mx-auto">
               Kiwis 100% argentinos cultivados en Sierra de los Padres.
               <br />
@@ -65,14 +65,14 @@ export function FinalCTA() {
           </ScrollReveal>
 
           {/* CTAs */}
-          <ScrollReveal animation="fadeUp" delay={0.6}>
+          <ScrollReveal animation="fadeUp" delay={0.2}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <Button
                 asChild
                 size="lg"
                 className="bg-white text-[#3f7528] hover:bg-lime-100 text-xl px-12 py-7 rounded-full font-bold shadow-2xl transition-all hover:scale-105"
               >
-                <Link href="/contacto">DÓNDE COMPRAR</Link>
+                <Link href="/contacto#exportadores">CONTACTO COMERCIAL</Link>
               </Button>
               <Button
                 asChild

@@ -113,7 +113,7 @@ export function NutritionHook() {
         </div>
 
         {/* Beneficios adicionales */}
-        <ScrollReveal animation="fadeUp" delay={0.4}>
+        <ScrollReveal animation="fadeUp" delay={0.1}>
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-5 py-2.5 border border-white/20">
               <span className="text-lg">❤️</span>
@@ -135,7 +135,7 @@ export function NutritionHook() {
         </ScrollReveal>
 
         {/* CTA */}
-        <ScrollReveal animation="fadeUp" delay={0.5} className="text-center">
+        <ScrollReveal animation="fadeUp" delay={0.15} className="text-center">
           <Button
             asChild
             size="lg"

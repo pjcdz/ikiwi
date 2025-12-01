@@ -85,7 +85,7 @@ export function AboutHook() {
               </p>
             </ScrollReveal>
 
-            <ScrollReveal animation="fadeUp" delay={0.3}>
+            <ScrollReveal animation="fadeUp" delay={0.1}>
               <p className="text-gray-600 mb-8 leading-relaxed">
                 Desde Sierra de los Padres, Mar del Plata, cultivamos kiwis
                 Hayward, Jingold y orgánicos certificados que exportamos a
@@ -94,7 +94,7 @@ export function AboutHook() {
               </p>
             </ScrollReveal>
 
-            <ScrollReveal animation="fadeUp" delay={0.4}>
+            <ScrollReveal animation="fadeUp" delay={0.15}>
               <Button
                 asChild
                 size="lg"

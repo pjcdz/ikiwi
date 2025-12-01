@@ -1,16 +1,74 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { AnimatedTitle } from "@/components/animations/animated-title";
 import { ScrollReveal } from "@/components/animations/scroll-reveal";
 import { SectionTransition } from "@/components/animations/section-transition";
 
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
+const clientTypes = [
+  { icon: "🍽️", label: "Restaurantes" },
+  { icon: "☕", label: "Cafeterías" },
+  { icon: "🥐", label: "Panaderías" },
+  { icon: "🏪", label: "Supermercados" },
+  { icon: "📦", label: "Distribuidores" },
+  { icon: "🌍", label: "Importadores" },
+  { icon: "🏭", label: "Industria" },
+  { icon: "🍦", label: "Heladerías" },
+];
+
+// Posiciones en círculo (8 elementos, 45 grados cada uno)
+// Empezando desde arriba y yendo en sentido horario
+const getOrbitPositions = (radius: number) => {
+  return clientTypes.map((_, index) => {
+    const angle = (index * 45 - 90) * (Math.PI / 180); // -90 para empezar desde arriba
+    return {
+      x: Math.cos(angle) * radius,
+      y: Math.sin(angle) * radius,
+    };
+  });
+};
+
 export function ContactHook() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const orbitContainerRef = useRef<HTMLDivElement>(null);
+  const bubblesRef = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Animación flotante suave para cada burbuja
+      bubblesRef.current.forEach((bubble, index) => {
+        if (!bubble) return;
+        
+        gsap.to(bubble, {
+          y: `+=${gsap.utils.random(-6, 6)}`,
+          x: `+=${gsap.utils.random(-4, 4)}`,
+          duration: gsap.utils.random(2.5, 3.5),
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
+          delay: index * 0.15,
+        });
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  // Radio del círculo - más grande para mejor separación
+  const orbitRadius = 260; // px en desktop - aumentado
+  const positions = getOrbitPositions(orbitRadius);
+
   return (
-    <section className="relative overflow-hidden">
-      {/* Background con imagen */}
+    <section ref={sectionRef} className="relative overflow-hidden">
+      {/* Background */}
       <div 
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: "url('/bg-cta-gaucho-sunset.png')" }}
@@ -19,7 +77,7 @@ export function ContactHook() {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
-        <div className="text-center pt-20 md:pt-28 pb-12 md:pb-16">
+        <div className="text-center pt-20 md:pt-28 pb-8">
           <ScrollReveal animation="fadeUp">
             <span className="inline-block text-lime-300 text-sm font-semibold tracking-[0.3em] uppercase mb-4">
               Conectá con Nosotros
@@ -42,93 +100,148 @@ export function ContactHook() {
           </ScrollReveal>
         </div>
 
-        {/* Opciones de contacto - diseño horizontal más limpio */}
-        <div className="max-w-6xl mx-auto pb-20">
-          {/* Fila principal con 3 opciones */}
-          <div className="grid md:grid-cols-3 gap-6 mb-8">
-            {/* Opción 1: Consumidores */}
-            <ScrollReveal animation="fadeUp" delay={0.1}>
-              <Link href="/contacto#donde-comprar" className="group block h-full">
-                <div className="bg-white rounded-2xl p-8 h-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 text-center">
-                  <div className="w-20 h-20 bg-gradient-to-br from-lime-100 to-lime-200 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform shadow-lg">
-                    <svg className="w-10 h-10 text-[#3f7528]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-                    </svg>
-                  </div>
-                  <h3 className="font-[family-name:var(--font-playfair)] text-2xl font-bold text-gray-900 mb-2">
-                    Dónde Comprar
-                  </h3>
-                  <p className="text-gray-500 mb-6">
-                    Encontrá kiwis frescos en supermercados y verdulerías cerca tuyo
-                  </p>
-                  <span className="inline-flex items-center gap-2 text-[#3f7528] font-semibold group-hover:gap-3 transition-all">
-                    Ver puntos de venta
-                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </span>
-                </div>
-              </Link>
-            </ScrollReveal>
+        {/* ORBIT LAYOUT - Desktop: círculo real, Mobile: grid */}
+        
+        {/* Desktop: Layout circular */}
+        <div className="hidden md:block">
+          <div 
+            ref={orbitContainerRef}
+            className="relative mx-auto"
+            style={{ width: '680px', height: '620px' }}
+          >
+            {/* Círculo decorativo */}
+            <div 
+              className="absolute rounded-full border border-dashed border-white/20"
+              style={{
+                width: orbitRadius * 2 + 40,
+                height: orbitRadius * 2 + 40,
+                left: '50%',
+                top: '50%',
+                transform: 'translate(-50%, -50%)',
+              }}
+            />
 
-            {/* Opción 2: Empresas B2B */}
-            <ScrollReveal animation="fadeUp" delay={0.2}>
-              <Link href="/contacto#exportadores" className="group block h-full">
-                <div className="bg-[#1a3311] rounded-2xl p-8 h-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 text-center relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-lime-400/10 rounded-full blur-2xl" />
-                  <div className="relative">
-                    <div className="w-20 h-20 bg-white/15 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform border border-white/20">
-                      <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.008v.008H12v-.008z" />
-                      </svg>
-                    </div>
-                    <h3 className="font-[family-name:var(--font-playfair)] text-2xl font-bold text-white mb-2">
-                      Empresas B2B
-                    </h3>
-                    <p className="text-white/70 mb-6">
-                      Restaurantes, supermercados, exportadores e industria alimentaria
-                    </p>
-                    <span className="inline-flex items-center gap-2 text-lime-300 font-semibold group-hover:gap-3 transition-all">
-                      Contacto comercial
-                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
-                    </span>
-                  </div>
+            {/* CTA CENTRAL */}
+            <Link 
+              href="/contacto" 
+              className="group absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
+            >
+              <div className="bg-white rounded-3xl p-8 shadow-2xl hover:shadow-[0_20px_60px_rgba(255,255,255,0.25)] transition-all duration-300 hover:scale-105 text-center w-[260px]">
+                <div className="w-16 h-16 bg-gradient-to-br from-lime-100 to-lime-200 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                  <svg className="w-8 h-8 text-[#3f7528]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.008v.008H12v-.008z" />
+                  </svg>
                 </div>
-              </Link>
-            </ScrollReveal>
+                <h3 className="font-[family-name:var(--font-playfair)] text-xl font-bold text-gray-900 mb-2">
+                  Contacto Comercial
+                </h3>
+                <p className="text-gray-500 mb-4 text-sm">
+                  Distribución, exportación y consultas
+                </p>
+                <span className="inline-flex items-center gap-2 text-[#3f7528] font-semibold text-sm group-hover:gap-3 transition-all">
+                  Solicitar información
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </span>
+              </div>
+            </Link>
 
-            {/* Opción 3: Contacto general */}
-            <ScrollReveal animation="fadeUp" delay={0.3}>
-              <Link href="/contacto" className="group block h-full">
-                <div className="bg-white rounded-2xl p-8 h-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 text-center">
-                  <div className="w-20 h-20 bg-gradient-to-br from-lime-100 to-lime-200 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform shadow-lg">
-                    <svg className="w-10 h-10 text-[#3f7528]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
-                    </svg>
+            {/* Burbujas orbitando */}
+            {clientTypes.map((item, index) => (
+              <div
+                key={item.label}
+                ref={(el) => { bubblesRef.current[index] = el; }}
+                className="absolute"
+                style={{
+                  left: `calc(50% + ${positions[index].x}px)`,
+                  top: `calc(50% + ${positions[index].y}px)`,
+                  transform: 'translate(-50%, -50%)',
+                }}
+              >
+                <div className="flex flex-col items-center group cursor-default">
+                  <div className="w-16 h-16 bg-white/20 backdrop-blur-sm border border-white/30 rounded-xl flex items-center justify-center hover:bg-white/30 hover:scale-110 hover:border-lime-300/50 transition-all duration-300 shadow-lg">
+                    <span className="text-2xl group-hover:scale-110 transition-transform">{item.icon}</span>
                   </div>
-                  <h3 className="font-[family-name:var(--font-playfair)] text-2xl font-bold text-gray-900 mb-2">
-                    Contactanos
-                  </h3>
-                  <p className="text-gray-500 mb-6">
-                    Consultas, sugerencias o cualquier cosa que necesites
-                  </p>
-                  <span className="inline-flex items-center gap-2 text-[#3f7528] font-semibold group-hover:gap-3 transition-all">
-                    Enviar mensaje
-                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </span>
+                  <span className="text-white font-medium text-xs mt-2 text-center whitespace-nowrap">{item.label}</span>
                 </div>
-              </Link>
-            </ScrollReveal>
+              </div>
+            ))}
           </div>
+        </div>
 
-          {/* Fila de contacto directo */}
+        {/* Mobile: Layout circular también */}
+        <div className="md:hidden">
+          <div 
+            className="relative mx-auto"
+            style={{ width: '100%', maxWidth: '400px', height: '420px' }}
+          >
+            {/* Círculo decorativo mobile */}
+            <div 
+              className="absolute rounded-full border border-dashed border-white/20"
+              style={{
+                width: 340,
+                height: 340,
+                left: '50%',
+                top: '50%',
+                transform: 'translate(-50%, -50%)',
+              }}
+            />
+
+            {/* CTA CENTRAL Mobile - tamaño legible */}
+            <Link 
+              href="/contacto" 
+              className="group absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
+            >
+              <div className="bg-white rounded-2xl p-5 shadow-2xl text-center w-[150px]">
+                <div className="w-12 h-12 bg-gradient-to-br from-lime-100 to-lime-200 rounded-xl flex items-center justify-center mx-auto mb-3">
+                  <svg className="w-6 h-6 text-[#3f7528]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.008v.008H12v-.008z" />
+                  </svg>
+                </div>
+                <h3 className="font-[family-name:var(--font-playfair)] text-sm font-bold text-gray-900 mb-1">
+                  Contacto Comercial
+                </h3>
+                <span className="text-[#3f7528] font-semibold text-xs">
+                  Solicitar info →
+                </span>
+              </div>
+            </Link>
+
+            {/* Burbujas orbitando - Mobile con radio mayor */}
+            {clientTypes.map((item, index) => {
+              const mobileRadius = 155;
+              const angle = (index * 45 - 90) * (Math.PI / 180);
+              const x = Math.cos(angle) * mobileRadius;
+              const y = Math.sin(angle) * mobileRadius;
+              
+              return (
+                <div
+                  key={item.label}
+                  ref={(el) => { bubblesRef.current[index + 8] = el; }}
+                  className="absolute"
+                  style={{
+                    left: `calc(50% + ${x}px)`,
+                    top: `calc(50% + ${y}px)`,
+                    transform: 'translate(-50%, -50%)',
+                  }}
+                >
+                  <div className="flex flex-col items-center">
+                    <div className="w-12 h-12 bg-white/20 backdrop-blur-sm border border-white/30 rounded-xl flex items-center justify-center shadow-lg">
+                      <span className="text-xl">{item.icon}</span>
+                    </div>
+                    <span className="text-white font-medium text-[10px] mt-1.5 text-center whitespace-nowrap">{item.label}</span>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* WhatsApp y Email */}
+        <div className="max-w-4xl mx-auto py-8">
           <div className="grid md:grid-cols-2 gap-6">
-            {/* WhatsApp */}
-            <ScrollReveal animation="fadeUp" delay={0.4}>
+            <ScrollReveal animation="fadeUp" delay={0.1}>
               <a 
                 href="https://wa.me/5492235000000" 
                 target="_blank" 
@@ -152,12 +265,8 @@ export function ContactHook() {
               </a>
             </ScrollReveal>
 
-            {/* Email */}
-            <ScrollReveal animation="fadeUp" delay={0.5}>
-              <a 
-                href="mailto:ventas@ikiwi.com.ar"
-                className="group block"
-              >
+            <ScrollReveal animation="fadeUp" delay={0.15}>
+              <a href="mailto:ventas@ikiwi.com.ar" className="group block">
                 <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 flex items-center gap-5 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 hover:bg-white/20">
                   <div className="w-14 h-14 bg-white rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform">
                     <svg className="w-8 h-8 text-[#3f7528]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -175,35 +284,34 @@ export function ContactHook() {
               </a>
             </ScrollReveal>
           </div>
+        </div>
 
-          {/* Certificaciones - fila inferior */}
-          <ScrollReveal animation="fadeUp" delay={0.6}>
-            <div className="mt-12 text-center">
-              <p className="text-white/50 text-sm uppercase tracking-wider mb-6">Certificaciones que nos avalan</p>
-              <div className="flex justify-center items-center gap-6 flex-wrap">
-                <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-full px-5 py-3 border border-white/10">
-                  <Image src="/logo-ig.png" alt="IG Mar y Sierras" width={28} height={28} className="w-7 h-7 object-contain" />
-                  <span className="text-white font-medium text-sm">IG Mar y Sierras</span>
-                </div>
-                <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-full px-5 py-3 border border-white/10">
-                  <Image src="/logo-globalgap.png" alt="GlobalGAP" width={28} height={28} className="w-7 h-7 object-contain" />
-                  <span className="text-white font-medium text-sm">GlobalGAP</span>
-                </div>
-                <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-full px-5 py-3 border border-white/10">
-                  <Image src="https://upload.wikimedia.org/wikipedia/commons/e/ea/USDA_organic_seal.svg" alt="USDA Organic" width={28} height={28} className="w-7 h-7 object-contain" unoptimized />
-                  <span className="text-white font-medium text-sm">USDA Organic</span>
-                </div>
-                <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-full px-5 py-3 border border-white/10">
-                  <Image src="/logo-ue-organica.png" alt="UE Orgánica" width={28} height={28} className="w-7 h-7 object-contain" />
-                  <span className="text-white font-medium text-sm">Export UE</span>
-                </div>
+        {/* Certificaciones */}
+        <ScrollReveal animation="fadeUp" delay={0.1}>
+          <div className="pb-20 text-center">
+            <p className="text-white/50 text-sm uppercase tracking-wider mb-6">Certificaciones que nos avalan</p>
+            <div className="flex justify-center items-center gap-4 md:gap-6 flex-wrap">
+              <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-full px-5 py-3 border border-white/10">
+                <Image src="/logo-ig.png" alt="IG Mar y Sierras" width={28} height={28} className="w-7 h-7 object-contain" />
+                <span className="text-white font-medium text-sm">IG Mar y Sierras</span>
+              </div>
+              <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-full px-5 py-3 border border-white/10">
+                <Image src="/logo-globalgap.png" alt="GlobalGAP" width={28} height={28} className="w-7 h-7 object-contain" />
+                <span className="text-white font-medium text-sm">GlobalGAP</span>
+              </div>
+              <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-full px-5 py-3 border border-white/10">
+                <Image src="https://upload.wikimedia.org/wikipedia/commons/e/ea/USDA_organic_seal.svg" alt="USDA Organic" width={28} height={28} className="w-7 h-7 object-contain" unoptimized />
+                <span className="text-white font-medium text-sm">USDA Organic</span>
+              </div>
+              <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-full px-5 py-3 border border-white/10">
+                <Image src="/logo-ue-organica.png" alt="UE Orgánica" width={28} height={28} className="w-7 h-7 object-contain" />
+                <span className="text-white font-medium text-sm">Export UE</span>
               </div>
             </div>
-          </ScrollReveal>
-        </div>
+          </div>
+        </ScrollReveal>
       </div>
 
-      {/* Transición */}
       <SectionTransition
         variant="wave"
         toColor="#faf8f5"

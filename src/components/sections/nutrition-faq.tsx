@@ -84,7 +84,7 @@ export function NutritionFAQ() {
 
         {/* FAQ Accordion */}
         <div className="max-w-3xl mx-auto">
-          <ScrollReveal animation="fadeUp" delay={0.3}>
+          <ScrollReveal animation="fadeUp" delay={0.1}>
             <Accordion
               type="single"
               collapsible
@@ -117,7 +117,7 @@ export function NutritionFAQ() {
           </ScrollReveal>
 
           {/* Additional help */}
-          <ScrollReveal animation="fadeUp" delay={0.4}>
+          <ScrollReveal animation="fadeUp" delay={0.15}>
             <div className="mt-8 text-center">
               <div className="inline-flex items-center gap-3 bg-white rounded-full px-6 py-3 shadow-lg border border-gray-100">
                 <span className="text-xl">❓</span>
