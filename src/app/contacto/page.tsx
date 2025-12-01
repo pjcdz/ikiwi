@@ -256,11 +256,6 @@ function ContactOptionsSection() {
           >
             Elegí tu Forma de Contacto
           </AnimatedTitle>
-          <ScrollReveal animation="fadeUp" delay={0.2}>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              Ya sea para negocios B2B, distribución, exportación o simplemente tengas una consulta
-            </p>
-          </ScrollReveal>
         </div>
 
         {/* Cards Grid */}
