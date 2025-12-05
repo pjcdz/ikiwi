@@ -48,38 +48,25 @@ export function CareersHero() {
       tl.fromTo(
         chars,
         { y: 100, opacity: 0, rotateX: -90 },
-        { y: 0, opacity: 1, rotateX: 0, duration: 1, stagger: 0.06 },
-        "-=0.4"
-      );
-
+        { y: 0, opacity: 1, rotateX: 0, duration: 0.35, stagger: 0.05 },
+        "-=0.2"
+      )
       // Animate subtitle
-      tl.fromTo(
+      .fromTo(
         subtitleRef.current,
         { y: 40, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8 },
-        "-=0.5"
-      );
-
+        { y: 0, opacity: 1, duration: 0.35 },
+        "-=0.2"
+      )
       // Animate stats
-      tl.fromTo(
-        statsRef.current,
-        { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.6 },
-        "-=0.3"
+      .fromTo(
+        statsRef.current?.children || [],
+        { y: 40, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.35, stagger: 0.05 },
+        "-=0.2"
       );
 
-      // Parallax effect on scroll
-      gsap.to(contentRef.current, {
-        y: 150,
-        opacity: 0,
-        ease: "none",
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: true,
-        },
-      });
+      // Parallax effect removed to improve transition immersion
     }, heroRef);
 
     return () => ctx.revert();
@@ -89,7 +76,7 @@ export function CareersHero() {
     return text.split("").map((char, i) => (
       <span
         key={i}
-        className="char inline-block"
+        className="char inline-block opacity-0"
         style={{ whiteSpace: char === " " ? "pre" : undefined }}
       >
         {char === " " ? "\u00A0" : char}
@@ -126,7 +113,7 @@ export function CareersHero() {
           {/* Badge */}
           <div
             ref={badgeRef}
-            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md text-white px-5 py-2.5 rounded-full text-sm font-semibold mb-8 border border-white/20"
+            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md text-white px-5 py-2.5 rounded-full text-sm font-semibold mb-8 border border-white/20 opacity-0"
           >
             <span className="w-2 h-2 bg-lime-400 rounded-full animate-pulse" />
             <span className="tracking-[0.3em] uppercase text-lime-300">
@@ -151,7 +138,7 @@ export function CareersHero() {
           {/* Subtitle */}
           <p
             ref={subtitleRef}
-            className="text-xl md:text-2xl lg:text-3xl text-white/90 mb-12 font-medium max-w-3xl mx-auto leading-relaxed"
+            className="text-xl md:text-2xl lg:text-3xl text-white/90 mb-12 font-medium max-w-3xl mx-auto leading-relaxed opacity-0"
           >
             Más de <span className="text-lime-300 font-bold">90 personas</span> trabajando con pasión
             <br className="hidden md:block" />
@@ -161,7 +148,7 @@ export function CareersHero() {
           {/* Stats */}
           <div
             ref={statsRef}
-            className="inline-flex items-center gap-8 md:gap-12 bg-white/10 backdrop-blur-md rounded-2xl px-8 py-6 border border-white/20"
+            className="inline-flex items-center gap-8 md:gap-12 bg-white/10 backdrop-blur-md rounded-2xl px-8 py-6 border border-white/20 opacity-0"
           >
             {heroStats.map((stat, index) => (
               <div key={index} className="text-center">

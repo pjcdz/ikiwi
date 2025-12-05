@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { TransitionLink } from "@/components/ui/transition-link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { AnimatedTitle } from "@/components/animations/animated-title";
@@ -33,6 +34,12 @@ const products = [
     color: "from-emerald-500 to-green-600",
   },
 ];
+
+const transitionNameMap: Record<string, string> = {
+  green: "product-image-verde",
+  gold: "product-image-gold",
+  organic: "product-image-organico",
+};
 
 const certifications = [
   {
@@ -102,11 +109,15 @@ export function ProductsHook() {
               animation="fadeUp"
               delay={index * 0.15}
             >
-              <Link href={`/productos#${product.id}`} className="group block">
+              <TransitionLink 
+                href={`/productos#${transitionNameMap[product.id].replace('product-image-', '')}`} 
+                className="group block"
+              >
                 <div className="relative rounded-3xl overflow-hidden bg-white shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3">
                   {/* Imagen */}
                   <div
                     className={`relative h-64 md:h-72 bg-gradient-to-br ${product.color} overflow-hidden`}
+                    style={{ viewTransitionName: transitionNameMap[product.id] } as React.CSSProperties}
                   >
                     <Image
                       src={product.image}
@@ -149,7 +160,7 @@ export function ProductsHook() {
                     </div>
                   </div>
                 </div>
-              </Link>
+              </TransitionLink>
             </ScrollReveal>
           ))}
         </div>

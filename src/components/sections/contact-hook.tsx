@@ -94,8 +94,10 @@ export function ContactHook() {
           </AnimatedTitle>
 
           <ScrollReveal animation="fadeUp" delay={0.2}>
-            <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto">
-              Kiwis premium con certificación de origen, directo de Sierra de los Padres a tu mesa o negocio.
+            <p className="text-white/80 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+              Kiwis premium con certificación de origen,
+              <br className="hidden md:block" />
+              directo de Sierra de los Padres a tu mesa o negocio.
             </p>
           </ScrollReveal>
         </div>

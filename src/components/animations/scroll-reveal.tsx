@@ -25,9 +25,9 @@ export function ScrollReveal({
   children,
   animation = "fadeUp",
   delay = 0,
-  duration = 0.6,
+  duration = 0.35,
   threshold = 0.05,
-  stagger = 0.1,
+  stagger = 0.05,
   once = true,
   className = "",
 }: ScrollRevealProps) {

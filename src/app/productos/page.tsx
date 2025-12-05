@@ -227,19 +227,19 @@ function ProductosHero() {
       tl.fromTo(
         chars1,
         { y: 100, opacity: 0, rotateX: -90 },
-        { y: 0, opacity: 1, rotateX: 0, duration: 1, stagger: 0.06 }
+        { y: 0, opacity: 1, rotateX: 0, duration: 0.35, stagger: 0.05 }
       )
         .fromTo(
           chars2,
           { y: 100, opacity: 0, rotateX: -90 },
-          { y: 0, opacity: 1, rotateX: 0, duration: 1, stagger: 0.08 },
-          "-=0.6"
+          { y: 0, opacity: 1, rotateX: 0, duration: 0.35, stagger: 0.05 },
+          "-=0.2"
         )
         .fromTo(
           subtitleRef.current,
           { y: 40, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.8 },
-          "-=0.4"
+          { y: 0, opacity: 1, duration: 0.35 },
+          "-=0.2"
         );
 
       // Parallax effect on scroll
@@ -274,7 +274,7 @@ function ProductosHero() {
   };
 
   return (
-    <section ref={heroRef} className="relative min-h-[70vh] overflow-hidden bg-[#3f7528]">
+    <section ref={heroRef} className="relative min-h-screen overflow-hidden bg-[#3f7528]">
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center"
@@ -291,7 +291,7 @@ function ProductosHero() {
       {/* Content */}
       <div
         ref={contentRef}
-        className="relative z-10 container mx-auto px-4 min-h-[70vh] flex items-center justify-center"
+        className="relative z-10 container mx-auto px-4 min-h-screen flex items-center justify-center"
       >
         <div className="text-center max-w-5xl">
           {/* Badge */}
@@ -705,9 +705,13 @@ export default function ProductosPage() {
                   <div
                     className={`group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 cursor-pointer border-2 ${borderColors[variedad.id]}`}
                     onClick={() => toggleVariedad(variedad.id)}
+                    id={variedad.id}
                   >
                     {/* Image Container - Fondo blanco con imagen grande */}
-                    <div className="relative h-56 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+                    <div 
+                      className="relative h-56 bg-gradient-to-b from-gray-50 to-white overflow-hidden"
+                      style={{ viewTransitionName: `product-image-${variedad.id}` } as React.CSSProperties}
+                    >
                       <Badge className={`absolute top-3 right-3 ${variedad.badgeColor} text-white font-semibold text-xs z-10`}>
                         {variedad.badge}
                       </Badge>

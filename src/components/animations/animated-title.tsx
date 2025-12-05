@@ -29,7 +29,7 @@ export function AnimatedTitle({
   className = "",
   delay = 0,
   stagger = 0.05,
-  duration = 0.6,
+  duration = 0.35,
   once = true,
   start = "top 95%",
 }: AnimatedTitleProps) {

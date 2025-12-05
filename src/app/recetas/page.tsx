@@ -220,9 +220,9 @@ function RecetasHero() {
       const chars1 = titleLine1Ref.current?.querySelectorAll(".char") || [];
       const chars2 = titleLine2Ref.current?.querySelectorAll(".char") || [];
 
-      tl.fromTo(chars1, { y: 100, opacity: 0, rotateX: -90 }, { y: 0, opacity: 1, rotateX: 0, duration: 1, stagger: 0.06 })
-        .fromTo(chars2, { y: 100, opacity: 0, rotateX: -90 }, { y: 0, opacity: 1, rotateX: 0, duration: 1, stagger: 0.04 }, "-=0.6")
-        .fromTo(subtitleRef.current, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 }, "-=0.4");
+      tl.fromTo(chars1, { y: 100, opacity: 0, rotateX: -90 }, { y: 0, opacity: 1, rotateX: 0, duration: 0.35, stagger: 0.05 })
+        .fromTo(chars2, { y: 100, opacity: 0, rotateX: -90 }, { y: 0, opacity: 1, rotateX: 0, duration: 0.35, stagger: 0.05 }, "-=0.2")
+        .fromTo(subtitleRef.current, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35 }, "-=0.2");
 
       gsap.to(contentRef.current, {
         y: 150, opacity: 0, ease: "none",

@@ -20,8 +20,8 @@ export function AnimatedSection({
   className = "",
   animation = "fadeUp",
   delay = 0,
-  duration = 0.6,
-  staggerDelay = 0.08,
+  duration = 0.35,
+  staggerDelay = 0.05,
 }: AnimatedSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
 

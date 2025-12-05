@@ -21,28 +21,28 @@ export function HeroVideo() {
       tl.fromTo(
         titleRef.current?.querySelectorAll("span") || [],
         { y: 120, opacity: 0, rotateX: -90 },
-        { y: 0, opacity: 1, rotateX: 0, duration: 1.2, stagger: 0.15 }
+        { y: 0, opacity: 1, rotateX: 0, duration: 0.35, stagger: 0.05 }
       )
       // Subtítulo
       .fromTo(
         subtitleRef.current,
         { y: 40, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8 },
-        "-=0.6"
+        { y: 0, opacity: 1, duration: 0.35 },
+        "-=0.2"
       )
       // Botones
       .fromTo(
         buttonsRef.current?.children || [],
         { y: 30, opacity: 0, scale: 0.9 },
-        { y: 0, opacity: 1, scale: 1, duration: 0.6, stagger: 0.1, clearProps: "transform,opacity" },
-        "-=0.4"
+        { y: 0, opacity: 1, scale: 1, duration: 0.35, stagger: 0.05, clearProps: "transform,opacity" },
+        "-=0.2"
       )
       // Stats
       .fromTo(
         statsRef.current?.children || [],
         { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.6, stagger: 0.15 },
-        "-=0.3"
+        { y: 0, opacity: 1, duration: 0.35, stagger: 0.05 },
+        "-=0.2"
       );
     }, heroRef);
 

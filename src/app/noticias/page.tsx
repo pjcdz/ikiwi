@@ -67,13 +67,13 @@ export default function NoticiasPage() {
       tl.fromTo(
         chars,
         { y: 100, opacity: 0, rotateX: -90 },
-        { y: 0, opacity: 1, rotateX: 0, duration: 1, stagger: 0.08 }
+        { y: 0, opacity: 1, rotateX: 0, duration: 0.35, stagger: 0.05 }
       )
         .fromTo(
           subtitleRef.current,
           { y: 40, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.8 },
-          "-=0.4"
+          { y: 0, opacity: 1, duration: 0.35 },
+          "-=0.2"
         );
 
       // Parallax effect on scroll

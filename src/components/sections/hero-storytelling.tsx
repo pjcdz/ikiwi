@@ -51,18 +51,7 @@ export function HeroStorytelling() {
           "-=0.3"
         );
 
-      // Parallax effect on scroll
-      gsap.to(contentRef.current, {
-        y: 150,
-        opacity: 0,
-        ease: "none",
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: true,
-        },
-      });
+      // Parallax effect removed to improve transition immersion
     }, heroRef);
 
     return () => {
@@ -74,7 +63,7 @@ export function HeroStorytelling() {
     return text.split("").map((char, i) => (
       <span
         key={i}
-        className="char inline-block"
+        className="char inline-block opacity-0"
         style={{ whiteSpace: char === " " ? "pre" : undefined }}
       >
         {char === " " ? "\u00A0" : char}
@@ -130,7 +119,7 @@ export function HeroStorytelling() {
           {/* Subtítulo */}
           <p
             ref={subtitleRef}
-            className="text-xl md:text-2xl lg:text-3xl text-white/90 mb-10 font-medium max-w-3xl mx-auto leading-relaxed"
+            className="text-xl md:text-2xl lg:text-3xl text-white/90 mb-10 font-medium max-w-3xl mx-auto leading-relaxed opacity-0"
           >
             Cultivado con pasión en{" "}
             <span className="text-lime-200 font-semibold">
@@ -141,7 +130,7 @@ export function HeroStorytelling() {
           </p>
 
           {/* CTAs */}
-          <div ref={ctaRef} className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div ref={ctaRef} className="flex flex-col sm:flex-row gap-4 justify-center opacity-0">
             <Button
               asChild
               size="lg"

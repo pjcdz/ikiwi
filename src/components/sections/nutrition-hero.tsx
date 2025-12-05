@@ -33,19 +33,19 @@ export function NutritionHero() {
       tl.fromTo(
         chars1,
         { y: 100, opacity: 0, rotateX: -90 },
-        { y: 0, opacity: 1, rotateX: 0, duration: 1, stagger: 0.04 }
+        { y: 0, opacity: 1, rotateX: 0, duration: 0.35, stagger: 0.05 }
       )
         .fromTo(
           chars2,
           { y: 100, opacity: 0, rotateX: -90 },
-          { y: 0, opacity: 1, rotateX: 0, duration: 1, stagger: 0.06 },
-          "-=0.6"
+          { y: 0, opacity: 1, rotateX: 0, duration: 0.35, stagger: 0.05 },
+          "-=0.2"
         )
         .fromTo(
           subtitleRef.current,
           { y: 40, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.8 },
-          "-=0.4"
+          { y: 0, opacity: 1, duration: 0.35 },
+          "-=0.2"
         )
         .fromTo(
           descriptionRef.current,
@@ -54,18 +54,7 @@ export function NutritionHero() {
           "-=0.3"
         );
 
-      // Parallax effect on scroll
-      gsap.to(contentRef.current, {
-        y: 150,
-        opacity: 0,
-        ease: "none",
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: true,
-        },
-      });
+      // Parallax effect removed to improve transition immersion
     }, heroRef);
 
     return () => {
@@ -88,7 +77,7 @@ export function NutritionHero() {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-[80vh] overflow-hidden bg-[#3f7528]"
+      className="relative min-h-screen overflow-hidden bg-[#3f7528]"
     >
       {/* Background Image */}
       <div
@@ -107,7 +96,7 @@ export function NutritionHero() {
       {/* Content */}
       <div
         ref={contentRef}
-        className="relative z-10 container mx-auto px-4 min-h-[80vh] flex items-center justify-center"
+        className="relative z-10 container mx-auto px-4 min-h-screen flex items-center justify-center"
       >
         <div className="text-center max-w-5xl">
           {/* Badge */}

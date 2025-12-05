@@ -431,7 +431,7 @@ export default function NosotrosPage() {
             { textContent: "0" },
             {
               textContent: finalValue.replace(/\D/g, ""),
-              duration: 2,
+              duration: 1,
               ease: "power2.out",
               snap: { textContent: 1 },
               scrollTrigger: {

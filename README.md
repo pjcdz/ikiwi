@@ -1,4 +1,3 @@
-# ola
 # 🥝 Ikiwi - Sitio Web Institucional
 
 > Sitio web para **Ikiwi** (Kiwi Argentino), la mayor productora de kiwi de Argentina.
